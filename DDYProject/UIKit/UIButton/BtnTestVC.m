@@ -8,7 +8,7 @@
 
 #import "BtnTestVC.h"
 #import "DDYButton.h"
-#import "DDYButton+LinkLock.h"
+#import "DDYButton+DDYLinkBlock.h"
 
 #define  kDegreesToRadians(degrees)  ((3.14159265359 * degrees)/ 180)
 

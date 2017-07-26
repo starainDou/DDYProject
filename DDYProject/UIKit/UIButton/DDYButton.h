@@ -27,4 +27,7 @@ typedef NS_ENUM(NSInteger, DDYBtnStyle) {
 /** 文字字体 */
 @property (nonatomic, strong) UIFont *textFont;
 
+/** 创建一个NormalState按钮 */
++ (instancetype)btnTitle:(NSString *)title img:(id)img target:(id)target action:(SEL)action tag:(NSInteger)tag;
+
 @end

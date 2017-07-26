@@ -1,14 +1,14 @@
 //
-//  DDYButton+LinkLock.m
+//  DDYButton+DDYLinkBlock.m
 //  DDYProject
 //
 //  Created by LingTuan on 17/7/21.
 //  Copyright © 2017年 Starain. All rights reserved.
 //
 
-#import "DDYButton+LinkLock.h"
+#import "DDYButton+DDYLinkBlock.h"
 
-@implementation DDYButton (LinkLock)
+@implementation DDYButton (DDYLinkBlock)
 
 - (DDYButton *(^)(CGFloat, CGFloat, CGFloat, CGFloat))btnFrame
 {
@@ -226,6 +226,16 @@
         LinkHandle_REF(DDYButton)
         LinkGroupHandle_REF(btnBgColor, color)
         _self.backgroundColor = color;
+        return _self;
+    };
+}
+
+- (DDYButton *(^)(NSInteger))btnTag
+{
+    return ^id(NSInteger tag) {
+        LinkHandle_REF(DDYButton)
+        LinkGroupHandle_REF(btnTag, tag)
+        _self.tag = tag;
         return _self;
     };
 }

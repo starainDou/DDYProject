@@ -97,4 +97,27 @@
     [self.titleLabel sizeToFit];
 }
 
++ (instancetype)btnTitle:(NSString *)title img:(id)img target:(id)target action:(SEL)action tag:(NSInteger)tag
+{
+    DDYButton *btn = [DDYButton customDDYBtn];
+    if (title)
+    {
+        [btn setTitle:title forState:UIControlStateNormal];
+    }
+    if (img)
+    {
+        if ([img isKindOfClass:[NSString class]])
+        {
+            [btn  setImage:[UIImage imageNamed:img] forState:UIControlStateNormal];
+        }
+        else if ([img isKindOfClass:[UIImage class]])
+        {
+            [btn  setImage:img forState:UIControlStateNormal];
+        }
+    }
+    btn.tag = tag;
+    [btn addTarget:target action:action forControlEvents:UIControlEventTouchUpInside];
+    return btn;
+}
+
 @end

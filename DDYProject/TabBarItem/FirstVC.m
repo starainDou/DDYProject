@@ -8,6 +8,8 @@
 
 #import "FirstVC.h"
 #import "BtnTestVC.h"
+#import "RuntimeVC.h"
+#import "TableViewInScrollViewVC.h"
 
 @interface FirstVC ()<UITableViewDataSource, UITableViewDelegate>
 
@@ -85,6 +87,8 @@
 - (void)loadData
 {
     [self.dataArray addObject:@"BtnTestVC"];
+    [self.dataArray addObject:@"RuntimeVC"];
+    [self.dataArray addObject:@"TableViewInScrollViewVC"];
     
     dispatch_async(dispatch_get_main_queue(), ^{
         [self.tableView reloadData];
