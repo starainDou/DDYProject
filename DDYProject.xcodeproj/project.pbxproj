@@ -59,6 +59,9 @@
 		4CBE4EA01F286E900006B84E /* TableTopHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CBE4E9F1F286E900006B84E /* TableTopHeaderView.m */; };
 		4CBE4EB51F287E900006B84E /* TestTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CBE4EB41F287E900006B84E /* TestTableView.m */; };
 		4CBE4EB81F2881970006B84E /* TableViewInScrollViewVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CBE4EB71F2881970006B84E /* TableViewInScrollViewVC.m */; };
+		4CBE4EBF1F2997350006B84E /* DDYEnumDefine.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CBE4EBE1F2997350006B84E /* DDYEnumDefine.m */; };
+		4CBE4EC61F29B3DD0006B84E /* DDYTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CBE4EC51F29B3DD0006B84E /* DDYTextView.m */; };
+		4CBE4EC91F29B87C0006B84E /* TextViewTestVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CBE4EC81F29B87C0006B84E /* TextViewTestVC.m */; };
 		65315BDADC2B59331E3F3000 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6637AAFF55E008A016ED9592 /* libPods.a */; };
 		AB3056E01D74379D0061FD12 /* Foundation+Log.m in Sources */ = {isa = PBXBuildFile; fileRef = AB3056DF1D74379D0061FD12 /* Foundation+Log.m */; };
 		AB3056E91D752C7D0061FD12 /* NSString+DDYExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = AB3056E81D752C7D0061FD12 /* NSString+DDYExtension.m */; };
@@ -204,6 +207,12 @@
 		4CBE4EB41F287E900006B84E /* TestTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestTableView.m; sourceTree = "<group>"; };
 		4CBE4EB61F2881970006B84E /* TableViewInScrollViewVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableViewInScrollViewVC.h; sourceTree = "<group>"; };
 		4CBE4EB71F2881970006B84E /* TableViewInScrollViewVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TableViewInScrollViewVC.m; sourceTree = "<group>"; };
+		4CBE4EBD1F2997350006B84E /* DDYEnumDefine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDYEnumDefine.h; sourceTree = "<group>"; };
+		4CBE4EBE1F2997350006B84E /* DDYEnumDefine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDYEnumDefine.m; sourceTree = "<group>"; };
+		4CBE4EC41F29B3DD0006B84E /* DDYTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDYTextView.h; sourceTree = "<group>"; };
+		4CBE4EC51F29B3DD0006B84E /* DDYTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDYTextView.m; sourceTree = "<group>"; };
+		4CBE4EC71F29B87C0006B84E /* TextViewTestVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TextViewTestVC.h; sourceTree = "<group>"; };
+		4CBE4EC81F29B87C0006B84E /* TextViewTestVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TextViewTestVC.m; sourceTree = "<group>"; };
 		6637AAFF55E008A016ED9592 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		984BF6A6DFD74EBC87D2CB46 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		AB3056DF1D74379D0061FD12 /* Foundation+Log.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Foundation+Log.m"; sourceTree = "<group>"; };
@@ -402,6 +411,7 @@
 		4C2C0B481F21D977002DD383 /* UIKit */ = {
 			isa = PBXGroup;
 			children = (
+				4CBE4EC31F29A41E0006B84E /* UITextView */,
 				4CBE4E991F28505C0006B84E /* UITableView */,
 				4C2C0B491F21DA1B002DD383 /* UIButton */,
 			);
@@ -440,6 +450,7 @@
 		4CBE4E991F28505C0006B84E /* UITableView */ = {
 			isa = PBXGroup;
 			children = (
+				4CBE4EB91F2991510006B84E /* WaterFall */,
 				4CBE4E9A1F28697D0006B84E /* TableViewInScrollView */,
 			);
 			path = UITableView;
@@ -456,6 +467,24 @@
 				4CBE4EB71F2881970006B84E /* TableViewInScrollViewVC.m */,
 			);
 			path = TableViewInScrollView;
+			sourceTree = "<group>";
+		};
+		4CBE4EB91F2991510006B84E /* WaterFall */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = WaterFall;
+			sourceTree = "<group>";
+		};
+		4CBE4EC31F29A41E0006B84E /* UITextView */ = {
+			isa = PBXGroup;
+			children = (
+				4CBE4EC41F29B3DD0006B84E /* DDYTextView.h */,
+				4CBE4EC51F29B3DD0006B84E /* DDYTextView.m */,
+				4CBE4EC71F29B87C0006B84E /* TextViewTestVC.h */,
+				4CBE4EC81F29B87C0006B84E /* TextViewTestVC.m */,
+			);
+			path = UITextView;
 			sourceTree = "<group>";
 		};
 		50340BAC645C146A4570BCE6 /* Frameworks */ = {
@@ -491,6 +520,8 @@
 				AB9239351DC7531000143248 /* DDYTools.m */,
 				AB9239311DC7493100143248 /* DDYAuthorityMaster.h */,
 				AB9239321DC7493100143248 /* DDYAuthorityMaster.m */,
+				4CBE4EBD1F2997350006B84E /* DDYEnumDefine.h */,
+				4CBE4EBE1F2997350006B84E /* DDYEnumDefine.m */,
 			);
 			path = DDYUtils;
 			sourceTree = "<group>";
@@ -809,6 +840,7 @@
 				AB50E0271D7A7C6500DE9061 /* NSDate+DDYExtension.m in Sources */,
 				AB5199D91DD5EEE400E864DA /* UIView+DDYAnimation.m in Sources */,
 				4C2C0B541F21DA1B002DD383 /* DDYButton.m in Sources */,
+				4CBE4EC61F29B3DD0006B84E /* DDYTextView.m in Sources */,
 				4C2C0B301F21D483002DD383 /* LinkError.m in Sources */,
 				ABCB97E61D727F76000DEBEF /* UIView+DDYExtension.m in Sources */,
 				4C2C0B261F21D483002DD383 /* NSMutableArray+LinkBlock.m in Sources */,
@@ -816,7 +848,9 @@
 				4CBE4E7B1F271A590006B84E /* RuntimeVC.m in Sources */,
 				4C2C0B341F21D483002DD383 /* CAAnimations+LinkBlock.m in Sources */,
 				4C2C0B371F21D483002DD383 /* UIBezierPath+LinkBlock.m in Sources */,
+				4CBE4EBF1F2997350006B84E /* DDYEnumDefine.m in Sources */,
 				4C2C0B3A1F21D483002DD383 /* UIControl+LinkBlock.m in Sources */,
+				4CBE4EC91F29B87C0006B84E /* TextViewTestVC.m in Sources */,
 				4C2C0B3B1F21D483002DD383 /* UIImage+LinkBlock.m in Sources */,
 				4C2C0B3D1F21D483002DD383 /* UILabel+LinkBlock.m in Sources */,
 				4CBE4EB51F287E900006B84E /* TestTableView.m in Sources */,

@@ -102,4 +102,11 @@
     }
 }
 
+#pragma mark 防止响应链中断造成下面按钮不响应
+- (id)hitTest:(CGPoint)point withEvent:(UIEvent *)event
+{
+    id hitView = [super hitTest:point withEvent:event];
+    return (hitView == _headView) ? nil : hitView;
+}
+
 @end

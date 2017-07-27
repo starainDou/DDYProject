@@ -10,6 +10,7 @@
 
 @implementation NSString (DDDYExtension)
 
+// http://www.olinone.com/?p=131
 - (NSString *)DDYChangeToPinYin
 {
     NSMutableString *str = [self mutableCopy];

@@ -19,8 +19,9 @@
 {
     [super viewDidLoad];
     
+    self.view.backgroundColor = [UIColor whiteColor];
 //    NSString *str = @"UIAlertView";
-    NSString *str = @"UIPickerView";
+    NSString *str = @"UITextView";
     
     [self getIvarListOfClass:str];
     
@@ -54,8 +55,7 @@
         Ivar ivar = ivars[i];
         NSString *ivarName = [NSString stringWithCString:ivar_getName(ivar) encoding:NSUTF8StringEncoding];
         const char *type = ivar_getTypeEncoding(ivar);
-        NSLog(@"uialertion.ivarName = %@",ivarName);
-//        NSLog(@"type = %s", type);
+        NSLog(@"uialertion.ivarName = %@   type = %s",ivarName,type);
     }
 }
 
