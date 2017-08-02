@@ -55,6 +55,8 @@
         self.layoutManager.allowsNonContiguousLayout = NO;
         // 如果存在占位字符则默认浅灰色
         self.placeholderTextColor = [UIColor lightGrayColor];
+        
+        self.keyboardDismissMode = UIScrollViewKeyboardDismissModeOnDrag;
     }
     return self;
 }

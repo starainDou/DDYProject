@@ -62,6 +62,7 @@
 		4CBE4EBF1F2997350006B84E /* DDYEnumDefine.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CBE4EBE1F2997350006B84E /* DDYEnumDefine.m */; };
 		4CBE4EC61F29B3DD0006B84E /* DDYTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CBE4EC51F29B3DD0006B84E /* DDYTextView.m */; };
 		4CBE4EC91F29B87C0006B84E /* TextViewTestVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CBE4EC81F29B87C0006B84E /* TextViewTestVC.m */; };
+		4CBE51B31F2F3F470006B84E /* DDYQRCodeCreate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CBE51B21F2F3F470006B84E /* DDYQRCodeCreate.m */; };
 		65315BDADC2B59331E3F3000 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6637AAFF55E008A016ED9592 /* libPods.a */; };
 		AB3056E01D74379D0061FD12 /* Foundation+Log.m in Sources */ = {isa = PBXBuildFile; fileRef = AB3056DF1D74379D0061FD12 /* Foundation+Log.m */; };
 		AB3056E91D752C7D0061FD12 /* NSString+DDYExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = AB3056E81D752C7D0061FD12 /* NSString+DDYExtension.m */; };
@@ -213,6 +214,8 @@
 		4CBE4EC51F29B3DD0006B84E /* DDYTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDYTextView.m; sourceTree = "<group>"; };
 		4CBE4EC71F29B87C0006B84E /* TextViewTestVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TextViewTestVC.h; sourceTree = "<group>"; };
 		4CBE4EC81F29B87C0006B84E /* TextViewTestVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TextViewTestVC.m; sourceTree = "<group>"; };
+		4CBE51B11F2F3F470006B84E /* DDYQRCodeCreate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDYQRCodeCreate.h; sourceTree = "<group>"; };
+		4CBE51B21F2F3F470006B84E /* DDYQRCodeCreate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDYQRCodeCreate.m; sourceTree = "<group>"; };
 		6637AAFF55E008A016ED9592 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		984BF6A6DFD74EBC87D2CB46 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		AB3056DF1D74379D0061FD12 /* Foundation+Log.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Foundation+Log.m"; sourceTree = "<group>"; };
@@ -487,6 +490,23 @@
 			path = UITextView;
 			sourceTree = "<group>";
 		};
+		4CBE51AF1F2F3E080006B84E /* AVFoundation */ = {
+			isa = PBXGroup;
+			children = (
+				4CBE51B01F2F3E280006B84E /* QRCode */,
+			);
+			path = AVFoundation;
+			sourceTree = "<group>";
+		};
+		4CBE51B01F2F3E280006B84E /* QRCode */ = {
+			isa = PBXGroup;
+			children = (
+				4CBE51B11F2F3F470006B84E /* DDYQRCodeCreate.h */,
+				4CBE51B21F2F3F470006B84E /* DDYQRCodeCreate.m */,
+			);
+			path = QRCode;
+			sourceTree = "<group>";
+		};
 		50340BAC645C146A4570BCE6 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -549,6 +569,7 @@
 		ABCB979D1D71D063000DEBEF /* DDYProject */ = {
 			isa = PBXGroup;
 			children = (
+				4CBE51AF1F2F3E080006B84E /* AVFoundation */,
 				4CBE4E6F1F25EBA30006B84E /* Resource */,
 				4C2C0B481F21D977002DD383 /* UIKit */,
 				4C2C0B461F21D6CD002DD383 /* ThirdParty */,
@@ -890,6 +911,7 @@
 				4C2C0B2C1F21D483002DD383 /* NSString+LinkBlock.m in Sources */,
 				4CBE4EA01F286E900006B84E /* TableTopHeaderView.m in Sources */,
 				ABCB97D01D7274D0000DEBEF /* main.m in Sources */,
+				4CBE51B31F2F3F470006B84E /* DDYQRCodeCreate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
