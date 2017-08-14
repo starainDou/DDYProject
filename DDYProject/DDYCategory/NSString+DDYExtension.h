@@ -21,5 +21,7 @@
 - (BOOL)includeChinese;
 /** 判断是否是纯汉字 */
 - (BOOL)isChinese;
+/** 判断是否为空 */
+- (BOOL)isBlankString;
 
 @end

@@ -23,16 +23,13 @@
     
     if (self = [super initWithFrame:frame]) {
         // 设置整个tabbar背景
-        [self setBackgroundImage:[UIImage imageWithColor:[UIColor blueColor] size:CGSizeMake(DDYSCREENW, 49)]];
+        [self setBackgroundImage:[UIImage imageWithColor:APP_MAIN_COLOR size:CGSizeMake(DDYSCREENW, 49)]];
         // 去除tabar顶部线条
         [self setShadowImage:[UIImage imageWithColor:[UIColor clearColor] size:CGSizeMake(DDYSCREENW, 1)]];
         
         //为tabbar添加按钮
         UIButton *plusBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-        plusBtn.layer.masksToBounds = YES;
-        plusBtn.layer.cornerRadius = 66/2.0;
-        plusBtn.layer.borderColor = [UIColor blueColor].CGColor;
-        plusBtn.layer.borderWidth = 6;
+        DDYBorderRadius(plusBtn, 66/2.0, 6, APP_MAIN_COLOR);
         
         [plusBtn setBackgroundImage:[UIImage imageWithColor:DDYColor(255, 20, 20, 1.0) size:CGSizeMake(66, 66)] forState:UIControlStateNormal];
         [plusBtn setBackgroundImage:[UIImage imageWithColor:DDYColor(135, 27, 21, 1.0) size:CGSizeMake(66, 66)] forState:UIControlStateHighlighted];

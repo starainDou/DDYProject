@@ -77,4 +77,18 @@
     return NO;
 }
 
+#pragma mark 判断空字符串
+- (BOOL)isBlankString
+{
+    if (self == nil || self == NULL || [self isKindOfClass:[NSNull class]])
+    {
+        return YES;
+    }
+    if ([[self stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]] length]==0)
+    {
+        return YES;
+    }
+    return NO;
+}
+
 @end

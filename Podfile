@@ -2,17 +2,32 @@
 这里写注释
 =end
 
+source 'https://github.com/CocoaPods/Specs.git'
+
 platform :ios, '8.0'
 
-pod 'AFNetworking', '~> 3.1.0'
-pod 'Masonry', '~> 1.0.0'
-pod 'SVProgressHUD', '~> 2.0.3'
-pod 'SDWebImage', '~> 3.7.5'
+inhibit_all_warnings!
+
+xcodeproj 'DDYProject.xcodeproj'
+
+target :DDYProject do
+    
+    pod 'AFNetworking', '~> 3.1.0'
+    pod 'Masonry', '~> 1.0.0'
+    pod 'SVProgressHUD', '~> 2.0.3'
+    pod 'SDWebImage', '~> 3.7.5'
+    pod 'FMDB', '~> 2.6.2'
+    pod 'MJRefresh', '~> 3.1.0'
+    pod 'MJExtension', '~> 3.0.10'
+    pod 'TZImagePickerController', '~> 1.8.7'
+end
+
+
 
 
 =begin
 
-可以这样写
+多target可以这样写
 
 source 'https://github.com/CocoaPods/Specs.git' 
 
@@ -37,6 +52,7 @@ target :Demo2 do
 end
 
 =end
+
 
 =begin
 

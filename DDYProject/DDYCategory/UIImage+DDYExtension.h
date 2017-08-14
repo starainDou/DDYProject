@@ -20,6 +20,9 @@
 /** 绘制圆形图片 */
 + (UIImage *)circleImageWithColor:(UIColor *)color radius:(CGFloat)radius;
 
+/** 绘制圆形框 */
++ (UIImage *)circleBorderWithColor:(UIColor *)color radius:(CGFloat)radius;
+
 /** 获取jpg格式图片元数据 */
 - (NSDictionary *)JPEGmetaData;
 
@@ -31,5 +34,8 @@
 
 /** 将UIView转成UIImage */
 + (UIImage *)getImageFromView:(UIView *)theView;
+
+/** 返回一张不超过屏幕尺寸的 image */
+- (UIImage *)imageSizeInScreen;
 
 @end

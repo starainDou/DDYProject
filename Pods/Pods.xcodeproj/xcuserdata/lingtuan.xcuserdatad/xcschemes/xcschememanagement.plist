@@ -6,53 +6,93 @@
 	<dict>
 		<key>AFNetworking.xcscheme</key>
 		<dict>
-			<key>orderHint</key>
-			<integer>1</integer>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>FMDB.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>MJExtension.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>MJRefresh.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
 		</dict>
 		<key>Masonry.xcscheme</key>
 		<dict>
-			<key>orderHint</key>
-			<integer>2</integer>
+			<key>isShown</key>
+			<false/>
 		</dict>
-		<key>Pods.xcscheme</key>
+		<key>Pods-DDYProject.xcscheme</key>
 		<dict>
-			<key>orderHint</key>
-			<integer>3</integer>
+			<key>isShown</key>
+			<false/>
 		</dict>
 		<key>SDWebImage.xcscheme</key>
 		<dict>
-			<key>orderHint</key>
-			<integer>4</integer>
+			<key>isShown</key>
+			<false/>
 		</dict>
 		<key>SVProgressHUD.xcscheme</key>
 		<dict>
-			<key>orderHint</key>
-			<integer>5</integer>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>TZImagePickerController.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
 		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>0D329314DAB7DC02F6135A8E8A0E6639</key>
+		<key>0F6591F1689A66588C57E8574E0FE6C3</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>53480ED0BE09FF49E34B1702D485CAAB</key>
+		<key>1749C1BD4B48236EAC7E2B8B03365028</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>6E07BE92C880BE4A7827E1EC57F42E7A</key>
+		<key>32DEF64546320E2C35950D1553E9DF99</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>928353533005A4198EBDA5B700D37B64</key>
+		<key>4301C2BB1F338261EB0858DCB2626340</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>D5E10B298992259C857272648ADA4F5D</key>
+		<key>5E755D54EC9BF77E54A46775A0BDEE79</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>72718FDE22B920135EFB575EE2C24FCC</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>7D9CB326A218BBAA0980EABD788BA8B6</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>9F85A41AEB2CCB56ACDA370DF8DDB444</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>D076F14DBDB46D7475FB2ABE9750A1C0</key>
 		<dict>
 			<key>primary</key>
 			<true/>

@@ -15,27 +15,20 @@
 
 @implementation DDYNavigationController
 
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    self.navigationBar.barTintColor = APP_MAIN_COLOR;
+}
+
 - (void)pushViewController:(UIViewController *)viewController animated:(BOOL)animated
 {
     // 为0则代表进入二级界面，需要设置返回样式
     if (self.viewControllers.count > 0) {
         
         /* 左按钮 */
-        UIButton *backBtn = [[UIButton alloc] init];
-        [backBtn setTitle:@"返回" forState:UIControlStateNormal];
-        
-        [backBtn setImage:[UIImage imageWithColor:[UIColor redColor] size:CGSizeMake(20, 40)] forState:UIControlStateNormal];
-        [backBtn setImage:[UIImage imageWithColor:[UIColor redColor] size:CGSizeMake(20, 40)] forState:UIControlStateHighlighted];
-        
-        [backBtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-        [backBtn setTitleColor:[UIColor redColor] forState:UIControlStateHighlighted];
-        
-        [backBtn addTarget:self action:@selector(backBtnClick:) forControlEvents:UIControlEventTouchUpInside];
-        backBtn.ddy_size = CGSizeMake(60, 30);
-        
+        DDYButton *backBtn = [DDYButton customDDYBtn].btnImgNameN(@"back_black").btnAction(self, @selector(backBtnClick:)).btnW(30).btnH(30);
         backBtn.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
         viewController.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:backBtn];
-        
         // push后页面隐藏tabbar
         viewController.hidesBottomBarWhenPushed = YES;
     }
@@ -44,9 +37,26 @@
 }
 
 #pragma mark - leftButtonTouch
-- (void)backBtnClick:(UIButton *)button
+- (void)backBtnClick:(DDYButton *)button
 {
     [self popViewControllerAnimated:YES];
+}
+
+#pragma mark - 控制旋转屏幕
+#pragma mark 支持旋转的方向
+- (UIInterfaceOrientationMask)supportedInterfaceOrientations
+{
+    return [self.topViewController supportedInterfaceOrientations];
+}
+#pragma mark 是否支持自动旋转
+- (BOOL)shouldAutorotate
+{
+    return [self.topViewController shouldAutorotate];
+}
+#pragma mark 状态栏样式
+- (UIStatusBarStyle)preferredStatusBarStyle
+{
+    return [self.topViewController preferredStatusBarStyle];
 }
 
 @end

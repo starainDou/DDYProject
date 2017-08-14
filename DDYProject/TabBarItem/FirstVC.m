@@ -11,6 +11,7 @@
 #import "RuntimeVC.h"
 #import "TableViewInScrollViewVC.h"
 #import "TextViewTestVC.h"
+#import "DDYQRCodeVC.h"
 
 @interface FirstVC ()<UITableViewDataSource, UITableViewDelegate>
 
@@ -91,10 +92,24 @@
     [self.dataArray addObject:@"RuntimeVC"];
     [self.dataArray addObject:@"TableViewInScrollViewVC"];
     [self.dataArray addObject:@"TextViewTestVC"];
+    [self.dataArray addObject:@"DDYQRCodeVC"];
     
     dispatch_async(dispatch_get_main_queue(), ^{
         [self.tableView reloadData];
     });
 }
+
+#pragma mark - 控制旋转屏幕
+#pragma mark 支持旋转的方向
+- (UIInterfaceOrientationMask)supportedInterfaceOrientations
+{
+    return UIInterfaceOrientationMaskPortrait;
+}
+#pragma mark 是否支持自动旋转
+- (BOOL)shouldAutorotate
+{
+    return NO;
+}
+
 
 @end

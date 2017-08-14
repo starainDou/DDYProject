@@ -6,7 +6,6 @@
 //  Copyright © 2017年 Starain. All rights reserved.
 //
 #import "LinkBlockDefine.h"
-#import "DDYButton.h"
 
 @interface NSObject (DDYLinkBlock)
 
@@ -80,6 +79,9 @@
 
 /** btnTag(tag) */
 @property (nonatomic, copy, readonly) DDYButton *(^btnTag)(NSInteger tag);
+
+/** btnAction(action) */
+@property (nonatomic, copy, readonly) DDYButton *(^btnAction)(id target,SEL action);
 
 //- (DDYButton *(^)(UIFont *font))btnFont;
 

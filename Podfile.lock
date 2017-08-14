@@ -14,22 +14,38 @@ PODS:
   - AFNetworking/Serialization (3.1.0)
   - AFNetworking/UIKit (3.1.0):
     - AFNetworking/NSURLSession
+  - FMDB (2.6.2):
+    - FMDB/standard (= 2.6.2)
+  - FMDB/standard (2.6.2)
   - Masonry (1.0.0)
+  - MJExtension (3.0.13)
+  - MJRefresh (3.1.12)
   - SDWebImage (3.7.5):
     - SDWebImage/Core (= 3.7.5)
   - SDWebImage/Core (3.7.5)
   - SVProgressHUD (2.0.3)
+  - TZImagePickerController (1.8.7)
 
 DEPENDENCIES:
   - AFNetworking (~> 3.1.0)
+  - FMDB (~> 2.6.2)
   - Masonry (~> 1.0.0)
+  - MJExtension (~> 3.0.10)
+  - MJRefresh (~> 3.1.0)
   - SDWebImage (~> 3.7.5)
   - SVProgressHUD (~> 2.0.3)
+  - TZImagePickerController (~> 1.8.7)
 
 SPEC CHECKSUMS:
   AFNetworking: 5e0e199f73d8626b11e79750991f5d173d1f8b67
+  FMDB: 854a0341b4726e53276f2a8996f06f1b80f9259a
   Masonry: b529bb169217897b6354d4b56b1fada6d475b13d
+  MJExtension: 5932755f451458eefa24239358817f8d291240c7
+  MJRefresh: b96cdb21c4aa75a7b07654311ab2f315c497e806
   SDWebImage: 69c6303e3348fba97e03f65d65d4fbc26740f461
   SVProgressHUD: b0830714205bea1317ea1a2ebc71e5633af334d4
+  TZImagePickerController: 79fa5712237cf6bdc63311cf65d7e0aa369b2b0a
 
-COCOAPODS: 0.39.0
+PODFILE CHECKSUM: 4ac4b9a5b2f09d1c61bc62b2d9e272ed8f43f662
+
+COCOAPODS: 1.2.1

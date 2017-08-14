@@ -240,4 +240,14 @@
     };
 }
 
+- (DDYButton *(^)(id, SEL))btnAction
+{
+    return ^id(id target,SEL action) {
+        LinkHandle_REF(DDYButton)
+        LinkGroupHandle_REF(btnAction, target, action)
+        [_self addTarget:target action:action forControlEvents:UIControlEventTouchUpInside];
+        return _self;
+    };
+}
+
 @end

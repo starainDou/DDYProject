@@ -11,8 +11,9 @@
 /** 需要横屏或者竖屏，获取屏幕宽度与高度 */
 #define DDYSCREENW [UIScreen mainScreen].bounds.size.width
 #define DDYSCREENH [UIScreen mainScreen].bounds.size.height
-#define SCREENSIZE [UIScreen mainScreen].bounds.size
 #define DDYNAVBARH self.navigationController.navigationBar.ddy_h
+#define DDYSCREENBOUNDS [UIScreen mainScreen].bounds
+#define DDYSCREENSIZE [UIScreen mainScreen].bounds.size
 
 /** 根据比例改变不同尺寸上数值 */
 #define DDYKW(R) R*(DDYSCREENW)/375
@@ -20,7 +21,10 @@
 
 /** 自定义颜色和随机颜色 */
 #define DDYColor(r,g,b,a) [UIColor colorWithRed:(r)/255.0 green:(g)/255.0 blue:(b)/255.0 alpha:(a)]
+#define DDYRGBA(r,g,b,a) [UIColor colorWithRed:(r)/255.0 green:(g)/255.0 blue:(b)/255.0 alpha:(a)]
 #define DDYRandomColor [UIColor colorWithRed:arc4random_uniform(256)/255.0 green:arc4random_uniform(256)/255.0 blue:arc4random_uniform(256)/255.0 alpha:1.0] 
+#define DDYBackColor [UIColor colorWithRed:245/255.0 green:245/255.0 blue:245/255.0 alpha:1.0]
+#define APP_MAIN_COLOR DDYColor(63, 183, 198, 1)
 
 /** 字体 */
 #define DDYFont(f) [UIFont systemFontOfSize:(f)]

@@ -55,8 +55,7 @@
     _tipLabel.textColor = DDYColor(75, 222, 209, 1.0);
     _tipLabel.font = DDYFont(11);
     _tipLabel.text = @"0/250";
-    [bgView addSubview:_tipLabel];
-    
+    [bgView addSubview:_tipLabel];    
 }
 
 #pragma mark - UITextViewDelegate

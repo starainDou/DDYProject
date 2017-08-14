@@ -53,6 +53,14 @@
 		4C2C0B441F21D483002DD383 /* UIViewController+LinkBlock.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C2C0B1B1F21D483002DD383 /* UIViewController+LinkBlock.m */; };
 		4C2C0B451F21D483002DD383 /* UIWebView+LinkBlock.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C2C0B1D1F21D483002DD383 /* UIWebView+LinkBlock.m */; };
 		4C2C0B541F21DA1B002DD383 /* DDYButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C2C0B4B1F21DA1B002DD383 /* DDYButton.m */; };
+		4CB156CB1F3960370086ED58 /* DDYQRCodeManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CB156CA1F3960370086ED58 /* DDYQRCodeManager.m */; };
+		4CB156CE1F399BD00086ED58 /* DDYQRCodeVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CB156CD1F399BD00086ED58 /* DDYQRCodeVC.m */; };
+		4CB156D11F399BEC0086ED58 /* DDYQRCodeScanView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CB156D01F399BEC0086ED58 /* DDYQRCodeScanView.m */; };
+		4CB156E31F3C4D5A0086ED58 /* DDYQRCode.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 4CB156E21F3C4D5A0086ED58 /* DDYQRCode.bundle */; };
+		4CB156E61F3D46DF0086ED58 /* DDYQRCodeScanResultVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CB156E51F3D46DF0086ED58 /* DDYQRCodeScanResultVC.m */; };
+		4CB156F11F3D85190086ED58 /* DDYBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CB156F01F3D85190086ED58 /* DDYBaseViewController.m */; };
+		4CB156F31F3D875F0086ED58 /* back_black.png in Resources */ = {isa = PBXBuildFile; fileRef = 4CB156F21F3D875F0086ED58 /* back_black.png */; };
+		4CB156F51F3D88BE0086ED58 /* back_white.png in Resources */ = {isa = PBXBuildFile; fileRef = 4CB156F41F3D88BE0086ED58 /* back_white.png */; };
 		4CBE4E6B1F21FB970006B84E /* BtnTestVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CBE4E6A1F21FB970006B84E /* BtnTestVC.m */; };
 		4CBE4E6E1F221B740006B84E /* DDYButton+DDYLinkBlock.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CBE4E6D1F221B740006B84E /* DDYButton+DDYLinkBlock.m */; };
 		4CBE4E7B1F271A590006B84E /* RuntimeVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CBE4E7A1F271A590006B84E /* RuntimeVC.m */; };
@@ -62,8 +70,6 @@
 		4CBE4EBF1F2997350006B84E /* DDYEnumDefine.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CBE4EBE1F2997350006B84E /* DDYEnumDefine.m */; };
 		4CBE4EC61F29B3DD0006B84E /* DDYTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CBE4EC51F29B3DD0006B84E /* DDYTextView.m */; };
 		4CBE4EC91F29B87C0006B84E /* TextViewTestVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CBE4EC81F29B87C0006B84E /* TextViewTestVC.m */; };
-		4CBE51B31F2F3F470006B84E /* DDYQRCodeCreate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CBE51B21F2F3F470006B84E /* DDYQRCodeCreate.m */; };
-		65315BDADC2B59331E3F3000 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6637AAFF55E008A016ED9592 /* libPods.a */; };
 		AB3056E01D74379D0061FD12 /* Foundation+Log.m in Sources */ = {isa = PBXBuildFile; fileRef = AB3056DF1D74379D0061FD12 /* Foundation+Log.m */; };
 		AB3056E91D752C7D0061FD12 /* NSString+DDYExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = AB3056E81D752C7D0061FD12 /* NSString+DDYExtension.m */; };
 		AB3056F31D7676E40061FD12 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB3056F21D7676E40061FD12 /* CoreGraphics.framework */; };
@@ -86,6 +92,7 @@
 		ABCB98101D72C61B000DEBEF /* DDYNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = ABCB980F1D72C61B000DEBEF /* DDYNavigationController.m */; };
 		ABCB98131D72C662000DEBEF /* DDYTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = ABCB98121D72C662000DEBEF /* DDYTabBarController.m */; };
 		ABF998BA1D893EDB00D41CDE /* UILabel+DDYExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = ABF998B91D893EDB00D41CDE /* UILabel+DDYExtension.m */; };
+		C90B47B0D0AD0BE8AC6F1C5F /* libPods-DDYProject.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 533C22F9C894DDA67E87C4F0 /* libPods-DDYProject.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -99,7 +106,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		1776CE49B2960E2736DCD780 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		17510B5DB9FF3210C5FA0DCE /* Pods-DDYProject.adhoc.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DDYProject.adhoc.xcconfig"; path = "Pods/Target Support Files/Pods-DDYProject/Pods-DDYProject.adhoc.xcconfig"; sourceTree = "<group>"; };
 		4C2C0AB61F21B1B9002DD383 /* FirstVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FirstVC.h; sourceTree = "<group>"; };
 		4C2C0AB71F21B1B9002DD383 /* FirstVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FirstVC.m; sourceTree = "<group>"; };
 		4C2C0AB91F21B1CA002DD383 /* SecondVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SecondVC.h; sourceTree = "<group>"; };
@@ -196,6 +203,21 @@
 		4C2C0B1D1F21D483002DD383 /* UIWebView+LinkBlock.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIWebView+LinkBlock.m"; sourceTree = "<group>"; };
 		4C2C0B4A1F21DA1B002DD383 /* DDYButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDYButton.h; sourceTree = "<group>"; };
 		4C2C0B4B1F21DA1B002DD383 /* DDYButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDYButton.m; sourceTree = "<group>"; };
+		4CB156C91F3960370086ED58 /* DDYQRCodeManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDYQRCodeManager.h; sourceTree = "<group>"; };
+		4CB156CA1F3960370086ED58 /* DDYQRCodeManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDYQRCodeManager.m; sourceTree = "<group>"; };
+		4CB156CC1F399BD00086ED58 /* DDYQRCodeVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDYQRCodeVC.h; sourceTree = "<group>"; };
+		4CB156CD1F399BD00086ED58 /* DDYQRCodeVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDYQRCodeVC.m; sourceTree = "<group>"; };
+		4CB156CF1F399BEC0086ED58 /* DDYQRCodeScanView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDYQRCodeScanView.h; sourceTree = "<group>"; };
+		4CB156D01F399BEC0086ED58 /* DDYQRCodeScanView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDYQRCodeScanView.m; sourceTree = "<group>"; };
+		4CB156E21F3C4D5A0086ED58 /* DDYQRCode.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = DDYQRCode.bundle; sourceTree = "<group>"; };
+		4CB156E41F3D46DF0086ED58 /* DDYQRCodeScanResultVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDYQRCodeScanResultVC.h; sourceTree = "<group>"; };
+		4CB156E51F3D46DF0086ED58 /* DDYQRCodeScanResultVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDYQRCodeScanResultVC.m; sourceTree = "<group>"; };
+		4CB156EC1F3D837B0086ED58 /* DDYUIKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDYUIKit.h; sourceTree = "<group>"; };
+		4CB156ED1F3D84210086ED58 /* DDYCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDYCategory.h; sourceTree = "<group>"; };
+		4CB156EF1F3D85190086ED58 /* DDYBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDYBaseViewController.h; sourceTree = "<group>"; };
+		4CB156F01F3D85190086ED58 /* DDYBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDYBaseViewController.m; sourceTree = "<group>"; };
+		4CB156F21F3D875F0086ED58 /* back_black.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = back_black.png; sourceTree = "<group>"; };
+		4CB156F41F3D88BE0086ED58 /* back_white.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = back_white.png; sourceTree = "<group>"; };
 		4CBE4E691F21FB970006B84E /* BtnTestVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BtnTestVC.h; sourceTree = "<group>"; };
 		4CBE4E6A1F21FB970006B84E /* BtnTestVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BtnTestVC.m; sourceTree = "<group>"; };
 		4CBE4E6C1F221B740006B84E /* DDYButton+DDYLinkBlock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "DDYButton+DDYLinkBlock.h"; sourceTree = "<group>"; };
@@ -214,10 +236,8 @@
 		4CBE4EC51F29B3DD0006B84E /* DDYTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDYTextView.m; sourceTree = "<group>"; };
 		4CBE4EC71F29B87C0006B84E /* TextViewTestVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TextViewTestVC.h; sourceTree = "<group>"; };
 		4CBE4EC81F29B87C0006B84E /* TextViewTestVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TextViewTestVC.m; sourceTree = "<group>"; };
-		4CBE51B11F2F3F470006B84E /* DDYQRCodeCreate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDYQRCodeCreate.h; sourceTree = "<group>"; };
-		4CBE51B21F2F3F470006B84E /* DDYQRCodeCreate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDYQRCodeCreate.m; sourceTree = "<group>"; };
-		6637AAFF55E008A016ED9592 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		984BF6A6DFD74EBC87D2CB46 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		533C22F9C894DDA67E87C4F0 /* libPods-DDYProject.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-DDYProject.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		686E18D5CBA37FE68EAE55C7 /* Pods-DDYProject.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DDYProject.release.xcconfig"; path = "Pods/Target Support Files/Pods-DDYProject/Pods-DDYProject.release.xcconfig"; sourceTree = "<group>"; };
 		AB3056DF1D74379D0061FD12 /* Foundation+Log.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Foundation+Log.m"; sourceTree = "<group>"; };
 		AB3056E71D752C7D0061FD12 /* NSString+DDYExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+DDYExtension.h"; sourceTree = "<group>"; };
 		AB3056E81D752C7D0061FD12 /* NSString+DDYExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+DDYExtension.m"; sourceTree = "<group>"; };
@@ -259,6 +279,7 @@
 		ABCB98121D72C662000DEBEF /* DDYTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDYTabBarController.m; sourceTree = "<group>"; };
 		ABF998B81D893EDB00D41CDE /* UILabel+DDYExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UILabel+DDYExtension.h"; sourceTree = "<group>"; };
 		ABF998B91D893EDB00D41CDE /* UILabel+DDYExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UILabel+DDYExtension.m"; sourceTree = "<group>"; };
+		E7CE9495EB841805991C6F59 /* Pods-DDYProject.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DDYProject.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DDYProject/Pods-DDYProject.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -268,7 +289,7 @@
 			files = (
 				AB318A061D801F15005600E1 /* MobileCoreServices.framework in Frameworks */,
 				AB3056F31D7676E40061FD12 /* CoreGraphics.framework in Frameworks */,
-				65315BDADC2B59331E3F3000 /* libPods.a in Frameworks */,
+				C90B47B0D0AD0BE8AC6F1C5F /* libPods-DDYProject.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -414,9 +435,11 @@
 		4C2C0B481F21D977002DD383 /* UIKit */ = {
 			isa = PBXGroup;
 			children = (
+				4CB156EC1F3D837B0086ED58 /* DDYUIKit.h */,
 				4CBE4EC31F29A41E0006B84E /* UITextView */,
 				4CBE4E991F28505C0006B84E /* UITableView */,
 				4C2C0B491F21DA1B002DD383 /* UIButton */,
+				4CB156EE1F3D84F40086ED58 /* UIViewController */,
 			);
 			path = UIKit;
 			sourceTree = "<group>";
@@ -434,9 +457,44 @@
 			path = UIButton;
 			sourceTree = "<group>";
 		};
+		4CB156E71F3D829F0086ED58 /* icon */ = {
+			isa = PBXGroup;
+			children = (
+				4CB156F41F3D88BE0086ED58 /* back_white.png */,
+				4CB156F21F3D875F0086ED58 /* back_black.png */,
+			);
+			path = icon;
+			sourceTree = "<group>";
+		};
+		4CB156E91F3D829F0086ED58 /* sound */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = sound;
+			sourceTree = "<group>";
+		};
+		4CB156EA1F3D829F0086ED58 /* video */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = video;
+			sourceTree = "<group>";
+		};
+		4CB156EE1F3D84F40086ED58 /* UIViewController */ = {
+			isa = PBXGroup;
+			children = (
+				4CB156EF1F3D85190086ED58 /* DDYBaseViewController.h */,
+				4CB156F01F3D85190086ED58 /* DDYBaseViewController.m */,
+			);
+			path = UIViewController;
+			sourceTree = "<group>";
+		};
 		4CBE4E6F1F25EBA30006B84E /* Resource */ = {
 			isa = PBXGroup;
 			children = (
+				4CB156E71F3D829F0086ED58 /* icon */,
+				4CB156E91F3D829F0086ED58 /* sound */,
+				4CB156EA1F3D829F0086ED58 /* video */,
 			);
 			path = Resource;
 			sourceTree = "<group>";
@@ -490,19 +548,26 @@
 			path = UITextView;
 			sourceTree = "<group>";
 		};
-		4CBE51AF1F2F3E080006B84E /* AVFoundation */ = {
+		4CBE51AF1F2F3E080006B84E /* CoreImage */ = {
 			isa = PBXGroup;
 			children = (
 				4CBE51B01F2F3E280006B84E /* QRCode */,
 			);
-			path = AVFoundation;
+			path = CoreImage;
 			sourceTree = "<group>";
 		};
 		4CBE51B01F2F3E280006B84E /* QRCode */ = {
 			isa = PBXGroup;
 			children = (
-				4CBE51B11F2F3F470006B84E /* DDYQRCodeCreate.h */,
-				4CBE51B21F2F3F470006B84E /* DDYQRCodeCreate.m */,
+				4CB156E21F3C4D5A0086ED58 /* DDYQRCode.bundle */,
+				4CB156C91F3960370086ED58 /* DDYQRCodeManager.h */,
+				4CB156CA1F3960370086ED58 /* DDYQRCodeManager.m */,
+				4CB156CF1F399BEC0086ED58 /* DDYQRCodeScanView.h */,
+				4CB156D01F399BEC0086ED58 /* DDYQRCodeScanView.m */,
+				4CB156CC1F399BD00086ED58 /* DDYQRCodeVC.h */,
+				4CB156CD1F399BD00086ED58 /* DDYQRCodeVC.m */,
+				4CB156E41F3D46DF0086ED58 /* DDYQRCodeScanResultVC.h */,
+				4CB156E51F3D46DF0086ED58 /* DDYQRCodeScanResultVC.m */,
 			);
 			path = QRCode;
 			sourceTree = "<group>";
@@ -512,7 +577,7 @@
 			children = (
 				AB318A051D801F15005600E1 /* MobileCoreServices.framework */,
 				AB3056F21D7676E40061FD12 /* CoreGraphics.framework */,
-				6637AAFF55E008A016ED9592 /* libPods.a */,
+				533C22F9C894DDA67E87C4F0 /* libPods-DDYProject.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -552,8 +617,8 @@
 				ABCB979D1D71D063000DEBEF /* DDYProject */,
 				ABCB97B71D71D064000DEBEF /* DDYProjectTests */,
 				ABCB979C1D71D063000DEBEF /* Products */,
-				D598975ABEED9B72E162997F /* Pods */,
 				50340BAC645C146A4570BCE6 /* Frameworks */,
+				E64FF57874957E7F9D38EB32 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -569,7 +634,7 @@
 		ABCB979D1D71D063000DEBEF /* DDYProject */ = {
 			isa = PBXGroup;
 			children = (
-				4CBE51AF1F2F3E080006B84E /* AVFoundation */,
+				4CBE51AF1F2F3E080006B84E /* CoreImage */,
 				4CBE4E6F1F25EBA30006B84E /* Resource */,
 				4C2C0B481F21D977002DD383 /* UIKit */,
 				4C2C0B461F21D6CD002DD383 /* ThirdParty */,
@@ -618,6 +683,7 @@
 		ABCB97DA1D727F3E000DEBEF /* DDYCategory */ = {
 			isa = PBXGroup;
 			children = (
+				4CB156ED1F3D84210086ED58 /* DDYCategory.h */,
 				AB3056DF1D74379D0061FD12 /* Foundation+Log.m */,
 				ABCB97DB1D727F76000DEBEF /* UIButton+DDYStyle.h */,
 				ABCB97DC1D727F76000DEBEF /* UIButton+DDYStyle.m */,
@@ -679,11 +745,12 @@
 			name = Other;
 			sourceTree = "<group>";
 		};
-		D598975ABEED9B72E162997F /* Pods */ = {
+		E64FF57874957E7F9D38EB32 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				1776CE49B2960E2736DCD780 /* Pods.debug.xcconfig */,
-				984BF6A6DFD74EBC87D2CB46 /* Pods.release.xcconfig */,
+				E7CE9495EB841805991C6F59 /* Pods-DDYProject.debug.xcconfig */,
+				686E18D5CBA37FE68EAE55C7 /* Pods-DDYProject.release.xcconfig */,
+				17510B5DB9FF3210C5FA0DCE /* Pods-DDYProject.adhoc.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -695,12 +762,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = ABCB97BD1D71D064000DEBEF /* Build configuration list for PBXNativeTarget "DDYProject" */;
 			buildPhases = (
-				C234E1E9DF9B35D02CAA6F46 /* Check Pods Manifest.lock */,
+				1610D34C2A0691C5F331410C /* [CP] Check Pods Manifest.lock */,
 				ABCB97971D71D063000DEBEF /* Sources */,
 				ABCB97981D71D063000DEBEF /* Frameworks */,
 				ABCB97991D71D063000DEBEF /* Resources */,
-				D6693571C6A29E68D7190C51 /* Embed Pods Frameworks */,
-				5E1D35B80FDB7C78A1E92665 /* Copy Pods Resources */,
+				0F610F8B7D7F1FC2700B7616 /* [CP] Embed Pods Frameworks */,
+				C4175DAF559340C6499EBB77 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -773,8 +840,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				ABCB97D41D727540000DEBEF /* Info.plist in Resources */,
+				4CB156F51F3D88BE0086ED58 /* back_white.png in Resources */,
 				ABCB97AE1D71D063000DEBEF /* LaunchScreen.storyboard in Resources */,
 				ABCB97AB1D71D063000DEBEF /* Assets.xcassets in Resources */,
+				4CB156E31F3C4D5A0086ED58 /* DDYQRCode.bundle in Resources */,
+				4CB156F31F3D875F0086ED58 /* back_black.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -788,49 +858,49 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		5E1D35B80FDB7C78A1E92665 /* Copy Pods Resources */ = {
+		0F610F8B7D7F1FC2700B7616 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Copy Pods Resources";
+			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-DDYProject/Pods-DDYProject-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		C234E1E9DF9B35D02CAA6F46 /* Check Pods Manifest.lock */ = {
+		1610D34C2A0691C5F331410C /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Check Pods Manifest.lock";
+			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
-		D6693571C6A29E68D7190C51 /* Embed Pods Frameworks */ = {
+		C4175DAF559340C6499EBB77 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Embed Pods Frameworks";
+			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-frameworks.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-DDYProject/Pods-DDYProject-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -870,6 +940,7 @@
 				4C2C0B341F21D483002DD383 /* CAAnimations+LinkBlock.m in Sources */,
 				4C2C0B371F21D483002DD383 /* UIBezierPath+LinkBlock.m in Sources */,
 				4CBE4EBF1F2997350006B84E /* DDYEnumDefine.m in Sources */,
+				4CB156F11F3D85190086ED58 /* DDYBaseViewController.m in Sources */,
 				4C2C0B3A1F21D483002DD383 /* UIControl+LinkBlock.m in Sources */,
 				4CBE4EC91F29B87C0006B84E /* TextViewTestVC.m in Sources */,
 				4C2C0B3B1F21D483002DD383 /* UIImage+LinkBlock.m in Sources */,
@@ -887,8 +958,10 @@
 				4C2C0B241F21D483002DD383 /* NSDictionary+LinkBlock.m in Sources */,
 				4C2C0AB81F21B1B9002DD383 /* FirstVC.m in Sources */,
 				4C2C0B381F21D483002DD383 /* UIButton+LinkBlock.m in Sources */,
+				4CB156CB1F3960370086ED58 /* DDYQRCodeManager.m in Sources */,
 				4C2C0B311F21D483002DD383 /* LinkGroup.m in Sources */,
 				4C2C0B2B1F21D483002DD383 /* NSObject+LinkBlock.m in Sources */,
+				4CB156E61F3D46DF0086ED58 /* DDYQRCodeScanResultVC.m in Sources */,
 				ABCB97E51D727F76000DEBEF /* UIImage+DDYExtension.m in Sources */,
 				AB9239331DC7493100143248 /* DDYAuthorityMaster.m in Sources */,
 				4C2C0B2A1F21D483002DD383 /* NSNumber+LinkBlock.m in Sources */,
@@ -910,8 +983,9 @@
 				4C2C0B411F21D483002DD383 /* UITextField+LinkBlock.m in Sources */,
 				4C2C0B2C1F21D483002DD383 /* NSString+LinkBlock.m in Sources */,
 				4CBE4EA01F286E900006B84E /* TableTopHeaderView.m in Sources */,
+				4CB156D11F399BEC0086ED58 /* DDYQRCodeScanView.m in Sources */,
 				ABCB97D01D7274D0000DEBEF /* main.m in Sources */,
-				4CBE51B31F2F3F470006B84E /* DDYQRCodeCreate.m in Sources */,
+				4CB156CE1F399BD00086ED58 /* DDYQRCodeVC.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -984,7 +1058,7 @@
 		};
 		AB374D891D98E35E00200DA3 /* AdHoc */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 984BF6A6DFD74EBC87D2CB46 /* Pods.release.xcconfig */;
+			baseConfigurationReference = 17510B5DB9FF3210C5FA0DCE /* Pods-DDYProject.adhoc.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -1094,7 +1168,7 @@
 		};
 		ABCB97BE1D71D064000DEBEF /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 1776CE49B2960E2736DCD780 /* Pods.debug.xcconfig */;
+			baseConfigurationReference = E7CE9495EB841805991C6F59 /* Pods-DDYProject.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -1112,7 +1186,7 @@
 		};
 		ABCB97BF1D71D064000DEBEF /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 984BF6A6DFD74EBC87D2CB46 /* Pods.release.xcconfig */;
+			baseConfigurationReference = 686E18D5CBA37FE68EAE55C7 /* Pods-DDYProject.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";

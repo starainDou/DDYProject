@@ -63,6 +63,21 @@
     return img;
 }
 
+#pragma mark 绘制圆形框
++ (UIImage *)circleBorderWithColor:(UIColor *)color radius:(CGFloat)radius
+{
+    CGRect rect = CGRectMake(0, 0, radius*2.0, radius*2.0);
+    UIGraphicsBeginImageContext(rect.size);
+    CGContextRef context = UIGraphicsGetCurrentContext();
+    CGContextAddArc(context, radius, radius, radius-1, 0, 2*M_PI, 0);
+    CGContextSetStrokeColorWithColor(context, color.CGColor);
+    CGContextSetLineWidth(context, 1);
+    CGContextStrokePath(context);
+    UIImage *img = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    return img;
+}
+
 #pragma mark - 获取元数据
 #pragma mark 获取JPG格式图片元数据
 - (NSDictionary *)JPEGmetaData
@@ -151,6 +166,26 @@
     UIGraphicsEndImageContext() ;
     
     return image ;
+}
+
+#pragma mark 返回一张不超过屏幕尺寸的 image
+- (UIImage *)imageSizeInScreen {
+    CGFloat imageWidth = self.size.width;
+    CGFloat imageHeight = self.size.height;
+    
+    if (imageWidth <= DDYSCREENW && imageHeight <= DDYSCREENH) {
+        return self;
+    }
+    CGFloat max = MAX(imageWidth, imageHeight);
+    CGFloat scale = max / (DDYSCREENH * 2.0);
+    
+    CGSize size = CGSizeMake(imageWidth / scale, imageHeight / scale);
+    UIGraphicsBeginImageContext(size);
+    [self drawInRect:CGRectMake(0, 0, size.width, size.height)];
+    UIImage *newImage = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    
+    return newImage;
 }
 
 @end

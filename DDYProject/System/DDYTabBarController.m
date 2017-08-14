@@ -63,4 +63,21 @@
 
 }
 
+#pragma mark - 控制旋转屏幕
+#pragma mark 支持旋转的方向
+- (UIInterfaceOrientationMask)supportedInterfaceOrientations
+{
+    return [self.selectedViewController supportedInterfaceOrientations];
+}
+#pragma mark 是否支持自动旋转
+- (BOOL)shouldAutorotate
+{
+    return [self.selectedViewController shouldAutorotate];
+}
+#pragma mark 状态栏样式
+- (UIStatusBarStyle)preferredStatusBarStyle
+{
+    return [self.selectedViewController preferredStatusBarStyle];
+}
+
 @end

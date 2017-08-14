@@ -7,8 +7,6 @@
 //
 
 #import "TableTopHeaderView.h"
-#import "DDYButton.h"
-#import "DDYButton+DDYLinkBlock.h"
 
 @interface TableTopHeaderView ()
 
