@@ -35,6 +35,12 @@
 /** 单例对象 */
 + (instancetype)sharedManager;
 
+/** 生成普通条形码 */
+- (UIImage *)ddy_BarCodeWithData:(NSString *)data size:(CGSize)size;
+ 
+/** 生成彩色条形码 */
+- (UIImage *)ddy_BarCodeWithData:(NSString *)data size:(CGSize)size color:(UIColor *)color bgColor:(UIColor *)bgColor;
+
 /** 生成普通二维码 */
 - (UIImage *)ddy_QRCodeWithData:(NSString *)data width:(CGFloat)width;
 

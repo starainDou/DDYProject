@@ -42,6 +42,28 @@ static DDYQRCodeManager *_instance;
     return _instance;
 }
 
+#pragma mark - 生成条形码
+#pragma mark 生成原始条形码
+- (CIImage *)generateBarCodeWithData:(NSString *)data
+{
+    CIFilter *filter = [CIFilter filterWithName:@"CICode128BarcodeGenerator"];
+    [filter setValue:[data dataUsingEncoding:NSUTF8StringEncoding] forKey:@"inputMessage"];
+    [filter setValue:@(0.00) forKey:@"inputQuietSpace"];  // 上下左右的margin值
+    return [filter outputImage];
+}
+
+#pragma mark 生成普通条形码
+- (UIImage *)ddy_BarCodeWithData:(NSString *)data size:(CGSize)size
+{
+    return [self changeSize:[self generateBarCodeWithData:data] width:size.width height:size.height];
+}
+
+#pragma mark 生成彩色条形码
+- (UIImage *)ddy_BarCodeWithData:(NSString *)data size:(CGSize)size color:(UIColor *)color bgColor:(UIColor *)bgColor
+{
+    return [self changeSize:[self changeColor:[self generateBarCodeWithData:data] color:color bgColor:bgColor] width:size.width height:size.height];
+}
+
 #pragma mark - 生成二维码
 #pragma mark 生成原始二维码
 - (CIImage *)generateQRCodeWithData:(NSString *)data
@@ -64,13 +86,13 @@ static DDYQRCodeManager *_instance;
     return [filter outputImage];
 }
 
-#pragma mark 改变宽度
-- (UIImage *)changeSize:(CIImage *)image width:(CGFloat)width
+#pragma mark 改变宽高
+- (UIImage *)changeSize:(CIImage *)image width:(CGFloat)width height:(CGFloat)height
 {
     CGRect extent = CGRectIntegral(image.extent);
     CGFloat scale = MIN(width/CGRectGetWidth(extent), width/CGRectGetHeight(extent));
     CGColorSpaceRef colorSpaceRef = CGColorSpaceCreateDeviceRGB();
-    CGContextRef contentRef = CGBitmapContextCreate(nil, width, width, 8, 0, colorSpaceRef, kCGBitmapByteOrder32Little|kCGImageAlphaNoneSkipLast);
+    CGContextRef contentRef = CGBitmapContextCreate(nil, width, height, 8, 0, colorSpaceRef, kCGBitmapByteOrder32Little|kCGImageAlphaNoneSkipLast);
     CIContext *context = [CIContext contextWithOptions:nil];
     CGImageRef imageRef = [context createCGImage:image fromRect:extent];
     CGContextSetInterpolationQuality(contentRef, kCGInterpolationNone);
@@ -99,7 +121,7 @@ static DDYQRCodeManager *_instance;
 #pragma mark 生成普通二维码
 - (UIImage *)ddy_QRCodeWithData:(NSString *)data width:(CGFloat)width
 {
-    return [self changeSize:[self generateQRCodeWithData:data] width:width];
+    return [self changeSize:[self generateQRCodeWithData:data] width:width height:width];
 }
 
 #pragma mark 生成logo二维码
@@ -111,7 +133,7 @@ static DDYQRCodeManager *_instance;
 #pragma mark 生成彩色二维码
 - (UIImage *)ddy_QRCodeWithData:(NSString *)data width:(CGFloat)width color:(UIColor *)color bgColor:(UIColor *)bgColor
 {
-    return [self changeSize:[self changeColor:[self generateQRCodeWithData:data] color:color bgColor:bgColor] width:width];
+    return [self changeSize:[self changeColor:[self generateQRCodeWithData:data] color:color bgColor:bgColor] width:width height:width];
 }
 
 #pragma mark - 扫描二维码
@@ -170,7 +192,7 @@ static DDYQRCodeManager *_instance;
     }
 }
 
-#pragma mark 图片读取二维码 */
+#pragma mark 图片读取二维码
 - (void)ddy_scanQRCodeWithImage:(UIImage *)image
 {
     UIImage *img = [image imageSizeInScreen];
