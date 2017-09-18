@@ -23,6 +23,9 @@
 /** 绘制圆形框 */
 + (UIImage *)circleBorderWithColor:(UIColor *)color radius:(CGFloat)radius;
 
+/** 绘制渐变色图片 */
++ (UIImage *)gradientImg:(CGRect)rect startColor:(UIColor *)startColor endColor:(UIColor *)endColor;
+
 /** 获取jpg格式图片元数据 */
 - (NSDictionary *)JPEGmetaData;
 
@@ -37,5 +40,12 @@
 
 /** 返回一张不超过屏幕尺寸的 image */
 - (UIImage *)imageSizeInScreen;
+
+/** 拍照后图片旋转或者颠倒解决 */
++ (UIImage *)ddy_fixOrientation:(UIImage *)aImage;
+
+/** 改变亮度、饱和度、对比度 */
++ (UIImage *)changeImg:(UIImage *)img Bright:(CGFloat)b saturation:(CGFloat)s contrast:(CGFloat)c;
+
 
 @end

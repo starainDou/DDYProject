@@ -8,7 +8,7 @@
 
 #import "DDYQRCodeScanView.h"
 
-@interface DDYQRCodeScanView ()<TZImagePickerControllerDelegate>
+@interface DDYQRCodeScanView ()
 {
     dispatch_source_t _timer;
 }
@@ -54,14 +54,24 @@
     
     // 提示
     UILabel *tipLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, scanY+scanW+15, DDYSCREENW, 16)];
-    tipLabel.labTextColor([UIColor whiteColor]).labFont(DDYFont(12)).labAlignmentCenter().labText(@"将二维码/条码放入框内, 即可自动扫描");
+    tipLabel.textColor = [UIColor whiteColor];
+    tipLabel.textAlignment = NSTextAlignmentCenter;
+    tipLabel.text = @"将二维码/条码放入框内, 即可自动扫描";
+    tipLabel.font = DDYFont(12);
     [self addSubview:tipLabel];
     
     // 闪光灯
-    DDYButton *torchBtn = [DDYButton customDDYBtn].btnFrame(scanX, DDYSCREENH-65, scanW, 40).btnSuperView(self);
-    torchBtn.btnImgNameN(@"DDYQRCode.bundle/QRCode_torch_n").btnImgNameS(@"DDYQRCode.bundle/QRCode_torch_s");
-    torchBtn.btnTitleN(@"打开照明灯").btnTitleS(@"关闭照明灯").btnFont(DDYBDFont(15)).btnAction(self, @selector(turnOnlight:));
-    torchBtn.btnLayoutStyle(DDYBtnStyleImgTop).btnPadding(5);    
+    DDYButton *torchBtn = [DDYButton customDDYBtn];
+    torchBtn.frame = CGRectMake(scanX, DDYSCREENH-65, scanW, 40);
+    [torchBtn setImage:[UIImage imageNamed:@"DDYQRCode.bundle/QRCode_torch_n"] forState:UIControlStateNormal];
+    [torchBtn setImage:[UIImage imageNamed:@"DDYQRCode.bundle/QRCode_torch_s"] forState:UIControlStateSelected];
+    [torchBtn setTitle:@"打开照明灯" forState:UIControlStateNormal];
+    [torchBtn setTitle:@"关闭照明灯" forState:UIControlStateSelected];
+    torchBtn.titleLabel.font = DDYBDFont(15);
+    [torchBtn addTarget:self action:@selector(turnOnlight:) forControlEvents:UIControlEventTouchUpInside];
+    torchBtn.btnStyle = DDYBtnStyleImgTop;
+    torchBtn.padding = 5;
+    [self addSubview:torchBtn];
 }
 
 - (void)imgViewIndex:(NSInteger)index imgName:(NSString *)imgName {
@@ -81,8 +91,7 @@
 }
 
 #pragma mark 计时
-- (void)startScanningLingAnimation
-{
+- (void)startScanningLingAnimation {
     if (!_timer) {
         __weak __typeof__ (self)weakSelf = self;
         weakSelf.scanningline.ddy_y = scanY;
@@ -104,15 +113,13 @@
     }
 }
 
-- (void)stopScanningLingAnimation
-{
+- (void)stopScanningLingAnimation {
     dispatch_source_cancel(_timer);
 }
 
-- (void)turnOnlight:(UIButton *)button
-{
+- (void)turnOnlight:(UIButton *)button {
     button.selected = !button.selected;
-    [[DDYQRCodeManager sharedManager] ddy_turnOnFlashLight:button.selected];
+    [DDYQRCodeManager ddy_turnOnFlashLight:button.selected];
 }
 
 @end

@@ -17,7 +17,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.navigationBar.barTintColor = APP_MAIN_COLOR;
+//    self.navigationBar.barTintColor = APP_MAIN_COLOR;
+    [self.navigationBar setBackgroundImage: [UIImage gradientImg:CGRectMake(0, -20, DDYSCREENW, 64) startColor:APP_MAIN_COLOR endColor:DDYRGBA(200, 180, 160, 1)] forBarMetrics:UIBarMetricsDefault];
 }
 
 - (void)pushViewController:(UIViewController *)viewController animated:(BOOL)animated

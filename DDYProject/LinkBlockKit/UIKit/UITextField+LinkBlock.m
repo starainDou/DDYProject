@@ -109,4 +109,14 @@
     };
 }
 
+- (UITextView *(^)(NSTextAlignment))txtViewTextAlignment
+{
+    return ^id(NSTextAlignment textAlignment){
+        LinkHandle_REF(UITextField)
+        LinkGroupHandle_REF(txtViewTextAlignment,textAlignment)
+        _self.textAlignment = textAlignment;
+        return _self;
+    };
+}
+
 @end

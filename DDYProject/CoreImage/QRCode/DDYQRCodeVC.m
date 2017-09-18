@@ -25,6 +25,8 @@
 {
     UIStatusBarStyle _statusBarStyle;
 }
+@property (nonatomic, strong) DDYQRCodeManager *qrCodeManager;
+
 @property (nonatomic, strong) DDYQRCodeScanView *scanView;
 
 @property (nonatomic, strong) UIImage *myQRCodeImg;
@@ -33,12 +35,20 @@
 
 @implementation DDYQRCodeVC
 
+- (DDYQRCodeManager *)qrCodeManager {
+    if (!_qrCodeManager) {
+        _qrCodeManager = [[DDYQRCodeManager alloc] init];
+        _qrCodeManager.delegate = self;
+    }
+    return _qrCodeManager;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self prepare];
     [self setupScanview];
-    [self setupScanManager];
-    [self setupMyQRCode];
+//    [self setupMyQRCode];
+    [self performSelector:@selector(setupQRManager) withObject:nil afterDelay:0.01];
 }
 
 - (void)prepare
@@ -53,10 +63,9 @@
     [self.view addSubview:_scanView];
 }
 
-- (void)setupScanManager {
+- (void)setupQRManager {
     [DDYAuthorityMaster cameraAuthSuccess:^{
-        [DDYQRCodeManager sharedManager].delegate = self;
-        [[DDYQRCodeManager sharedManager] ddy_ScanQRCodeWithCameraContainer:self.view];
+        [self.qrCodeManager ddy_ScanQRCodeWithCameraContainer:self.view];
     } fail:^{ } alertShow:YES];
 }
 
@@ -66,10 +75,10 @@
     imageView.frame = CGRectMake(DDYSCREENW/2.0-50, DDYSCREENH-200, 100, 100);
     [self.view addSubview:imageView];
     dispatch_async(dispatch_get_global_queue(0, 0), ^{
-        _myQRCodeImg = [[DDYQRCodeManager sharedManager] ddy_QRCodeWithData:@"http://www.jianshu.com/p/4d4ac1a67086"
-                                                                      width:200
-                                                                       logo:[UIImage circleImageWithColor:[UIColor redColor] radius:10]
-                                                                  logoScale:0.25];
+        _myQRCodeImg = [self.qrCodeManager ddy_QRCodeWithData:@"http://www.jianshu.com/p/4d4ac1a67086"
+                                                        width:200
+                                                         logo:[UIImage circleImageWithColor:[UIColor redColor] radius:10]
+                                                    logoScale:0.25];
         imageView.image = _myQRCodeImg;
     });
     UITapGestureRecognizer *tapGes = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(touchToScan)];
@@ -80,10 +89,10 @@
 - (void)ddy_QRCodeScanResult:(NSString *)result success:(BOOL)success; {
     DDYInfoLog(@"%@",result);
     if (success) {
+        [self.qrCodeManager ddy_stopRunningSession];
         if ([result containsString:@"http://"] || [result containsString:@"https://"]) {
             [[UIApplication sharedApplication] openURL:[NSURL URLWithString:result]];
         } else {
-            [[DDYQRCodeManager sharedManager] ddy_stopRunningSession];
             DDYQRCodeScanResultVC *vc = [[DDYQRCodeScanResultVC alloc] init];
             vc.resultStr = result;
             [self.navigationController pushViewController:vc animated:YES];
@@ -93,13 +102,15 @@
 
 - (void)dealloc {
     [_scanView stopScanningLingAnimation];
-    [[DDYQRCodeManager sharedManager] ddy_stopRunningSession];
-    [DDYQRCodeManager sharedManager].delegate = nil;
+    if (_qrCodeManager) {
+        [_qrCodeManager ddy_stopRunningSession];
+        _qrCodeManager.delegate = nil;
+    }
 }
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    [[DDYQRCodeManager sharedManager] ddy_startRunningSession];
+    if (_qrCodeManager) { [_qrCodeManager ddy_startRunningSession];}
     [self setNavigationBackgroundAlpha:0.15];
     self.navigationController.navigationBar.barTintColor = [UIColor blackColor];
     _statusBarStyle = UIStatusBarStyleLightContent;
@@ -108,17 +119,16 @@
 
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
-    [[DDYQRCodeManager sharedManager] ddy_stopRunningSession];
+    if (_qrCodeManager) {  [self.qrCodeManager ddy_stopRunningSession];}
     [self setNavigationBackgroundAlpha:1];
     self.navigationController.navigationBar.barTintColor = APP_MAIN_COLOR;
     _statusBarStyle = UIStatusBarStyleDefault;
     [self setNeedsStatusBarAppearanceUpdate];
 }
 
-- (void)rightBtnClick:(DDYButton *)button
-{
+- (void)rightBtnClick:(DDYButton *)button {
     [DDYAuthorityMaster albumAuthSuccess:^{
-        [[DDYQRCodeManager sharedManager] ddy_imgPickerVCWithCurrentVC:self];
+        [self.qrCodeManager ddy_imgPickerVCWithCurrentVC:self];
     } fail:^{ } alertShow:YES];
 }
 
@@ -133,15 +143,13 @@
 }
 
 #pragma mark 状态栏样式
-- (UIStatusBarStyle)preferredStatusBarStyle
-{
+- (UIStatusBarStyle)preferredStatusBarStyle {
     return _statusBarStyle;
 }
 
-#pragma mark 长按录制
-- (void)touchToScan
-{
-    [[DDYQRCodeManager sharedManager] ddy_scanQRCodeWithImage:_myQRCodeImg];
+#pragma mark 长按扫描
+- (void)touchToScan {
+    if (_qrCodeManager) { [_qrCodeManager ddy_scanQRCodeWithImage:_myQRCodeImg];}
 }
 
 @end

@@ -21,7 +21,7 @@
     
     self.view.backgroundColor = [UIColor whiteColor];
 //    NSString *str = @"UIAlertView";
-    NSString *str = @"UITextView";
+    NSString *str = @"UITextField";
     
     [self getIvarListOfClass:str];
     

@@ -50,12 +50,11 @@
 
 - (void)prepare
 {
-    // 64当起点布局
+    // 64当作起点布局
     UIView *backgroundView = [self.navigationController.navigationBar subviews].firstObject;
-    for (UIView *view in backgroundView.subviews)
-    {
-        if ([view isKindOfClass:[UIImageView class]] && view.ddy_h == 0.5)
-        {
+    // 导航分割线
+    for (UIView *view in backgroundView.subviews) {
+        if ([view isKindOfClass:[UIImageView class]] && view.ddy_h == 0.5) {
             _navLine = (UIImageView *)view;
         }
     }

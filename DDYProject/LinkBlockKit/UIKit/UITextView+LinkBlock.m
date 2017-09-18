@@ -63,7 +63,7 @@
 {
     return ^id(NSString* text){
         LinkHandle_REF(UITextView)
-        LinkGroupHandle_REF(txtViewText,text)
+        LinkGroupHandle_REF(txtViewText, text)
         _self.text = text;
         return _self;
     };
@@ -73,7 +73,7 @@
 {
     return ^id(NSAttributedString* attributedText){
         LinkHandle_REF(UITextView)
-        LinkGroupHandle_REF(txtViewAttributedText,attributedText)
+        LinkGroupHandle_REF(txtViewAttributedText, attributedText)
         _self.attributedText = attributedText;
         return _self;
     };
@@ -83,7 +83,7 @@
 {
     return ^id(UIColor* textColor){
         LinkHandle_REF(UITextView)
-        LinkGroupHandle_REF(txtViewTextColor,textColor)
+        LinkGroupHandle_REF(txtViewTextColor, textColor)
         _self.textColor = textColor;
         return _self;
     };
@@ -93,8 +93,18 @@
 {
     return ^id(UIFont* font){
         LinkHandle_REF(UITextView)
-        LinkGroupHandle_REF(txtViewFont,font)
+        LinkGroupHandle_REF(txtViewFont, font)
         _self.font = font;
+        return _self;
+    };
+}
+
+- (UITextView *(^)(NSTextAlignment))txtViewTextAlignment
+{
+    return ^id(NSTextAlignment textAlignment){
+        LinkHandle_REF(UITextView)
+        LinkGroupHandle_REF(txtViewTextAlignment, textAlignment)
+        _self.textAlignment = textAlignment;
         return _self;
     };
 }

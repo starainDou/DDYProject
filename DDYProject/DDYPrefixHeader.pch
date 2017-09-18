@@ -13,17 +13,18 @@
  *
  */
 
+
+
 #ifndef DDYPrefixHeader_pch
 #define DDYPrefixHeader_pch
 
+#ifdef __OBJC__
 
 ////////////////////////// 引入头文件 //////////////////////////
+#import "DDYUtilsHeader.h"
 #import "LinkBlock.h"
 #import "DDYUIKit.h"
-#import "DDYMacroTool.h"
-#import "DDYTools.h"
 #import "DDYCategory.h"
-#import "DDYAuthorityMaster.h"
 
 ////////////////////////// 引入三方库 //////////////////////////
 #import <AFNetworking.h>
@@ -32,9 +33,11 @@
 #import <Masonry.h>
 #import <MJExtension.h>
 #import <MJRefresh.h>
-//#import <RESideMenu.h>        
+//#import <RESideMenu.h>
 #import <UIImageView+WebCache.h>
 #import <SVProgressHUD.h>
 #import <TZImagePickerController.h>
+
+#endif
 
 #endif

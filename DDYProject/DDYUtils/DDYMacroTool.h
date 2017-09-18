@@ -49,13 +49,21 @@
 
 
 /** 获取系统版本 */
-#define IOS_SYSTEM_VERSION [[[UIDevice currentDevice] systemVersion] floatValue]
-#define IOS_VERSION_8_OR_LATER (([[[UIDevice currentDevice] systemVersion] floatValue] >= 8.0)? (YES):(NO))
-#define IOS_VERSION_9_OR_LATER (([[[UIDevice currentDevice] systemVersion] floatValue] >= 9.0)? (YES):(NO))
-#define IOS_VERSION_10_OR_LATER (([[[UIDevice currentDevice] systemVersion] floatValue] >= 10.0)? (YES):(NO))
+#define IOS_SYS_VERSION [[[UIDevice currentDevice] systemVersion] floatValue]
+#define IOS_8_LATER  (IOS_SYS_VERSION >= 8.0)
+#define IOS_9_LATER  (IOS_SYS_VERSION >= 9.0)
+#define IOS_10_LATER (IOS_SYS_VERSION >= 10.0)
 
 /** 获取当前语言 */
-#define LRCurrentLanguage ([[NSLocale preferredLanguages] objectAtIndex:0])
+#define DDYCurrentLanguage ([[NSLocale preferredLanguages] objectAtIndex:0])
+/** 英汉双语 */
+#if TARGET_IPHONE_SIMULATOR
+#define DDYLocalStr(Chinese,English) [DDYCurrentLanguage isEqualToString:IOS_9_LATER?@"zh-Hans-US":@"zh-Hans"] ? Chinese : English
+#elif TARGET_OS_IPHONE
+#define DDYLocalStr(Chinese,English) [DDYCurrentLanguage isEqualToString:IOS_9_LATER?@"zh-Hans-CN":@"zh-Hans"] ? Chinese : English
+#endif
+
+
 
 /**  常数 */
 #define DDYPI 3.14159265358979323846
@@ -66,6 +74,14 @@
 // 定义这个常量,以支持在 Masonry 语法中自动将基本类型转换为 object 类型:
 #define MAS_SHORTHAND_GLOBALS
 
+// 字符串格式化
+#define DDYStrFormat(s,...) [NSString stringWithFormat:s,##__VA_ARGS__]
+// Rect
+#define DDYRect(x,y,w,h) CGRectMake(x,y,w,h)
+// size
+#define LC_Size(w,h) CGSizeMake(w,h)
+// point
+#define DDYPoint(x,y) CGPointMake(x,y)
 
 // 处于开发阶段
 #ifdef DEBUG

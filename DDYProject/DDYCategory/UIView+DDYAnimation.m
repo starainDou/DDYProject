@@ -97,8 +97,7 @@
         CAAnimationGroup *animGroup = [CAAnimationGroup animation];
         animGroup.animations = [NSArray arrayWithObjects:moveAnim, nil];
         animGroup.duration = speed;
-        animGroup.fillMode =kCAFillModeForwards;
-        animGroup.delegate = self;
+        animGroup.fillMode = kCAFillModeForwards;
         animGroup.autoreverses = YES;
         [animGroup setValue:layer forKey:@"animationLayer"];
         [layer addAnimation:animGroup forKey:nil];

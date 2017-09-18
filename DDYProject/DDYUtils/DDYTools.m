@@ -7,69 +7,68 @@
 //
 
 #import "DDYTools.h"
-#import <ifaddrs.h>
-#import <arpa/inet.h>
+
+typedef NS_ENUM(NSInteger, GIFSize) {
+    GIFSizeVeryLow  = 2,
+    GIFSizeLow      = 3,
+    GIFSizeMedium   = 5,
+    GIFSizeHigh     = 7,
+    GIFSizeOriginal = 10
+};
 
 @implementation DDYTools
 #pragma mark 磁盘总空间
-+ (CGFloat)allSizeOfDiskMbytes
++ (CGFloat)ddy_AllSizeOfDiskMbytes
 {
     CGFloat size = 0.0;
     NSError *error;
     NSDictionary *dic = [[NSFileManager defaultManager] attributesOfFileSystemForPath:NSHomeDirectory() error:&error];
     if (error) {
-#ifdef DEBUG
-        NSLog(@"error: %@", error.localizedDescription);
-#endif
-    }else{
-        NSNumber *number = [dic objectForKey:NSFileSystemSize];
-        size = [number floatValue]/1024/1024;
+        DDYInfoLog(@"error: %@", error.localizedDescription);
+    } else {
+        size = [[dic objectForKey:NSFileSystemSize] floatValue]/1024/1024;
     }
     return size;
 }
 
 #pragma mark 磁盘可用空间
-+ (CGFloat)freeSizeOfDiskMBytes
++ (CGFloat)ddy_FreeSizeOfDiskMBytes
 {
     CGFloat size = 0.0;
     NSError *error;
     NSDictionary *dic = [[NSFileManager defaultManager] attributesOfFileSystemForPath:NSHomeDirectory() error:&error];
     if (error) {
-#ifdef DEBUG
-        NSLog(@"error: %@", error.localizedDescription);
-#endif
-    }else{
-        NSNumber *number = [dic objectForKey:NSFileSystemFreeSize];
-        size = [number floatValue]/1024/1024;
+        DDYInfoLog(@"error: %@", error.localizedDescription);
+    } else {
+        size = [[dic objectForKey:NSFileSystemFreeSize] floatValue]/1024/1024;
     }
     return size;
 }
 
 #pragma mark 指定路径下某个文件的大小
-+ (long long)fileSizeAtPath:(NSString *)filePath
++ (long long)ddy_FileSizeAtPath:(NSString *)filePath
 {
-    NSFileManager *fileManager = [NSFileManager defaultManager];
-    if (![fileManager fileExistsAtPath:filePath]) return 0;
-    return [[fileManager attributesOfItemAtPath:filePath error:nil] fileSize];
+    if (![[NSFileManager defaultManager] fileExistsAtPath:filePath]) return 0;
+    return [[[NSFileManager defaultManager] attributesOfItemAtPath:filePath error:nil] fileSize];
 }
 
-#pragma mark //获取文件夹下所有文件的大小
-+ (long long)folderSizeAtPath:(NSString *)folderPath
+#pragma mark 获取文件夹下所有文件的大小
++ (long long)ddy_FolderSizeAtPath:(NSString *)folderPath
 {
-    NSFileManager *fileManager = [NSFileManager defaultManager];
-    if (![fileManager fileExistsAtPath:folderPath]) return 0;
-    NSEnumerator *filesEnumerator = [[fileManager subpathsAtPath:folderPath] objectEnumerator];
+    if (![[NSFileManager defaultManager] fileExistsAtPath:folderPath]) return 0;
+    NSEnumerator *filesEnumerator = [[[NSFileManager defaultManager] subpathsAtPath:folderPath] objectEnumerator];
     NSString *fileName;
     long long folerSize = 0;
     while ((fileName = [filesEnumerator nextObject]) != nil) {
         NSString *filePath = [folderPath stringByAppendingPathComponent:fileName];
-        folerSize += [self fileSizeAtPath:filePath];
+        folerSize += [self ddy_FileSizeAtPath:filePath];
     }
     return folerSize;
 }
 
 #pragma mark 获取字符串(或汉字)首字母
-+ (NSString *)firstCharacterWithString:(NSString *)string{
++ (NSString *)ddy_FirstCharacterOfString:(NSString *)string
+{
     NSMutableString *str = [NSMutableString stringWithString:string];
     CFStringTransform((CFMutableStringRef)str, NULL, kCFStringTransformMandarinLatin, NO);
     CFStringTransform((CFMutableStringRef)str, NULL, kCFStringTransformStripDiacritics, NO);
@@ -78,7 +77,7 @@
 }
 
 #pragma mark 将字符串数组按照元素首字母顺序进行排序分组
-+ (NSDictionary *)dictionaryOrderByCharacterWithOriginalArray:(NSArray *)array{
++ (NSDictionary *)ddy_SortArray:(NSArray *)array {
     if (array.count == 0) {
         return nil;
     }
@@ -89,10 +88,9 @@
     }
     UILocalizedIndexedCollation *indexedCollation = [UILocalizedIndexedCollation currentCollation];
     NSMutableArray *objects = [NSMutableArray arrayWithCapacity:indexedCollation.sectionTitles.count];
-    //创建27个分组数组
+    //创建分组数组
     for (int i = 0; i < indexedCollation.sectionTitles.count; i++) {
-        NSMutableArray *obj = [NSMutableArray array];
-        [objects addObject:obj];
+        [objects addObject:[NSMutableArray array]];
     }
     NSMutableArray *keys = [NSMutableArray arrayWithCapacity:objects.count];
     //按字母顺序进行分组
@@ -111,16 +109,14 @@
     }
     //获取索引字母
     for (NSMutableArray *obj in objects) {
-        NSString *str = obj[0];
-        NSString *key = [self firstCharacterWithString:str];
-        [keys addObject:key];
+        [keys addObject:[self ddy_FirstCharacterOfString:obj[0]]];
     }
     NSMutableDictionary *dic = [NSMutableDictionary dictionary];
     [dic setObject:objects forKey:keys];
     return dic;
 }
 
-#pragma mark 
+#pragma mark 计算上次日期距离现在多久
 /**
 *  计算上次日期距离现在多久
 *
@@ -570,4 +566,306 @@
     
     return returnValue;
 }
+
+#pragma mark - 生成gif
+#pragma mark 图片转gif
++ (void)ddy_GifWithPic:(NSArray *)pics result:(void (^)(BOOL, NSURL *))result
+{
+    NSMutableArray *picArray = [self getImgFromPicArray:pics];
+    if (picArray && picArray.count)
+    {
+        NSDictionary *fileProperties = @{(__bridge id)kCGImagePropertyGIFDictionary:@{(__bridge id)kCGImagePropertyGIFLoopCount:@0,}};
+        NSDictionary *frameProperties = @{(__bridge id)kCGImagePropertyGIFDictionary:@{(__bridge id)kCGImagePropertyGIFDelayTime:@0.5f,}};
+        NSURL *documentsDirectoryURL = [[NSFileManager defaultManager] URLForDirectory:NSDocumentDirectory inDomain:NSUserDomainMask appropriateForURL:nil create:YES error:nil];
+        
+        NSTimeInterval timeNow = [[NSDate dateWithTimeIntervalSinceNow:0] timeIntervalSince1970];
+        NSString *fileName = [NSString stringWithFormat:@"ddy_%0.f_pic_gif.gif",timeNow];
+        NSURL *fileURL = [documentsDirectoryURL URLByAppendingPathComponent:fileName];
+        CGImageDestinationRef destination = CGImageDestinationCreateWithURL((__bridge CFURLRef)fileURL, kUTTypeGIF, pics.count, NULL);
+        CGImageDestinationSetProperties(destination, (__bridge CFDictionaryRef)fileProperties);
+        
+        for (UIImage *img in pics) {
+            @autoreleasepool {
+                CGImageDestinationAddImage(destination, img.CGImage, (__bridge CFDictionaryRef)frameProperties);
+            }
+        }
+        BOOL success = CGImageDestinationFinalize(destination);
+        if (result) {
+            result(success, success ? fileURL : [NSURL URLWithString:@"转化失败"]);
+        }
+        CFRelease(destination);
+    }
+    else
+    {
+        if (result) {
+            result(NO, [NSURL URLWithString:@"数组中不存在图片"]);
+        }
+    }
+}
+
+#pragma mark 图片转gif时取出图片
++ (NSMutableArray *)getImgFromPicArray:(NSArray *)pics {
+    NSMutableArray *array = [NSMutableArray array];
+    if (pics && pics.count) {
+        for (int i = 0; i < pics.count; i++) {
+            if ([pics[i] isKindOfClass:[UIImage class]]) {
+                [array addObject:pics[i]];
+            }
+        }
+    }
+    return array;
+}
+
+#pragma mark 视频转gif
++ (void)ddy_GifWithVideo:(NSURL *)videoURL loopCount:(int)loopCount result:(void (^)(NSURL *))result {
+    // 大小
+    AVURLAsset *asset = [AVURLAsset assetWithURL:videoURL];
+    CGFloat videoW = [[[asset tracksWithMediaType:AVMediaTypeVideo] objectAtIndex:0] naturalSize].width;
+    CGFloat videoH = [[[asset tracksWithMediaType:AVMediaTypeVideo] objectAtIndex:0] naturalSize].height;
+    GIFSize optimalSize = GIFSizeMedium;
+    if (videoW>=1200 || videoH>=1200) {
+        optimalSize = GIFSizeVeryLow;
+    } else if (videoW>=800 || videoH>=800) {
+        optimalSize = GIFSizeLow;
+    } else if (videoW>=400 || videoH>=400) {
+        optimalSize = GIFSizeMedium;
+    } else if (videoW<400 || videoH<400) {
+        optimalSize = GIFSizeHigh;
+    }
+    // 每秒取贞的时间点
+    float videoLength = (float)asset.duration.value/asset.duration.timescale;
+    int framesPerSecond = 4;
+    int frameCount = videoLength * framesPerSecond;
+    float increment = (float)videoLength / frameCount;
+    NSMutableArray *timePoints = [NSMutableArray array];
+    for (int currentFrame = 0; currentFrame < frameCount; ++currentFrame) {
+        float seconds = (float)increment * currentFrame;
+        CMTime time = CMTimeMakeWithSeconds(seconds, 600);
+        [timePoints addObject:[NSValue valueWithCMTime:time]];
+    }
+    // 循环属性
+    NSDictionary *fileProperties = @{(NSString *)kCGImagePropertyGIFDictionary:@{(NSString *)kCGImagePropertyGIFLoopCount:@(loopCount)}};
+    // 延迟属性
+    NSDictionary *frameProperties = @{(NSString *)kCGImagePropertyGIFDictionary:@{(NSString *)kCGImagePropertyGIFDelayTime:@(0.1)},
+                                      (NSString *)kCGImagePropertyColorModel:(NSString *)kCGImagePropertyColorModelRGB};
+    
+    dispatch_group_t gifQueue = dispatch_group_create();
+    dispatch_group_enter(gifQueue);
+    __block NSURL *gifURL;
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        gifURL = [self createGIFforTimePoints:timePoints fromURL:videoURL fileProperties:fileProperties frameProperties:frameProperties frameCount:frameCount gifSize:optimalSize];
+        dispatch_group_leave(gifQueue);
+    });
+    
+    dispatch_group_notify(gifQueue, dispatch_get_main_queue(), ^{
+        if (result) result(gifURL);
+    });
+}
+
+#pragma mark 视频转gif
++ (void)ddy_GifWithVideo:(NSURL *)videoURL frameCount:(int)frameCount delayTime:(float)delayTime loopCount:(int)loopCount result:(void (^)(NSURL *))result {
+    // 循环属性
+    NSDictionary *fileProperties = @{(NSString *)kCGImagePropertyGIFDictionary:@{(NSString *)kCGImagePropertyGIFLoopCount:@(loopCount)}};
+    // 延迟属性
+    NSDictionary *frameProperties = @{(NSString *)kCGImagePropertyGIFDictionary:@{(NSString *)kCGImagePropertyGIFDelayTime:@(delayTime)},
+                                      (NSString *)kCGImagePropertyColorModel:(NSString *)kCGImagePropertyColorModelRGB};
+    // 大小
+    AVURLAsset *asset = [AVURLAsset assetWithURL:videoURL];
+    float videoLength = (float)asset.duration.value/asset.duration.timescale;
+    float increment = (float)videoLength/frameCount;
+    NSMutableArray *timePoints = [NSMutableArray array];
+    for (int currentFrame = 0; currentFrame<frameCount; ++currentFrame) {
+        float seconds = (float)increment * currentFrame;
+        CMTime time = CMTimeMakeWithSeconds(seconds, 600);
+        [timePoints addObject:[NSValue valueWithCMTime:time]];
+    }
+    
+    dispatch_group_t gifQueue = dispatch_group_create();
+    dispatch_group_enter(gifQueue);
+    __block NSURL *gifURL;
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        gifURL = [self createGIFforTimePoints:timePoints fromURL:videoURL fileProperties:fileProperties frameProperties:frameProperties frameCount:frameCount gifSize:GIFSizeMedium];
+        dispatch_group_leave(gifQueue);
+    });
+    dispatch_group_notify(gifQueue, dispatch_get_main_queue(), ^{
+        if (result) result(gifURL);
+    });
+}
+
+#pragma mark - Base methods
++ (NSURL *)createGIFforTimePoints:(NSArray *)timePoints fromURL:(NSURL *)url fileProperties:(NSDictionary *)fileProperties frameProperties:(NSDictionary *)frameProperties frameCount:(int)frameCount gifSize:(GIFSize)gifSize{
+    NSString *fileName = [NSString stringWithFormat:@"ddy_%0.f_video_gif.gif",[[NSDate dateWithTimeIntervalSinceNow:0] timeIntervalSince1970]];
+    NSURL *fileURL = [NSURL fileURLWithPath:[NSTemporaryDirectory() stringByAppendingString:fileName]];
+    if (fileURL == nil) return nil;
+    
+    CGImageDestinationRef destination = CGImageDestinationCreateWithURL((__bridge CFURLRef)fileURL, kUTTypeGIF , frameCount, NULL);
+    
+    AVURLAsset *asset = [AVURLAsset URLAssetWithURL:url options:nil];
+    AVAssetImageGenerator *generator = [AVAssetImageGenerator assetImageGeneratorWithAsset:asset];
+    generator.appliesPreferredTrackTransform = YES;
+    
+    CMTime tol = CMTimeMakeWithSeconds(0.01, 600);
+    generator.requestedTimeToleranceBefore = tol;
+    generator.requestedTimeToleranceAfter = tol;
+    
+    NSError *error = nil;
+    CGImageRef previousImageRefCopy = nil;
+    for (NSValue *time in timePoints) {
+        
+        CGImageRef imageRef;
+        if ((float)gifSize/10 != 1) {
+            imageRef = createImageWithScale([generator copyCGImageAtTime:[time CMTimeValue] actualTime:nil error:&error], (float)gifSize/10);
+        } else {
+            imageRef = [generator copyCGImageAtTime:[time CMTimeValue] actualTime:nil error:&error];
+        }
+        if (error) {
+            NSLog(@"Error copying image: %@", error);
+        }
+        
+        if (imageRef) {
+            CGImageRelease(previousImageRefCopy);
+            previousImageRefCopy = CGImageCreateCopy(imageRef);
+        } else if (previousImageRefCopy) {
+            imageRef = CGImageCreateCopy(previousImageRefCopy);
+        } else {
+            NSLog(@"Error copying image and no previous frames to duplicate");
+            return nil;
+        }
+        CGImageDestinationAddImage(destination, imageRef, (CFDictionaryRef)frameProperties);
+        CGImageRelease(imageRef);
+    }
+    CGImageRelease(previousImageRefCopy);
+    CGImageDestinationSetProperties(destination, (CFDictionaryRef)fileProperties);
+    if (!CGImageDestinationFinalize(destination)) {
+        NSLog(@"Failed to finalize GIF destination: %@", error);
+        if (destination != nil) {
+            CFRelease(destination);
+        }
+        return nil;
+    }
+    CFRelease(destination);
+    return fileURL;
+}
+
+#pragma mark - Helpers
+CGImageRef createImageWithScale(CGImageRef imageRef, float scale) {
+    
+    CGSize newSize = CGSizeMake(CGImageGetWidth(imageRef)*scale, CGImageGetHeight(imageRef)*scale);
+    CGRect newRect = CGRectIntegral(CGRectMake(0, 0, newSize.width, newSize.height));
+    
+    UIGraphicsBeginImageContextWithOptions(newSize, NO, 0);
+    CGContextRef context = UIGraphicsGetCurrentContext();
+    if (!context) return nil;
+    
+    CGContextSetInterpolationQuality(context, kCGInterpolationHigh);
+    CGAffineTransform flipVertical = CGAffineTransformMake(1, 0, 0, -1, 0, newSize.height);
+    
+    CGContextConcatCTM(context, flipVertical);
+    CGContextDrawImage(context, newRect, imageRef);
+    CFRelease(imageRef);
+    
+    imageRef = CGBitmapContextCreateImage(context);
+    UIGraphicsEndImageContext();
+    
+    return imageRef;
+}
+
+#pragma mark TouchID
++ (void)ddy_TouchIDMessage:(NSString *)message fallBackTitle:(NSString *)title reply:(void (^)(BOOL, NSError *))reply
+{
+    LAContext *context = [[LAContext alloc] init];
+    
+    context.localizedFallbackTitle = title;
+    
+    NSError *error = nil;
+    
+    if ([context canEvaluatePolicy:LAPolicyDeviceOwnerAuthenticationWithBiometrics error:&error])
+    {
+        [context evaluatePolicy:LAPolicyDeviceOwnerAuthenticationWithBiometrics localizedReason:message reply:^(BOOL success, NSError * _Nullable error) {
+            if (reply) { reply(success, error); }
+            
+            if (success)
+            {
+                NSLog(@"验证成功 刷新主界面");
+            }
+            else
+            {
+                NSLog(@"%@",error.localizedDescription);
+                switch (error.code)
+                {
+                    case LAErrorSystemCancel:
+                        NSLog(@"系统取消授权，如其他APP切入");
+                        break;
+                    case LAErrorUserCancel:
+                        NSLog(@"用户取消验证Touch ID");
+                        break;
+                    case LAErrorAuthenticationFailed:
+                        NSLog(@"授权失败");
+                        break;
+                    case LAErrorPasscodeNotSet:
+                        NSLog(@"系统未设置密码");
+                        break;
+                    case LAErrorTouchIDNotAvailable:
+                        NSLog(@"设备Touch ID不可用，例如未打开");
+                        break;
+                    case LAErrorTouchIDNotEnrolled:
+                        NSLog(@"设备Touch ID不可用，用户未录入");
+                        break;
+                    case LAErrorUserFallback:
+                        [[NSOperationQueue mainQueue] addOperationWithBlock:^{ NSLog(@"输入密码,切换主线程"); }];
+                        break;
+                    default:
+                        [[NSOperationQueue mainQueue] addOperationWithBlock:^{ NSLog(@"其他情况,切换主线程"); }];
+                        break;
+                }
+            }
+        }];
+    }
+    else
+    {
+        if (reply) { reply(NO, error); }
+        
+        switch (error.code)
+        {
+            case LAErrorTouchIDNotEnrolled:
+                NSLog(@"TouchID is not enrolled");
+                break;
+            case LAErrorPasscodeNotSet:
+                NSLog(@"A passcode has not been set");
+                break;
+            default:
+                NSLog(@"TouchID not available");
+                break;
+        }
+    }
+}
+
++ (void)ddy_AirDropShare:(NSString *)fileName currentVC:(id)vc
+{
+    NSArray *fileComponents = [fileName componentsSeparatedByString:@"."];
+    NSString *filePath = [[NSBundle mainBundle] pathForResource:fileComponents[0] ofType:fileComponents[1]];
+    NSArray *shareObjs = @[[NSURL fileURLWithPath:filePath]];
+    
+    UIActivityViewController *controller = [[UIActivityViewController alloc] initWithActivityItems:shareObjs applicationActivities:nil];
+    
+    // Exclude all activities except AirDrop.
+    NSArray *excludedActivities = @[UIActivityTypePostToTwitter,
+                                    UIActivityTypePostToFacebook,
+                                    UIActivityTypePostToWeibo,
+                                    UIActivityTypeMessage,
+                                    UIActivityTypeMail,
+                                    UIActivityTypePrint,
+                                    UIActivityTypeCopyToPasteboard,
+                                    UIActivityTypeAssignToContact,
+                                    UIActivityTypeSaveToCameraRoll,
+                                    UIActivityTypeAddToReadingList,
+                                    UIActivityTypePostToFlickr,
+                                    UIActivityTypePostToVimeo,
+                                    UIActivityTypePostToTencentWeibo];
+    
+    controller.excludedActivityTypes = excludedActivities;
+    [vc presentViewController:controller animated:YES completion:nil];
+}
+
+
 @end

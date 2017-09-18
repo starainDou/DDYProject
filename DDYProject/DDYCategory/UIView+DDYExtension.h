@@ -22,6 +22,9 @@
 @property (nonatomic, assign) CGPoint ddy_origin;
 
 /** 截屏 */
-- (UIImage *)screenshot;
+- (UIImage *)ddy_Screenshot;
+
+/** 红点提示 https://github.com/gitkong/UIView-BadgeValue */
+@property (nonatomic, strong) NSString *ddy_BadgeValue;
 
 @end

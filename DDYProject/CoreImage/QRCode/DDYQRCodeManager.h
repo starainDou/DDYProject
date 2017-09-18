@@ -33,7 +33,7 @@
 @property (nonatomic, assign) BOOL playSound;
 
 /** 单例对象 */
-+ (instancetype)sharedManager;
+//+ (instancetype)sharedManager;
 
 /** 生成普通条形码 */
 - (UIImage *)ddy_BarCodeWithData:(NSString *)data size:(CGSize)size;
@@ -69,6 +69,6 @@
 - (void)ddy_palySound:(NSString *)soundName;
 
 /** 打开关闭闪光灯--持续 */
-- (void)ddy_turnOnFlashLight:(BOOL)on;
++ (void)ddy_turnOnFlashLight:(BOOL)on;
 
 @end

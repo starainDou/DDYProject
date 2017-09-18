@@ -141,7 +141,6 @@
         }
     }else{
         [self showNotificationAlertController:fail];
-        
     }
 }
 
@@ -187,44 +186,28 @@
         case AVAuthorizationStatusNotDetermined: // 有没有询问过还否开启麦克风权限(用户未确定过)
         {
             [[AVAudioSession sharedInstance] requestRecordPermission:^(BOOL granted) {
-                
-                if (granted)
-                {
-                    if (success)
-                    {
-                        success();
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    if (granted) {
+                        if (success) { success(); }
+                    } else {
+                        if (show) { [self showAlertWithAppName:@"测试APP" device:@"麦克风"]; }
+                        if (fail) { fail(); }
                     }
-                }
-                else
-                {
-                    if (show)
-                    {
-                        [self showAlertWithAppName:@"测试APP" device:@"麦克风"];
-                    }
-                    if (fail)
-                    {
-                        fail();
-                    }
-                }
+                });
             }];
         }
             break;
         case AVAuthorizationStatusRestricted:  // 未授权，且用户无法更新，如家长控制情况下
         case AVAuthorizationStatusDenied:      // 用户拒绝App使用该权限
-            if (show)
-            {
-                [self showAlertWithAppName:@"测试APP" device:@"麦克风"];
-            }
-            if (fail)
-            {
-                fail();
-            }
+        {
+            dispatch_async(dispatch_get_main_queue(), ^{
+                if (show) { [self showAlertWithAppName:@"测试APP" device:@"麦克风"]; }
+                if (fail) { fail(); }
+            });
+        }
             break;
         case AVAuthorizationStatusAuthorized:  // 已授权
-            if (success)
-            {
-                success();
-            }
+            dispatch_async(dispatch_get_main_queue(), ^{ if (success) { success(); } });
             break;
     }
 }
@@ -238,46 +221,28 @@
         case AVAuthorizationStatusNotDetermined:
         {
             [AVCaptureDevice requestAccessForMediaType:AVMediaTypeVideo completionHandler:^(BOOL granted) {
-                
-                if (granted)
-                {
-                    NSLog(@"我点击了授权");
-                    if (success)
-                    {
-                        success();
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    if (granted) {
+                        if (success) { success(); }
+                    } else {
+                        if (show) { [self showAlertWithAppName:@"测试APP" device:@"摄像头"]; }
+                        if (fail) { fail(); }
                     }
-                }
-                else
-                {
-                    NSLog(@"我点击了拒绝");
-                    if (show)
-                    {
-                        [self showAlertWithAppName:@"测试APP" device:@"摄像头"];
-                    }
-                    if (fail)
-                    {
-                        fail();
-                    }
-                }
+                });
             }];
         }
             break;
         case AVAuthorizationStatusRestricted:
         case AVAuthorizationStatusDenied:
-            if (show)
-            {
-                [self showAlertWithAppName:@"测试APP" device:@"摄像头"];
-            }
-            if (fail)
-            {
-                fail();
-            }
+        {
+            dispatch_async(dispatch_get_main_queue(), ^{
+                if (show) { [self showAlertWithAppName:@"测试APP" device:@"摄像头"]; }
+                if (fail) { fail(); }
+            });
+        }
             break;
         case AVAuthorizationStatusAuthorized:
-            if (success)
-            {
-                success();
-            }
+            dispatch_async(dispatch_get_main_queue(), ^{ if (success) { success(); } });
             break;
     }
 }
@@ -292,43 +257,28 @@
         case AVAuthorizationStatusNotDetermined:
         {
             [PHPhotoLibrary requestAuthorization:^(PHAuthorizationStatus status) {
-                if (status == PHAuthorizationStatusAuthorized)
-                {
-                    if (success)
-                    {
-                        success();
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    if (status == PHAuthorizationStatusAuthorized) {
+                        if (success) { success(); }
+                    } else {
+                        if (show) { [self showAlertWithAppName:@"测试APP" device:@"相册"]; }
+                        if (fail) { fail(); }
                     }
-                }
-                else
-                {
-                    if (show)
-                    {
-                        [self showAlertWithAppName:@"测试APP" device:@"相册"];
-                    }
-                    if (fail)
-                    {
-                        fail();
-                    }
-                }
+                });
             }];
         }
             break;
         case AVAuthorizationStatusRestricted:
         case AVAuthorizationStatusDenied:
-            if (show)
-            {
-                [self showAlertWithAppName:@"测试APP" device:@"相册"];
-            }
-            if (fail)
-            {
-                fail();
-            }
+        {
+            dispatch_async(dispatch_get_main_queue(), ^{
+                if (show) { [self showAlertWithAppName:@"测试APP" device:@"相册"]; }
+                if (fail) { fail(); }
+            });
+        }
             break;
         case AVAuthorizationStatusAuthorized:
-            if (success)
-            {
-                success();
-            }
+            dispatch_async(dispatch_get_main_queue(), ^{ if (success) { success(); } });
             break;
     }
 }
@@ -348,12 +298,8 @@
         case UIUserNotificationTypeBadge:
         case UIUserNotificationTypeSound:
         case UIUserNotificationTypeAlert:
-            if (success)
-            {
-                success();
-            }
+            dispatch_async(dispatch_get_main_queue(), ^{ if (success) { success(); } });
             break;
-            
     }
 }
 
@@ -367,43 +313,28 @@
         {
             ABAddressBookRef addressBook = ABAddressBookCreateWithOptions(NULL, NULL);
             ABAddressBookRequestAccessWithCompletion(addressBook, ^(bool granted, CFErrorRef error) {
-                if (granted)
-                {
-                    if (success)
-                    {
-                        success();
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    if (granted) {
+                        if (success) { success(); }
+                    } else {
+                        if (show) { [self showAlertWithAppName:@"测试APP" device:@"通讯录"]; }
+                        if (fail) { fail(); }
                     }
-                }
-                else
-                {
-                    if (show)
-                    {
-                        [self showAlertWithAppName:@"测试APP" device:@"通讯录"];
-                    }
-                    if (fail)
-                    {
-                        fail();
-                    }
-                }
+                });
             });
         }
             break;
         case AVAuthorizationStatusRestricted:
         case AVAuthorizationStatusDenied:
-            if (show)
-            {
-                [self showAlertWithAppName:@"测试APP" device:@"通讯录"];
-            }
-            if (fail)
-            {
-                fail();
-            }
+        {
+            dispatch_async(dispatch_get_main_queue(), ^{
+                if (show) { [self showAlertWithAppName:@"测试APP" device:@"通讯录"]; }
+                if (fail) { fail(); }
+            });
+        }
             break;
         case AVAuthorizationStatusAuthorized:
-            if (success)
-            {
-                success();
-            }
+            dispatch_async(dispatch_get_main_queue(), ^{ if (success) { success(); } });
             break;
     }
 }
@@ -414,7 +345,6 @@
     BOOL isLocation = [CLLocationManager locationServicesEnabled];
     if (isLocation)
     {
-        NSLog(@"not turn on the location");
         if (success)
         {
             success();

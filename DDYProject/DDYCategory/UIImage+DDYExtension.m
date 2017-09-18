@@ -21,7 +21,7 @@
 
 @implementation UIImage (DDYExtension)
 
-#pragma mark - 绘制图形
+#pragma mark - 绘制
 #pragma mark 绘制矩形图片
 + (UIImage *)imageWithColor:(UIColor *)color size:(CGSize)size
 {
@@ -76,6 +76,33 @@
     UIImage *img = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
     return img;
+}
+
+#pragma mark 绘制渐变色图片
++ (UIImage *)gradientImg:(CGRect)rect startColor:(UIColor *)startColor endColor:(UIColor *)endColor
+{
+    rect.size.height += 20;
+    UIGraphicsBeginImageContext(rect.size);
+    CGContextRef context = UIGraphicsGetCurrentContext();
+    UIBezierPath *path = [UIBezierPath bezierPathWithRect:rect];
+    CGColorSpaceRef colorSpace = CGColorSpaceCreateDeviceRGB();
+    CGFloat locations[] = {0.0, 1.0};
+    NSArray *colors = @[(__bridge id)(startColor.CGColor), (__bridge id)(endColor.CGColor)];
+    CGGradientRef gradient = CGGradientCreateWithColors(colorSpace, (__bridge CFArrayRef)colors, locations);
+    CGRect pathRect = CGPathGetBoundingBox(path.CGPath);
+    
+    CGPoint startPoint = CGPointMake(CGRectGetMinX(pathRect), CGRectGetMinY(pathRect));
+    CGPoint endPoint = CGPointMake(CGRectGetMaxX(pathRect), CGRectGetMinY(pathRect));
+    
+    CGContextSaveGState(context);
+    CGContextAddPath(context, path.CGPath);
+    CGContextClip(context);
+    CGContextDrawLinearGradient(context, gradient, startPoint, endPoint, 0);
+    CGContextRestoreGState(context);
+    UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
+    CGGradientRelease(gradient);
+    CGColorSpaceRelease(colorSpace);
+    return image;
 }
 
 #pragma mark - 获取元数据
@@ -186,6 +213,105 @@
     UIGraphicsEndImageContext();
     
     return newImage;
+}
+
+#pragma mark 拍照后图片旋转或者颠倒解决
++ (UIImage *)ddy_fixOrientation:(UIImage *)aImage {
+    
+    // No-op if the orientation is already correct
+    if (aImage.imageOrientation == UIImageOrientationUp)
+        return aImage;
+    
+    // We need to calculate the proper transformation to make the image upright.
+    // We do it in 2 steps: Rotate if Left/Right/Down, and then flip if Mirrored.
+    CGAffineTransform transform = CGAffineTransformIdentity;
+    
+    switch (aImage.imageOrientation) {
+        case UIImageOrientationDown:
+        case UIImageOrientationDownMirrored:
+            transform = CGAffineTransformTranslate(transform, aImage.size.width, aImage.size.height);
+            transform = CGAffineTransformRotate(transform, M_PI);
+            break;
+            
+        case UIImageOrientationLeft:
+        case UIImageOrientationLeftMirrored:
+            transform = CGAffineTransformTranslate(transform, aImage.size.width, 0);
+            transform = CGAffineTransformRotate(transform, M_PI_2);
+            break;
+            
+        case UIImageOrientationRight:
+        case UIImageOrientationRightMirrored:
+            transform = CGAffineTransformTranslate(transform, 0, aImage.size.height);
+            transform = CGAffineTransformRotate(transform, -M_PI_2);
+            break;
+        default:
+            break;
+    }
+    
+    switch (aImage.imageOrientation) {
+        case UIImageOrientationUpMirrored:
+        case UIImageOrientationDownMirrored:
+            transform = CGAffineTransformTranslate(transform, aImage.size.width, 0);
+            transform = CGAffineTransformScale(transform, -1, 1);
+            break;
+            
+        case UIImageOrientationLeftMirrored:
+        case UIImageOrientationRightMirrored:
+            transform = CGAffineTransformTranslate(transform, aImage.size.height, 0);
+            transform = CGAffineTransformScale(transform, -1, 1);
+            break;
+        default:
+            break;
+    }
+    
+    // Now we draw the underlying CGImage into a new context, applying the transform
+    // calculated above.
+    CGContextRef ctx = CGBitmapContextCreate(NULL, aImage.size.width, aImage.size.height,
+                                             CGImageGetBitsPerComponent(aImage.CGImage), 0,
+                                             CGImageGetColorSpace(aImage.CGImage),
+                                             CGImageGetBitmapInfo(aImage.CGImage));
+    CGContextConcatCTM(ctx, transform);
+    switch (aImage.imageOrientation) {
+        case UIImageOrientationLeft:
+        case UIImageOrientationLeftMirrored:
+        case UIImageOrientationRight:
+        case UIImageOrientationRightMirrored:
+            // Grr...
+            CGContextDrawImage(ctx, CGRectMake(0,0,aImage.size.height,aImage.size.width), aImage.CGImage);
+            break;
+            
+        default:
+            CGContextDrawImage(ctx, CGRectMake(0,0,aImage.size.width,aImage.size.height), aImage.CGImage);
+            break;
+    }
+    
+    // And now we just create a new UIImage from the drawing context
+    CGImageRef cgimg = CGBitmapContextCreateImage(ctx);
+    UIImage *img = [UIImage imageWithCGImage:cgimg];
+    CGContextRelease(ctx);
+    CGImageRelease(cgimg);
+    return img;
+}
+
+#pragma mark 改变亮度、饱和度、对比度
++ (UIImage *)changeImg:(UIImage *)img Bright:(CGFloat)b saturation:(CGFloat)s contrast:(CGFloat)c
+{
+    UIImage *myImage = img;
+    CIContext *context = [CIContext contextWithOptions:nil];
+    CIImage *superImage = [CIImage imageWithCGImage:myImage.CGImage];
+    CIFilter *filter = [CIFilter filterWithName:@"CIColorControls"];
+    [filter setValue:superImage forKey:kCIInputImageKey];
+    // 修改亮度   -1---1   数越大越亮
+    if (b>=-1 && b<=1) { [filter setValue:[NSNumber numberWithFloat:b] forKey:@"inputBrightness"]; }
+    // 修改饱和度  0---2
+    if (s>=0 && s<=2) { [filter setValue:[NSNumber numberWithFloat:s] forKey:@"inputSaturation"]; }
+    // 修改对比度  0---4
+    if (c>=0 && c<=4) { [filter setValue:[NSNumber numberWithFloat:c] forKey:@"inputContrast"]; }
+    CIImage *result = [filter valueForKey:kCIOutputImageKey];
+    CGImageRef cgImage = [context createCGImage:result fromRect:[superImage extent]];
+    myImage = [UIImage imageWithCGImage:cgImage];
+    CGImageRelease(cgImage);
+    return myImage;
 }
 
 @end

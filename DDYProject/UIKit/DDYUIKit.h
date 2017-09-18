@@ -13,5 +13,6 @@
 #import "DDYButton+DDYLinkBlock.h"
 #import "DDYTextView.h"
 #import "DDYBaseViewController.h"
+#import "DDYWaveView.h"
 
 #endif

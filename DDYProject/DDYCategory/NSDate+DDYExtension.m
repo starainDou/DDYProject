@@ -48,7 +48,7 @@
 @implementation NSDate (DDYExtension)
 
 
-+ (NSDate *)dateFromString:(NSString *)dateStr
++ (NSDate *)ddy_DateFromString:(NSString *)dateStr
 {
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
     

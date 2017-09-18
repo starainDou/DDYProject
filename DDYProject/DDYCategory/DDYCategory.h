@@ -17,5 +17,6 @@
 #import "UIButton+DDYStyle.h"
 #import "NSString+DDYExtension.h"
 #import "NSDate+DDYExtension.h"
+#import "NSData+DDYExtension.h"
 
 #endif

@@ -18,6 +18,13 @@
     [super viewDidLoad];
     
     self.view.backgroundColor = [UIColor whiteColor];
+    
+    [DDYButton customDDYBtn].btnTitleN(@"AirDrop").btnTitleColorN(DDYRGBA(0, 0, 0, 1)).btnFont(DDYFont(13))
+                            .btnFrame(0,64,90,20).btnSuperView(self.view).btnAction(self,@selector(airDrop));
+}
+
+- (void)airDrop {
+    [DDYTools ddy_AirDropShare:@"qrcode.png" currentVC:self];
 }
 
 #pragma mark - 控制旋转屏幕
@@ -31,5 +38,7 @@
 {
     return NO;
 }
+
+
 
 @end

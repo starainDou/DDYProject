@@ -11,7 +11,7 @@
 @interface NSDate (DDYExtension)
 
 /** yyyy年MM月dd日或yyyy-MM-dd转date */
-+ (NSDate *)dateFromString:(NSString *)dateStr ;
++ (NSDate *)ddy_DateFromString:(NSString *)dateStr ;
 /** 时间戳转字符串 */
 + (NSString *)strFromTimeStamp:(NSString *)timeStr;
 

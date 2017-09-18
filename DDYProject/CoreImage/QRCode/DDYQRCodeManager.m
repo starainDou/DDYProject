@@ -9,10 +9,16 @@
 #import "DDYQRCodeManager.h"
 
 @interface DDYQRCodeManager ()<AVCaptureMetadataOutputObjectsDelegate, UINavigationControllerDelegate, UIImagePickerControllerDelegate>
-
+/** 捕获会话 */
 @property (nonatomic, strong) AVCaptureSession *captureSession;
-
+/** 视频输入 */
+@property (nonatomic, strong) AVCaptureDeviceInput *videoInput;
+/** 元数据输出 */
+@property (nonatomic, strong) AVCaptureMetadataOutput *metadataOutput;
+/** 预览层 */
 @property (nonatomic, strong) AVCaptureVideoPreviewLayer *previewLayer;
+/** 设备 */
+@property (nonatomic, strong) AVCaptureDevice *device;
 
 @end
 
@@ -144,40 +150,49 @@ static DDYQRCodeManager *_instance;
     if ([_captureSession canSetSessionPreset:AVCaptureSessionPresetHigh]) {
         [_captureSession setSessionPreset:AVCaptureSessionPresetHigh];
     }
-    AVCaptureDevice *device = [AVCaptureDevice defaultDeviceWithMediaType:AVMediaTypeVideo];
-    AVCaptureDeviceInput *deviceInput = [AVCaptureDeviceInput deviceInputWithDevice:device error:nil];
-    AVCaptureMetadataOutput *metadataOutput = [[AVCaptureMetadataOutput alloc] init];
-    [metadataOutput setMetadataObjectsDelegate:self queue:dispatch_get_main_queue()];
-    // 扫描范围,原点在右上角
-    metadataOutput.rectOfInterest = CGRectMake(scanY/DDYSCREENH, scanX/DDYSCREENW, scanW/DDYSCREENH, scanW/DDYSCREENW);
     
-    if ([_captureSession canAddInput:deviceInput]) {
-        [_captureSession addInput:deviceInput];
-    }
-    if ([_captureSession canAddOutput:metadataOutput]) {
-        [_captureSession addOutput:metadataOutput];
+    // 视频输入
+    _device         = [AVCaptureDevice defaultDeviceWithMediaType:AVMediaTypeVideo];
+    _videoInput     = [AVCaptureDeviceInput deviceInputWithDevice:_device error:nil];
+    if ([_captureSession canAddInput:_videoInput]) {
+        [_captureSession addInput:_videoInput];
     }
     
-    metadataOutput.metadataObjectTypes = @[AVMetadataObjectTypeQRCode, AVMetadataObjectTypeEAN13Code, AVMetadataObjectTypeEAN8Code, AVMetadataObjectTypeCode128Code];
-    
+    // 预览层
     _previewLayer = [AVCaptureVideoPreviewLayer layerWithSession:_captureSession];
     _previewLayer.videoGravity = AVLayerVideoGravityResizeAspectFill;
     _previewLayer.frame = container.bounds;
     [container.layer insertSublayer:_previewLayer atIndex:0];
-    [_captureSession startRunning];
+    
+    // 自动对焦
+    if (_device.isFocusPointOfInterestSupported &&[_device isFocusModeSupported:AVCaptureFocusModeAutoFocus]) {
+        [_videoInput.device lockForConfiguration:nil];
+        [_videoInput.device setFocusMode:AVCaptureFocusModeContinuousAutoFocus];
+        [_videoInput.device unlockForConfiguration];
+    }
+    
+    // 元数据输出,放后边比较好 rectOfInterest:扫描范围,原点在右上角
+    _metadataOutput = [[AVCaptureMetadataOutput alloc] init];
+    [_metadataOutput setMetadataObjectsDelegate:self queue:dispatch_get_main_queue()];
+    _metadataOutput.rectOfInterest = CGRectMake(scanY/DDYSCREENH, scanX/DDYSCREENW, scanW/DDYSCREENH, scanW/DDYSCREENW);
+    if ([_captureSession canAddOutput:_metadataOutput]) {
+        [_captureSession addOutput:_metadataOutput];
+    }
+    // 必须先加addOutput 并且有权限
+    _metadataOutput.metadataObjectTypes = @[AVMetadataObjectTypeQRCode, AVMetadataObjectTypeEAN13Code, AVMetadataObjectTypeEAN8Code, AVMetadataObjectTypeCode128Code];
+    
+    [self ddy_startRunningSession];
 }
 
 #pragma mark 开始运行会话
-- (void)ddy_startRunningSession
-{
+- (void)ddy_startRunningSession {
     if (![_captureSession isRunning]) {
         [_captureSession startRunning];
     }
 }
 
 #pragma mark 停止运行会话
-- (void)ddy_stopRunningSession
-{
+- (void)ddy_stopRunningSession {
     if ([_captureSession isRunning]) {
         [_captureSession stopRunning];
     }
@@ -187,7 +202,7 @@ static DDYQRCodeManager *_instance;
     if (metadataObjects && metadataObjects.count) {
         AVMetadataMachineReadableCodeObject *obj = metadataObjects[0];
         NSString *resultStr = [obj stringValue];
-        BOOL success = metadataObjects && metadataObjects.count && ![resultStr isBlankString];
+        BOOL success = metadataObjects && metadataObjects.count && ![resultStr ddy_blankString];
         [self scanQRCodeResult:resultStr success:success];
     }
 }
@@ -204,7 +219,7 @@ static DDYQRCodeManager *_instance;
         CIQRCodeFeature *feature = [features objectAtIndex:i];
         resultStr = feature.messageString;
     }
-    BOOL success = features && features.count && ![resultStr isBlankString];
+    BOOL success = features && features.count && ![resultStr ddy_blankString];
     
     [self scanQRCodeResult:resultStr success:success];
 }
@@ -247,7 +262,7 @@ void soundCompleteCallback(SystemSoundID soundID, void *clientData) {
     AudioServicesPlaySystemSound(soundID);
 }
 
-- (void)ddy_turnOnFlashLight:(BOOL)on {
++ (void)ddy_turnOnFlashLight:(BOOL)on {
     AVCaptureDevice *device = [AVCaptureDevice defaultDeviceWithMediaType:AVMediaTypeVideo];
     // hasTorch是持续发光 hasFlash是闪光 （setTorchMode: 和 setFlashMode: 同理）
     if ([device hasTorch] && [device hasFlash])
@@ -261,9 +276,8 @@ void soundCompleteCallback(SystemSoundID soundID, void *clientData) {
 
 @end
 
-/**
+/** 
+ iOS-使用AudioServices相关接口的连续震动 http://www.jianshu.com/p/dded314dd920
  
- http://www.cnblogs.com/douniwanxia/p/6647825.html
- 
- http://www.jianshu.com/p/dded314dd920
+ 花式二维码 swift https://github.com/EyreFree/EFQRCode
  */
