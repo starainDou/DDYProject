@@ -18,10 +18,11 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self prepareSetting];
+    [self prepare];
+    [self buildUI];
 }
 
-- (void)prepareSetting
+- (void)prepare
 {
     self.edgesForExtendedLayout = UIRectEdgeAll;
     self.automaticallyAdjustsScrollViewInsets = NO;
@@ -36,6 +37,11 @@
             _navLine = (UIImageView *)view;
         }
     }
+}
+
+- (void)buildUI
+{
+    
 }
 
 - (void)setNavigationBarBottomLineHidden:(BOOL)navigationBarBottomLineHidden
@@ -53,33 +59,25 @@
 #pragma mark leftButton
 - (void)showLeftBarBtnWithTitle:(NSString *)title img:(UIImage *)img
 {
-    DDYButton *backBtn = [DDYButton customDDYBtn].btnAction(self, @selector(backBtnClick:)).btnW(30).btnH(30);
-    if (title) {
-        backBtn.btnTitleN(title).btnFont(DDYFont(15));
-    }
-    if (img) {
-        backBtn.btnImageN(img);
-    }
-    [backBtn sizeThatFits:CGSizeMake(120, 30)];
-    backBtn.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
-    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:backBtn];
+    DDYButton *leftBtn = [DDYButton customDDYBtn].btnAction(self, @selector(backBtnClick:)).btnW(30).btnH(30);
+    if (title) leftBtn.btnTitleN(title).btnFont(DDYFont(15));
+    if (img)   leftBtn.btnImageN(img);
+    [leftBtn sizeThatFits:CGSizeMake(120, 30)];
+    leftBtn.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:leftBtn];
 }
 
 - (void)showRightBarBtnWithTitle:(NSString *)title img:(UIImage *)img
 {
-    DDYButton *backBtn = [DDYButton customDDYBtn].btnAction(self, @selector(rightBtnClick:)).btnW(30).btnH(30);
-    if (title) {
-        backBtn.btnTitleN(title).btnFont(DDYFont(15));
-    }
-    if (img) {
-        backBtn.btnImageN(img);
-    }
-    [backBtn sizeThatFits:CGSizeMake(120, 30)];
-    backBtn.contentHorizontalAlignment = UIControlContentHorizontalAlignmentRight;
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:backBtn];
+    DDYButton *rightBtn = [DDYButton customDDYBtn].btnAction(self, @selector(leftBtnClick:)).btnW(30).btnH(30);
+    if (title) rightBtn.btnTitleN(title).btnFont(DDYFont(15));
+    if (img)   rightBtn.btnImageN(img);
+    [rightBtn sizeThatFits:CGSizeMake(120, 30)];
+    rightBtn.contentHorizontalAlignment = UIControlContentHorizontalAlignmentRight;
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:rightBtn];
 }
 
-- (void)showLeftBarBtnDefault
+- (void)showBackBarBtnDefault
 {
     DDYButton *backBtn = [DDYButton customDDYBtn].btnImgNameN(@"back_black").btnAction(self, @selector(backBtnClick:)).btnW(30).btnH(30);
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:backBtn];
@@ -93,9 +91,13 @@
     };
 }
 
-#pragma mark - rightButtonTouch
-- (void)rightBtnClick:(DDYButton *)button
-{
+#pragma mark leftButtonTouch
+- (void)leftBtnClick:(DDYButton *)button {
+    
+}
+
+#pragma mark  rightButtonTouch
+- (void)rightBtnClick:(DDYButton *)button {
     
 }
 

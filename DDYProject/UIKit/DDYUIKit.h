@@ -14,5 +14,9 @@
 #import "DDYTextView.h"
 #import "DDYBaseViewController.h"
 #import "DDYWaveView.h"
+#import "DDYCirCleAnimationView.h"
+#import "DDYTextField.h"
+#import "DDYRadarView.h"
+#import "DDYPulseView.h"
 
 #endif

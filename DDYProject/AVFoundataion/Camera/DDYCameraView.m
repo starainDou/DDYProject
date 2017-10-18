@@ -69,7 +69,7 @@
 - (void)setupTopView
 {
     _topBgView = [[UIView alloc] init];
-    _topBgView.backgroundColor = DDYColor(10, 10, 10, 0.7);
+    _topBgView.backgroundColor = DDYRGBA(10, 10, 10, 0.7);
     [self addSubview:_topBgView];
     
     _backBtn   = [self btnTitle:@"返回" img:@"" superView:_topBgView action:@selector(handleBack:)]; //back_white
@@ -92,7 +92,7 @@
         CAShapeLayer *shapeLayer = [CAShapeLayer layer];
         shapeLayer.path = path;
         shapeLayer.fillRule = kCAFillRuleEvenOdd;
-        shapeLayer.fillColor = DDYColor(0, 0, 0, 0.4).CGColor;
+        shapeLayer.fillColor = DDYRGBA(0, 0, 0, 0.4).CGColor;
         [self.layer addSublayer:shapeLayer];
     } else if (_cameraMask == DDYCameraMaskSquare) {
         CGMutablePathRef path = CGPathCreateMutable();
@@ -101,7 +101,7 @@
         CAShapeLayer *shapeLayer = [CAShapeLayer layer];
         shapeLayer.path = path;
         shapeLayer.fillRule = kCAFillRuleEvenOdd;
-        shapeLayer.fillColor = DDYColor(0, 0, 0, 0.4).CGColor;
+        shapeLayer.fillColor = DDYRGBA(0, 0, 0, 0.4).CGColor;
         [self.layer addSublayer:shapeLayer];
     }
     [self bringSubviewToFront:_topBgView];
@@ -111,10 +111,11 @@
 - (void)setupBottomView
 {
     _bottomBgView = [[UIView alloc] init];
-    _bottomBgView.backgroundColor = DDYColor(10, 10, 10, 0.7);
+    _bottomBgView.backgroundColor = DDYRGBA(10, 10, 10, 0.7);
     [self addSubview:_bottomBgView];
     
     _takeBtn = [self btnTitle:@"拍照" img:@"" superView:_bottomBgView action:@selector(handleTake:)];
+    [_takeBtn addLongGestureTarget:self action:@selector(handleLangPress:) minDuration:0.3];
 }
 
 - (void)layoutContentView {
@@ -207,6 +208,31 @@
 - (void)handleTake:(UIButton *)sender {
     if (self.takeBlock) {
         self.takeBlock();
+    }
+}
+
+#pragma mark 长按录制与结束
+- (void)handleLangPress:(UILongPressGestureRecognizer *)longP
+{
+    //判断长按时的状态
+    if (longP.state == UIGestureRecognizerStateBegan)
+    {
+        DDYInfoLog(@"开始录制");
+        if (self.recordBlock) {
+            self.recordBlock(YES);
+        }
+        
+    }
+    else if (longP.state == UIGestureRecognizerStateChanged)
+    {
+        DDYInfoLog(@"录制中");
+    }
+    else if (longP.state == UIGestureRecognizerStateEnded)
+    {
+        DDYInfoLog(@"录制结束");
+        if (self.recordBlock) {
+            self.recordBlock(NO);
+        }
     }
 }
 

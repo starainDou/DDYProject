@@ -62,8 +62,8 @@
     self.edgesForExtendedLayout = UIRectEdgeNone;
     self.automaticallyAdjustsScrollViewInsets = NO;
     self.extendedLayoutIncludesOpaqueBars = NO;
-    self.view.backgroundColor = DDYColor(245, 245, 245, 1);
-    self.navigationController.navigationBar.barTintColor = DDYColor(247, 247, 247, 1);
+    self.view.backgroundColor = DDYRGBA(245, 245, 245, 1);
+    self.navigationController.navigationBar.barTintColor = DDYRGBA(247, 247, 247, 1);
 }
 
 - (UIScrollView *)bottomScrollView

@@ -2489,7 +2489,7 @@ Link_objSetValueForKey_(text)
         LinkHandle_REF(NSObject)
         LinkGroupHandle_REF(objPerformSelector, sel)
         if([_self respondsToSelector:sel]){
-            [_self performSelector:sel];
+            SuppressPerformSelectorLeakWarning([_self performSelector:sel]);
         }else{
             NSLog(@"LinkBlock:%@未能找到方法:%@",self,NSStringFromSelector(sel));
         }
@@ -2515,7 +2515,7 @@ Link_objSetValueForKey_(text)
         LinkHandle_REF(NSObject)
         LinkGroupHandle_REF(objPerformSelectorWithArg, sel , obj)
         if([_self respondsToSelector:sel]){
-            [_self performSelector:sel withObject:obj];
+            SuppressPerformSelectorLeakWarning([_self performSelector:sel withObject:obj];);
         }else{
             [[LinkError errorWithCustomDescription:[NSString stringWithFormat:@"%@不能响应方法:%@",_self,NSStringFromSelector(sel)]] logError];
         }
@@ -2544,7 +2544,7 @@ Link_objSetValueForKey_(text)
         if([self isKindOfClass:[LinkGroup class]]){
             LinkGroup* group = (LinkGroup*)self;
             if([group.linkObjects.firstObject respondsToSelector:sel]){
-                [group.linkObjects.firstObject performSelector:sel];
+                SuppressPerformSelectorLeakWarning([group.linkObjects.firstObject performSelector:sel];);
             }else{
                 [[LinkError errorWithCustomDescription:[NSString stringWithFormat:@"%@不能响应方法:%@",group.linkObjects.firstObject,NSStringFromSelector(sel)]] logError];
             }
@@ -2554,7 +2554,7 @@ Link_objSetValueForKey_(text)
             while ((parm = va_arg(args, SEL))) {
                 for (int i=1; i<group.linkObjects.count; i++) {
                     if([group.linkObjects[i] respondsToSelector:parm]){
-                        [group.linkObjects[i] performSelector:parm];
+                        SuppressPerformSelectorLeakWarning([group.linkObjects[i] performSelector:parm];);
                     }else{
                         [[LinkError errorWithCustomDescription:[NSString stringWithFormat:@"%@不能响应方法:%@",group.linkObjects[i],NSStringFromSelector(sel)]] logError];
                     }
@@ -2566,7 +2566,7 @@ Link_objSetValueForKey_(text)
         //LinkGroupHandle_VAL
         ///////////////////////
         if([_self respondsToSelector:sel]){
-            [_self performSelector:sel];
+            SuppressPerformSelectorLeakWarning([_self performSelector:sel];);
         }else{
             [[LinkError errorWithCustomDescription:[NSString stringWithFormat:@"%@不能响应方法:%@",self,NSStringFromSelector(sel)]] logError];
         }
@@ -2575,7 +2575,7 @@ Link_objSetValueForKey_(text)
         SEL parm;
         while ((parm = va_arg(args, SEL))) {
             if([_self respondsToSelector:parm]){
-                [_self performSelector:parm];
+                SuppressPerformSelectorLeakWarning([_self performSelector:parm];);
             }else{
                 [[LinkError errorWithCustomDescription:[NSString stringWithFormat:@"%@不能响应方法:%@",self,NSStringFromSelector(sel)]] logError];
             }

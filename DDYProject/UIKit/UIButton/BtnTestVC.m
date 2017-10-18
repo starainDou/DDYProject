@@ -30,7 +30,7 @@
     self.automaticallyAdjustsScrollViewInsets = NO;
     self.extendedLayoutIncludesOpaqueBars = NO;
     self.view.backgroundColor = [UIColor whiteColor];
-    self.view.backgroundColor = DDYColor(245, 245, 245, 1);
+    self.view.backgroundColor = DDYRGBA(245, 245, 245, 1);
 }
 
 - (void)setupButton

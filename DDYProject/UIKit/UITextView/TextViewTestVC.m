@@ -33,7 +33,7 @@
     self.automaticallyAdjustsScrollViewInsets = NO;
     self.extendedLayoutIncludesOpaqueBars = NO;
     self.view.backgroundColor = [UIColor whiteColor];
-    self.view.backgroundColor = DDYColor(245, 245, 245, 1);
+    self.view.backgroundColor = DDYRGBA(245, 245, 245, 1);
 }
 
 - (void)setupContentView
@@ -52,7 +52,7 @@
     
     _tipLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, _textView.ddy_bottom + 10, DDYSCREENW-10, 20)];
     _tipLabel.textAlignment = NSTextAlignmentRight;
-    _tipLabel.textColor = DDYColor(75, 222, 209, 1.0);
+    _tipLabel.textColor = DDYRGBA(75, 222, 209, 1.0);
     _tipLabel.font = DDYFont(11);
     _tipLabel.text = @"0/250";
     [bgView addSubview:_tipLabel];    
@@ -69,7 +69,7 @@
     }
     else
     {
-        _tipLabel.textColor = (_textView.text.length == 250)?[UIColor redColor]:DDYColor(75, 222, 209, 1.0);
+        _tipLabel.textColor = (_textView.text.length == 250)?[UIColor redColor]:DDYRGBA(75, 222, 209, 1.0);
     }
     
     _tipLabel.text = [NSString stringWithFormat:@"%lu%@",(unsigned long)_textView.text.length,@"/250"];

@@ -16,6 +16,8 @@
 #import "DDYCameraVC.h"
 #import "DDYWaterFallVC.h"
 #import "DDYWaveVC.h"
+#import "DDYPulseVC.h"
+#import "DDYRadarVC.h"
 
 @interface FirstVC ()<UITableViewDataSource, UITableViewDelegate, UIViewControllerPreviewingDelegate>
 
@@ -100,14 +102,17 @@
 {
     // 获取按压的cell所在行，[previewingContext sourceView]就是按压的那个视图
     NSIndexPath *indexPath = [_tableView indexPathForCell:(UITableViewCell* )[previewingContext sourceView]];
-    // 设定预览的界面
-    BtnTestVC *childVC = [[BtnTestVC alloc] init];
-    childVC.preferredContentSize = CGSizeMake(0.0f,500.0f);
-    // 调整不被虚化的范围，按压的那个cell不被虚化（轻轻按压时周边会被虚化，再少用力展示预览，再加力跳页至设定界面）
-    CGRect rect = CGRectMake(0, 0, DDYSCREENW,40);
-    previewingContext.sourceRect = rect;
-    // 返回预览界面
-    return childVC;
+    if (indexPath.section==0 && indexPath.row==0) {
+        // 设定预览的界面
+        BtnTestVC *childVC = [[BtnTestVC alloc] init];
+        childVC.preferredContentSize = CGSizeMake(0.0f, 500.0f);
+        // 调整不被虚化的范围，按压的那个cell不被虚化（轻轻按压时周边会被虚化，再少用力展示预览，再加力跳页至设定界面）
+        CGRect rect = CGRectMake(0, 0, DDYSCREENW,40);
+        previewingContext.sourceRect = rect;
+        // 返回预览界面
+        return childVC;
+    }
+    return nil;
 }
 
 #pragma mark Pop用力按则进入
@@ -126,6 +131,8 @@
     [self.dataArray addObject:@"DDYCameraVC"];
     [self.dataArray addObject:@"DDYWaterFallVC"];
     [self.dataArray addObject:@"DDYWaveVC"];
+    [self.dataArray addObject:@"DDYPulseVC"];
+    [self.dataArray addObject:@"DDYRadarVC"];
     
     dispatch_async(dispatch_get_main_queue(), ^{
         [self.tableView reloadData];

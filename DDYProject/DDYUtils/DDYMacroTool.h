@@ -20,11 +20,37 @@
 #define DDYKH(R) R*(DDYSCREENH)/667
 
 /** 自定义颜色和随机颜色 */
-#define DDYColor(r,g,b,a) [UIColor colorWithRed:(r)/255.0 green:(g)/255.0 blue:(b)/255.0 alpha:(a)]
+#define DDYColor(r,g,b,a) [UIColor colorWithRed:(r) green:(g) blue:(b) alpha:(a)]
 #define DDYRGBA(r,g,b,a) [UIColor colorWithRed:(r)/255.0 green:(g)/255.0 blue:(b)/255.0 alpha:(a)]
 #define DDYRandomColor [UIColor colorWithRed:arc4random_uniform(256)/255.0 green:arc4random_uniform(256)/255.0 blue:arc4random_uniform(256)/255.0 alpha:1.0] 
 #define DDYBackColor [UIColor colorWithRed:245/255.0 green:245/255.0 blue:245/255.0 alpha:1.0]
-#define APP_MAIN_COLOR DDYColor(63, 183, 198, 1)
+#define APP_MAIN_COLOR DDYRGBA(63, 183, 198, 1)
+// 深黑
+#define DDY_Big_Black [UIColor colorWithRed:50/255.0 green:50/255.0 blue:50/255.0 alpha:1.0]
+// 中黑
+#define DDY_Mid_Black [UIColor colorWithRed:100/255.0 green:100/255.0 blue:100/255.0 alpha:1.0]
+// 浅黑
+#define DDY_Small_Black [UIColor colorWithRed:150/255.0 green:150/255.0 blue:150/255.0 alpha:1.0]
+
+// 系统黑色 0.0 white
+#define DDY_Black [UIColor blackColor]
+// 系统白色 1.0 white
+#define DDY_White [UIColor whiteColor]
+// 系统浅灰 0.667 white
+#define DDY_LightGray [UIColor lightGrayColor]
+// 系统深灰 0.333 white
+#define DDY_DarkGray [UIColor darkGrayColor]
+// 系统灰色 0.5 white
+#define DDY_Gray [UIColor grayColor]
+// 系统红色 1.0, 0.0, 0.0 RGB
+#define DDY_Red [UIColor redColor]
+// 系统绿色 0.0, 1.0, 0.0 RGB
+#define DDY_Green [UIColor greenColor]
+// 系统蓝色 0.0, 0.0, 1.0 RGB
+#define DDY_Blue [UIColor blueColor]
+// 系统无色 0.0 white, 0.0 alpha
+#define DDY_ClearColor [UIColor clearColor]
+
 
 /** 字体 */
 #define DDYFont(f) [UIFont systemFontOfSize:(f)]
@@ -32,7 +58,15 @@
 
 /** 本地存储和通知中心 */
 #define DDYUserDefaults [NSUserDefaults standardUserDefaults]
+#define DDYUserDefaultsGet(key) [[NSUserDefaults standardUserDefaults] objectForKey:key]
+#define DDYUserDefaultsSet(objt, key) [[NSUserDefaults standardUserDefaults] setObject:objt forKey:key];
+
 #define DDYNotificationCenter [NSNotificationCenter defaultCenter]
+
+/** 排序规则 */
+#define DDYCollation [UILocalizedIndexedCollation currentCollation]
+/** 文件管理器 */
+#define DDYFileManager [NSFileManager defaultManager]
 
 /** 圆角和边框 */
 #define DDYBorderRadius(View, Radius, Width, Color)\
@@ -56,13 +90,9 @@
 
 /** 获取当前语言 */
 #define DDYCurrentLanguage ([[NSLocale preferredLanguages] objectAtIndex:0])
-/** 英汉双语 */
-#if TARGET_IPHONE_SIMULATOR
-#define DDYLocalStr(Chinese,English) [DDYCurrentLanguage isEqualToString:IOS_9_LATER?@"zh-Hans-US":@"zh-Hans"] ? Chinese : English
-#elif TARGET_OS_IPHONE
-#define DDYLocalStr(Chinese,English) [DDYCurrentLanguage isEqualToString:IOS_9_LATER?@"zh-Hans-CN":@"zh-Hans"] ? Chinese : English
-#endif
-
+/** 国际化 */
+#define DDYLocalStr(key)  [NSBundle.mainBundle localizedStringForKey:(key) value:@"" table:nil]
+#define DDYLocalStrFromTable(key, tbl)  [NSBundle.mainBundle localizedStringForKey:(key) value:@"" table:(tbl)]
 
 
 /**  常数 */
@@ -73,15 +103,18 @@
 #define MAS_SHORTHAND
 // 定义这个常量,以支持在 Masonry 语法中自动将基本类型转换为 object 类型:
 #define MAS_SHORTHAND_GLOBALS
+// 之后才 #import "Masonry.h"
 
 // 字符串格式化
 #define DDYStrFormat(s,...) [NSString stringWithFormat:s,##__VA_ARGS__]
 // Rect
 #define DDYRect(x,y,w,h) CGRectMake(x,y,w,h)
 // size
-#define LC_Size(w,h) CGSizeMake(w,h)
+#define DDYSize(w,h) CGSizeMake(w,h)
 // point
 #define DDYPoint(x,y) CGPointMake(x,y)
+// URLWithStr
+#define DDYURLStr(str) [NSURL URLWithString:str]
 
 // 处于开发阶段
 #ifdef DEBUG

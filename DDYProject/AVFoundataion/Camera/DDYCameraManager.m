@@ -284,14 +284,21 @@ static DDYCameraManager *_instance;
 - (void)ddy_StartRecord
 {
     NSTimeInterval timeNow = [[NSDate dateWithTimeIntervalSinceNow:0] timeIntervalSince1970];
-    NSString *path = [NSString stringWithFormat:@"%@ddy_%0.f_video.gif",NSTemporaryDirectory(),timeNow];
+    NSString *path = [NSString stringWithFormat:@"%@ddy_video.mov",NSTemporaryDirectory()];
     _videoURL = [NSURL fileURLWithPath:path];
+    [self setAssetWriterVideoInput];
+    [self setAssetWriterAudioInput];
+    [_assetWriter startWriting];
 }
 
 #pragma mark 结束录制视频
 - (void)ddy_StopRecord
 {
-    
+    [_assetWriter finishWritingWithCompletionHandler:^{
+        if (_assetWriter.status == AVAssetWriterStatusCompleted) {
+            DDYInfoLog(@"finish12222222");
+        }
+    }];
 }
 
 #pragma mark - Private methods
@@ -348,7 +355,7 @@ static DDYCameraManager *_instance;
 }
 
 #pragma mark 音频写入设置
-- (void)setupAssetWriterAudioInput
+- (void)setAssetWriterAudioInput
 {
     size_t aclSize = 0;
     const AudioStreamBasicDescription *audioASBD = CMAudioFormatDescriptionGetStreamBasicDescription(_audioFormatDescription);
@@ -372,5 +379,22 @@ static DDYCameraManager *_instance;
     // 采样频率 double sampleRate = audioASBD->mSampleRate;
 }
 
+#pragma mark - AVCaptureVideoDataOutputSampleBufferDelegate
+-(void)captureOutput:(AVCaptureOutput *)captureOutput didOutputSampleBuffer:(CMSampleBufferRef)sampleBuffer fromConnection:(AVCaptureConnection *)connection
+{
+    @autoreleasepool
+    {
+        if (captureOutput == _videoOutput)
+        {
+            CVPixelBufferRef imageBuffer = CMSampleBufferGetImageBuffer(sampleBuffer);
+            CMVideoFormatDescriptionRef formatDescription = CMSampleBufferGetFormatDescription(sampleBuffer);
+            _videoDimensions = CMVideoFormatDescriptionGetDimensions(formatDescription);
+        }
+        else
+        {
+            _audioFormatDescription = CMSampleBufferGetFormatDescription(sampleBuffer);
+        }
+    }
+}
 
 @end

@@ -21,7 +21,7 @@
     
     self.view.backgroundColor = [UIColor whiteColor];
 //    NSString *str = @"UIAlertView";
-    NSString *str = @"UITextField";
+    NSString *str = @"UIScrollView";
     
     [self getIvarListOfClass:str];
     

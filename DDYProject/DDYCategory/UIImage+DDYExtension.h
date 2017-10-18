@@ -47,5 +47,7 @@
 /** 改变亮度、饱和度、对比度 */
 + (UIImage *)changeImg:(UIImage *)img Bright:(CGFloat)b saturation:(CGFloat)s contrast:(CGFloat)c;
 
+/** 图片小圆角裁剪 */
+- (UIImage*)imageCornerRadius:(CGFloat)radius;
 
 @end

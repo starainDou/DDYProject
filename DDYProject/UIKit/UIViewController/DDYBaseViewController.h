@@ -12,21 +12,24 @@
 
 @property (nonatomic, assign) BOOL navigationBarBottomLineHidden;
 
+- (void)prepare;
+
+- (void)buildUI;
 
 /** 导航栏背景透明度设置 */
 - (void)setNavigationBackgroundAlpha:(CGFloat)alpha;
 
-/** defaultLeftButton */
-- (void)showLeftBarBtnDefault;
-
 /** leftButton */
 - (void)showLeftBarBtnWithTitle:(NSString *)title img:(UIImage *)img;
+
+/** defaultLeftButton */
+- (void)showBackBarBtnDefault;
 
 /** rightButton */
 - (void)showRightBarBtnWithTitle:(NSString *)title img:(UIImage *)img;
 
 /** leftButtonTouch */
-- (void)backBtnClick:(DDYButton *)button;
+- (void)leftBtnClick:(DDYButton *)button;
 
 /** rightButtonTouch */
 - (void)rightBtnClick:(DDYButton *)button;

@@ -46,9 +46,9 @@
 {
     CGFloat btnW = DDYSCREENW/3.0;
     
-    _firstBtn  = [DDYButton customDDYBtn].btnTitleN(@"第一个按钮").btnBgColor(DDYColor(245, 245, 245, 1)).btnTag(101);
-    _secondBtn = [DDYButton customDDYBtn].btnTitleN(@"第二个按钮").btnBgColor(DDYColor(245, 245, 245, 1)).btnTag(102);
-    _thirdBtn  = [DDYButton customDDYBtn].btnTitleN(@"第三个按钮").btnBgColor(DDYColor(245, 245, 245, 1)).btnTag(103);
+    _firstBtn  = [DDYButton customDDYBtn].btnTitleN(@"第一个按钮").btnBgColor(DDYRGBA(245, 245, 245, 1)).btnTag(101);
+    _secondBtn = [DDYButton customDDYBtn].btnTitleN(@"第二个按钮").btnBgColor(DDYRGBA(245, 245, 245, 1)).btnTag(102);
+    _thirdBtn  = [DDYButton customDDYBtn].btnTitleN(@"第三个按钮").btnBgColor(DDYRGBA(245, 245, 245, 1)).btnTag(103);
     _lineView  = UIViewNew.viewBGColor([UIColor redColor]).viewSetFrame(0, 240, btnW, 1);
     
     _firstBtn.btnFrame( 0*btnW, 200, btnW, 40).btnSuperView(self).btnTitleColorN([UIColor redColor]);

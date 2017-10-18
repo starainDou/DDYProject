@@ -18,5 +18,7 @@
 #import "NSString+DDYExtension.h"
 #import "NSDate+DDYExtension.h"
 #import "NSData+DDYExtension.h"
+#import "NSArray+DDYExtension.h"
+#import "NSBundle+DDYExtension.h"
 
 #endif

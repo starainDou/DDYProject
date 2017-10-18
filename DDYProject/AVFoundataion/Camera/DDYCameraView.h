@@ -52,5 +52,6 @@ typedef NS_ENUM(NSInteger, DDYFlashMode) {
 /** 点击拍照  block优先 */
 @property (nonatomic, copy) void (^takeBlock)();
 /** 录制事件  block优先 */
+@property (nonatomic, copy) void (^recordBlock)(BOOL startOrStop);
 
 @end

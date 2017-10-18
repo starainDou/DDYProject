@@ -14,5 +14,7 @@
 #import "DDYAuthorityMaster.h"
 #import "DDYEnumDefine.h"
 #import "DDYMotionManager.h"
+#import "DDYLanguageTool.h"
+#import "DDYFileTool.h"
 
 #endif

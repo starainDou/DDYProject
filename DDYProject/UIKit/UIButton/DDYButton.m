@@ -97,6 +97,11 @@
     [self.titleLabel sizeToFit];
 }
 
+- (void)setTextFont:(UIFont *)textFont {
+    _textFont = textFont;
+    self.titleLabel.font = _textFont;
+}
+
 + (instancetype)btnTitle:(NSString *)title img:(id)img target:(id)target action:(SEL)action tag:(NSInteger)tag
 {
     DDYButton *btn = [DDYButton customDDYBtn];

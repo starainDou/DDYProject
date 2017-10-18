@@ -314,4 +314,17 @@
     return myImage;
 }
 
+#pragma mark 图片小圆角裁剪
+- (UIImage*)imageCornerRadius:(CGFloat)radius {
+    // 半径小于0和大于短边/2.
+    radius = radius<0 ? 0 : (MIN(MIN(self.size.width, self.size.height)/2, radius));
+    CGRect imageFrame = CGRectMake(0., 0., self.size.width, self.size.height);
+    UIGraphicsBeginImageContextWithOptions(self.size, NO, [UIScreen mainScreen].scale);
+    [[UIBezierPath bezierPathWithRoundedRect:imageFrame cornerRadius:radius] addClip];
+    [self drawInRect:imageFrame];
+    UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    return image;
+}
+
 @end

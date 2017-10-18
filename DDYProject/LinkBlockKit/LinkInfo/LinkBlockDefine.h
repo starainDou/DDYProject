@@ -4,15 +4,21 @@
 #import <UIKit/UIKit.h>
 #import <QuartzCore/QuartzCore.h>
 
-/**
- 定义LinkBlock属性
- */
+/////////////////////////////////////////////////////////////////////
+// 忽略leak警告
+#define SuppressPerformSelectorLeakWarning(Stuff) \
+do { \
+_Pragma("clang diagnostic push") \
+_Pragma("clang diagnostic ignored \"-Warc-performSelector-leaks\"") \
+Stuff; \
+_Pragma("clang diagnostic pop") \
+} while (0)
+
+/** 定义LinkBlock属性  */
 #ifndef LBDeclare
 #define LBDeclare @property (nonatomic,copy,readonly)
 #endif
-/**
- 定义LinkBlock方法
- */
+/** 定义LinkBlock方法 */
 #ifndef LBDeclare_F
 #define LBDeclare_F @property (nonatomic,readonly)
 #endif

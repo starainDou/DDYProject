@@ -139,4 +139,47 @@
     return image;
 }
 
+#pragma mark - 添加手势
+#pragma mark 点击手势
+- (void)addTapTarget:(id)target action:(SEL)action {
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:target action:action];
+    [self addGestureRecognizer:tap];
+}
+
+#pragma mark 点击手势 + 代理
+- (void)addTapTarget:(id)target action:(SEL)action delegate:(id)delegate {
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:target action:action];
+    tap.delegate = delegate;
+    [self addGestureRecognizer:tap];
+}
+
+#pragma mark 点击手势 + 点击数
+- (void)addTapTarget:(id)target action:(SEL)action number:(NSInteger)number {
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:target action:action];
+    tap.numberOfTapsRequired = number;
+    [self addGestureRecognizer:tap];
+}
+
+#pragma mark 点击手势 + 点击数 + 代理
+- (void)addTapTarget:(id)target action:(SEL)action number:(NSInteger)number  delegate:(id)delegate {
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:target action:action];
+    tap.numberOfTapsRequired = number;
+    tap.delegate = delegate;
+    [self addGestureRecognizer:tap];
+}
+
+#pragma mark 长按手势
+- (void)addLongGestureTarget:(id)target action:(SEL)action {
+    UILongPressGestureRecognizer *longGes = [[UILongPressGestureRecognizer alloc]initWithTarget:target action:action];
+    [self addGestureRecognizer:longGes];
+}
+
+#pragma mark 长按手势 + 长按最短时间
+- (void)addLongGestureTarget:(id)target action:(SEL)action minDuration:(CFTimeInterval)minDuration {
+    self.userInteractionEnabled = YES;
+    UILongPressGestureRecognizer *longGes = [[UILongPressGestureRecognizer alloc]initWithTarget:target action:action];
+    longGes.minimumPressDuration = minDuration;
+    [self addGestureRecognizer:longGes];
+}
+
 @end

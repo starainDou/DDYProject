@@ -38,7 +38,7 @@
     CAShapeLayer *shapeLayer = [CAShapeLayer layer];
     shapeLayer.path = path;
     shapeLayer.fillRule = kCAFillRuleEvenOdd;
-    shapeLayer.fillColor = DDYColor(0, 0, 0, 0.6).CGColor;
+    shapeLayer.fillColor = DDYRGBA(0, 0, 0, 0.6).CGColor;
     [self.layer addSublayer:shapeLayer];
     
     // 四角Img

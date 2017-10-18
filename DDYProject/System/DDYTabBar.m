@@ -31,8 +31,8 @@
         UIButton *plusBtn = [UIButton buttonWithType:UIButtonTypeCustom];
         DDYBorderRadius(plusBtn, 66/2.0, 6, APP_MAIN_COLOR);
         
-        [plusBtn setBackgroundImage:[UIImage imageWithColor:DDYColor(255, 20, 20, 1.0) size:CGSizeMake(66, 66)] forState:UIControlStateNormal];
-        [plusBtn setBackgroundImage:[UIImage imageWithColor:DDYColor(135, 27, 21, 1.0) size:CGSizeMake(66, 66)] forState:UIControlStateHighlighted];
+        [plusBtn setBackgroundImage:[UIImage imageWithColor:DDYRGBA(255, 20, 20, 1.0) size:CGSizeMake(66, 66)] forState:UIControlStateNormal];
+        [plusBtn setBackgroundImage:[UIImage imageWithColor:DDYRGBA(135, 27, 21, 1.0) size:CGSizeMake(66, 66)] forState:UIControlStateHighlighted];
         plusBtn.ddy_size = plusBtn.currentBackgroundImage.size;
         [plusBtn addTarget:self action:@selector(plusBtnTouch:) forControlEvents:UIControlEventTouchUpInside];
         [self addSubview:plusBtn];

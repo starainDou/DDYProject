@@ -37,6 +37,7 @@
 #import <UIImageView+WebCache.h>
 #import <SVProgressHUD.h>
 #import <TZImagePickerController.h>
+#import "VoiceConverter.h"
 
 #endif
 

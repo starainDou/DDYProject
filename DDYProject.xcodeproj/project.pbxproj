@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4C08D8091F90ADAB0074872C /* DDYPulseVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C08D8011F90ADAB0074872C /* DDYPulseVC.m */; };
+		4C08D80A1F90ADAB0074872C /* DDYPulseView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C08D8031F90ADAB0074872C /* DDYPulseView.m */; };
+		4C08D80B1F90ADAB0074872C /* DDYRadarVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C08D8061F90ADAB0074872C /* DDYRadarVC.m */; };
+		4C08D80C1F90ADAB0074872C /* DDYRadarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C08D8081F90ADAB0074872C /* DDYRadarView.m */; };
+		4C08DA2B1F975D910074872C /* radarBg.png in Resources */ = {isa = PBXBuildFile; fileRef = 4C08DA2A1F975D8C0074872C /* radarBg.png */; };
 		4C2C0AB81F21B1B9002DD383 /* FirstVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C2C0AB71F21B1B9002DD383 /* FirstVC.m */; };
 		4C2C0ABB1F21B1CB002DD383 /* SecondVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C2C0ABA1F21B1CB002DD383 /* SecondVC.m */; };
 		4C2C0ABE1F21B1DE002DD383 /* ThirdVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C2C0ABD1F21B1DE002DD383 /* ThirdVC.m */; };
@@ -59,6 +64,14 @@
 		4C2DDA2B1F4D55870003E70F /* FilterTestVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C2DDA2A1F4D55870003E70F /* FilterTestVC.m */; };
 		4C2DDA2F1F4D5A1B0003E70F /* FilterImg.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 4C2DDA2E1F4D5A1B0003E70F /* FilterImg.jpg */; };
 		4C2DDA321F53CC580003E70F /* DDYCameraManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C2DDA311F53CC580003E70F /* DDYCameraManager.m */; };
+		4C3454D31F734AC200D28CBD /* DDYCirCleAnimationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C3454D21F734AC100D28CBD /* DDYCirCleAnimationView.m */; };
+		4C3454D61F734AFA00D28CBD /* DDYRadarAnimationVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C3454D51F734AFA00D28CBD /* DDYRadarAnimationVC.m */; };
+		4C3455151F7890CB00D28CBD /* NSArray+DDYExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C3455141F7890CB00D28CBD /* NSArray+DDYExtension.m */; };
+		4C34553F1F78E47F00D28CBD /* NSBundle+DDYExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C34553E1F78E47F00D28CBD /* NSBundle+DDYExtension.m */; };
+		4C3455421F78E4A700D28CBD /* DDYLanguageTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C3455411F78E4A700D28CBD /* DDYLanguageTool.m */; };
+		4C3455511F79E6E900D28CBD /* DDYTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C3455501F79E6E900D28CBD /* DDYTextField.m */; };
+		4C3455541F79E7A300D28CBD /* UITextField+DDYExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C3455531F79E7A300D28CBD /* UITextField+DDYExtension.m */; };
+		4C3455AF1F7CCD2A00D28CBD /* DDYAudioManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C3455AE1F7CCD2A00D28CBD /* DDYAudioManager.m */; };
 		4C3B0A121F43D50A009B51AC /* DDYCameraVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C3B0A111F43D50A009B51AC /* DDYCameraVC.m */; };
 		4C3B0A151F43D51B009B51AC /* DDYCameraView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C3B0A141F43D51B009B51AC /* DDYCameraView.m */; };
 		4C3B0A1B1F4539A1009B51AC /* DDYMotionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C3B0A1A1F4539A1009B51AC /* DDYMotionManager.m */; };
@@ -82,6 +95,11 @@
 		4CCF495B1F6BA8D900B2CE2F /* DDYProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CCF495A1F6BA8D900B2CE2F /* DDYProxy.m */; };
 		4CCF495E1F6BAA7400B2CE2F /* DDYWaveView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CCF495D1F6BAA7400B2CE2F /* DDYWaveView.m */; };
 		4CCF49611F6BC16A00B2CE2F /* DDYWaveVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CCF49601F6BC16A00B2CE2F /* DDYWaveVC.m */; };
+		4CDDEF2E1F8DC389005AEFBB /* amrFileCodec.mm in Sources */ = {isa = PBXBuildFile; fileRef = 4CDDEF221F8DC389005AEFBB /* amrFileCodec.mm */; };
+		4CDDEF2F1F8DC389005AEFBB /* libopencore-amrnb.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4CDDEF241F8DC389005AEFBB /* libopencore-amrnb.a */; };
+		4CDDEF301F8DC38A005AEFBB /* libopencore-amrwb.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4CDDEF251F8DC389005AEFBB /* libopencore-amrwb.a */; };
+		4CDDEF311F8DC38A005AEFBB /* VoiceConverter.mm in Sources */ = {isa = PBXBuildFile; fileRef = 4CDDEF2D1F8DC389005AEFBB /* VoiceConverter.mm */; };
+		4CDDEF341F8DCFCC005AEFBB /* DDYFileTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CDDEF331F8DCFCC005AEFBB /* DDYFileTool.m */; };
 		4CE1175D1F661B1B00783AA4 /* NSData+DDYExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CE1175C1F661B1B00783AA4 /* NSData+DDYExtension.m */; };
 		4CE11E7C1F677A9300783AA4 /* LocalAuthentication.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4CE11E7B1F677A9300783AA4 /* LocalAuthentication.framework */; };
 		4CE11F0A1F67B0C800783AA4 /* qrcode.png in Resources */ = {isa = PBXBuildFile; fileRef = 4CE11F081F67B0C800783AA4 /* qrcode.png */; };
@@ -126,6 +144,15 @@
 
 /* Begin PBXFileReference section */
 		17510B5DB9FF3210C5FA0DCE /* Pods-DDYProject.adhoc.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DDYProject.adhoc.xcconfig"; path = "Pods/Target Support Files/Pods-DDYProject/Pods-DDYProject.adhoc.xcconfig"; sourceTree = "<group>"; };
+		4C08D8001F90ADAB0074872C /* DDYPulseVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDYPulseVC.h; sourceTree = "<group>"; };
+		4C08D8011F90ADAB0074872C /* DDYPulseVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDYPulseVC.m; sourceTree = "<group>"; };
+		4C08D8021F90ADAB0074872C /* DDYPulseView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDYPulseView.h; sourceTree = "<group>"; };
+		4C08D8031F90ADAB0074872C /* DDYPulseView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDYPulseView.m; sourceTree = "<group>"; };
+		4C08D8051F90ADAB0074872C /* DDYRadarVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDYRadarVC.h; sourceTree = "<group>"; };
+		4C08D8061F90ADAB0074872C /* DDYRadarVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDYRadarVC.m; sourceTree = "<group>"; };
+		4C08D8071F90ADAB0074872C /* DDYRadarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDYRadarView.h; sourceTree = "<group>"; };
+		4C08D8081F90ADAB0074872C /* DDYRadarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDYRadarView.m; sourceTree = "<group>"; };
+		4C08DA2A1F975D8C0074872C /* radarBg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = radarBg.png; sourceTree = "<group>"; };
 		4C2C0AB61F21B1B9002DD383 /* FirstVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FirstVC.h; sourceTree = "<group>"; };
 		4C2C0AB71F21B1B9002DD383 /* FirstVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FirstVC.m; sourceTree = "<group>"; };
 		4C2C0AB91F21B1CA002DD383 /* SecondVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SecondVC.h; sourceTree = "<group>"; };
@@ -232,6 +259,22 @@
 		4C2DDA2E1F4D5A1B0003E70F /* FilterImg.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = FilterImg.jpg; sourceTree = "<group>"; };
 		4C2DDA301F53CC570003E70F /* DDYCameraManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDYCameraManager.h; sourceTree = "<group>"; };
 		4C2DDA311F53CC580003E70F /* DDYCameraManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDYCameraManager.m; sourceTree = "<group>"; };
+		4C3454D11F734AC100D28CBD /* DDYCirCleAnimationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDYCirCleAnimationView.h; sourceTree = "<group>"; };
+		4C3454D21F734AC100D28CBD /* DDYCirCleAnimationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDYCirCleAnimationView.m; sourceTree = "<group>"; };
+		4C3454D41F734AFA00D28CBD /* DDYRadarAnimationVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDYRadarAnimationVC.h; sourceTree = "<group>"; };
+		4C3454D51F734AFA00D28CBD /* DDYRadarAnimationVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDYRadarAnimationVC.m; sourceTree = "<group>"; };
+		4C3455131F7890CA00D28CBD /* NSArray+DDYExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+DDYExtension.h"; sourceTree = "<group>"; };
+		4C3455141F7890CB00D28CBD /* NSArray+DDYExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+DDYExtension.m"; sourceTree = "<group>"; };
+		4C34553D1F78E47F00D28CBD /* NSBundle+DDYExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSBundle+DDYExtension.h"; sourceTree = "<group>"; };
+		4C34553E1F78E47F00D28CBD /* NSBundle+DDYExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSBundle+DDYExtension.m"; sourceTree = "<group>"; };
+		4C3455401F78E4A700D28CBD /* DDYLanguageTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDYLanguageTool.h; sourceTree = "<group>"; };
+		4C3455411F78E4A700D28CBD /* DDYLanguageTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDYLanguageTool.m; sourceTree = "<group>"; };
+		4C34554F1F79E6E900D28CBD /* DDYTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDYTextField.h; sourceTree = "<group>"; };
+		4C3455501F79E6E900D28CBD /* DDYTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDYTextField.m; sourceTree = "<group>"; };
+		4C3455521F79E7A300D28CBD /* UITextField+DDYExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITextField+DDYExtension.h"; sourceTree = "<group>"; };
+		4C3455531F79E7A300D28CBD /* UITextField+DDYExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITextField+DDYExtension.m"; sourceTree = "<group>"; };
+		4C3455AD1F7CCD2A00D28CBD /* DDYAudioManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDYAudioManager.h; sourceTree = "<group>"; };
+		4C3455AE1F7CCD2A00D28CBD /* DDYAudioManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDYAudioManager.m; sourceTree = "<group>"; };
 		4C3B0A101F43D50A009B51AC /* DDYCameraVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDYCameraVC.h; sourceTree = "<group>"; };
 		4C3B0A111F43D50A009B51AC /* DDYCameraVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDYCameraVC.m; sourceTree = "<group>"; };
 		4C3B0A131F43D51B009B51AC /* DDYCameraView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDYCameraView.h; sourceTree = "<group>"; };
@@ -278,6 +321,18 @@
 		4CCF495D1F6BAA7400B2CE2F /* DDYWaveView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDYWaveView.m; sourceTree = "<group>"; };
 		4CCF495F1F6BC16A00B2CE2F /* DDYWaveVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDYWaveVC.h; sourceTree = "<group>"; };
 		4CCF49601F6BC16A00B2CE2F /* DDYWaveVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDYWaveVC.m; sourceTree = "<group>"; };
+		4CDDEF211F8DC389005AEFBB /* amrFileCodec.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = amrFileCodec.h; sourceTree = "<group>"; };
+		4CDDEF221F8DC389005AEFBB /* amrFileCodec.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = amrFileCodec.mm; sourceTree = "<group>"; };
+		4CDDEF241F8DC389005AEFBB /* libopencore-amrnb.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "libopencore-amrnb.a"; sourceTree = "<group>"; };
+		4CDDEF251F8DC389005AEFBB /* libopencore-amrwb.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "libopencore-amrwb.a"; sourceTree = "<group>"; };
+		4CDDEF271F8DC389005AEFBB /* interf_dec.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = interf_dec.h; sourceTree = "<group>"; };
+		4CDDEF281F8DC389005AEFBB /* interf_enc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = interf_enc.h; sourceTree = "<group>"; };
+		4CDDEF2A1F8DC389005AEFBB /* dec_if.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = dec_if.h; sourceTree = "<group>"; };
+		4CDDEF2B1F8DC389005AEFBB /* if_rom.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = if_rom.h; sourceTree = "<group>"; };
+		4CDDEF2C1F8DC389005AEFBB /* VoiceConverter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VoiceConverter.h; sourceTree = "<group>"; };
+		4CDDEF2D1F8DC389005AEFBB /* VoiceConverter.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = VoiceConverter.mm; sourceTree = "<group>"; };
+		4CDDEF321F8DCFCC005AEFBB /* DDYFileTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDYFileTool.h; sourceTree = "<group>"; };
+		4CDDEF331F8DCFCC005AEFBB /* DDYFileTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDYFileTool.m; sourceTree = "<group>"; };
 		4CE1175B1F661B1B00783AA4 /* NSData+DDYExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+DDYExtension.h"; sourceTree = "<group>"; };
 		4CE1175C1F661B1B00783AA4 /* NSData+DDYExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+DDYExtension.m"; sourceTree = "<group>"; };
 		4CE11E7B1F677A9300783AA4 /* LocalAuthentication.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = LocalAuthentication.framework; path = System/Library/Frameworks/LocalAuthentication.framework; sourceTree = SDKROOT; };
@@ -342,9 +397,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				4CE11E7C1F677A9300783AA4 /* LocalAuthentication.framework in Frameworks */,
+				4CDDEF2F1F8DC389005AEFBB /* libopencore-amrnb.a in Frameworks */,
 				4C2DDA041F4C1BD00003E70F /* Foundation.framework in Frameworks */,
 				AB318A061D801F15005600E1 /* MobileCoreServices.framework in Frameworks */,
 				AB3056F31D7676E40061FD12 /* CoreGraphics.framework in Frameworks */,
+				4CDDEF301F8DC38A005AEFBB /* libopencore-amrwb.a in Frameworks */,
 				C90B47B0D0AD0BE8AC6F1C5F /* libPods-DDYProject.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -359,6 +416,28 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4C08D7FF1F90ADAB0074872C /* PulseView */ = {
+			isa = PBXGroup;
+			children = (
+				4C08D8001F90ADAB0074872C /* DDYPulseVC.h */,
+				4C08D8011F90ADAB0074872C /* DDYPulseVC.m */,
+				4C08D8021F90ADAB0074872C /* DDYPulseView.h */,
+				4C08D8031F90ADAB0074872C /* DDYPulseView.m */,
+			);
+			path = PulseView;
+			sourceTree = "<group>";
+		};
+		4C08D8041F90ADAB0074872C /* RadarView */ = {
+			isa = PBXGroup;
+			children = (
+				4C08D8051F90ADAB0074872C /* DDYRadarVC.h */,
+				4C08D8061F90ADAB0074872C /* DDYRadarVC.m */,
+				4C08D8071F90ADAB0074872C /* DDYRadarView.h */,
+				4C08D8081F90ADAB0074872C /* DDYRadarView.m */,
+			);
+			path = RadarView;
+			sourceTree = "<group>";
+		};
 		4C2C0AC61F21D3B4002DD383 /* LinkBlockKit */ = {
 			isa = PBXGroup;
 			children = (
@@ -484,6 +563,7 @@
 		4C2C0B461F21D6CD002DD383 /* ThirdParty */ = {
 			isa = PBXGroup;
 			children = (
+				4CDDEF1F1F8DC389005AEFBB /* VoiceConvert */,
 			);
 			path = ThirdParty;
 			sourceTree = "<group>";
@@ -498,6 +578,7 @@
 				4C2C0B491F21DA1B002DD383 /* UIButton */,
 				4CB156EE1F3D84F40086ED58 /* UIViewController */,
 				4C2DD9FA1F4A90940003E70F /* UIView */,
+				4C34554E1F79E6E900D28CBD /* UITextField */,
 			);
 			path = UIKit;
 			sourceTree = "<group>";
@@ -518,6 +599,9 @@
 		4C2DD9FA1F4A90940003E70F /* UIView */ = {
 			isa = PBXGroup;
 			children = (
+				4C08D7FF1F90ADAB0074872C /* PulseView */,
+				4C08D8041F90ADAB0074872C /* RadarView */,
+				4C3454D01F734AC100D28CBD /* RadarAnimationView */,
 				4CCF49581F6BA85E00B2CE2F /* WaveView */,
 				4C2DD9FB1F4A90B60003E70F /* AuthCode */,
 			);
@@ -543,9 +627,39 @@
 			path = Filter;
 			sourceTree = "<group>";
 		};
+		4C3454D01F734AC100D28CBD /* RadarAnimationView */ = {
+			isa = PBXGroup;
+			children = (
+				4C3454D11F734AC100D28CBD /* DDYCirCleAnimationView.h */,
+				4C3454D21F734AC100D28CBD /* DDYCirCleAnimationView.m */,
+				4C3454D41F734AFA00D28CBD /* DDYRadarAnimationVC.h */,
+				4C3454D51F734AFA00D28CBD /* DDYRadarAnimationVC.m */,
+			);
+			path = RadarAnimationView;
+			sourceTree = "<group>";
+		};
+		4C34554E1F79E6E900D28CBD /* UITextField */ = {
+			isa = PBXGroup;
+			children = (
+				4C34554F1F79E6E900D28CBD /* DDYTextField.h */,
+				4C3455501F79E6E900D28CBD /* DDYTextField.m */,
+			);
+			path = UITextField;
+			sourceTree = "<group>";
+		};
+		4C3455AC1F7CCD0C00D28CBD /* Audio */ = {
+			isa = PBXGroup;
+			children = (
+				4C3455AD1F7CCD2A00D28CBD /* DDYAudioManager.h */,
+				4C3455AE1F7CCD2A00D28CBD /* DDYAudioManager.m */,
+			);
+			path = Audio;
+			sourceTree = "<group>";
+		};
 		4C3B09AE1F4141EE009B51AC /* AVFoundataion */ = {
 			isa = PBXGroup;
 			children = (
+				4C3455AC1F7CCD0C00D28CBD /* Audio */,
 				4C3B0A0F1F43D4E6009B51AC /* Camera */,
 			);
 			path = AVFoundataion;
@@ -567,6 +681,7 @@
 		4CB156E71F3D829F0086ED58 /* icon */ = {
 			isa = PBXGroup;
 			children = (
+				4C08DA2A1F975D8C0074872C /* radarBg.png */,
 				4CE11F081F67B0C800783AA4 /* qrcode.png */,
 				4CB156F41F3D88BE0086ED58 /* back_white.png */,
 				4CB156F21F3D875F0086ED58 /* back_black.png */,
@@ -694,6 +809,55 @@
 			path = WaveView;
 			sourceTree = "<group>";
 		};
+		4CDDEF1F1F8DC389005AEFBB /* VoiceConvert */ = {
+			isa = PBXGroup;
+			children = (
+				4CDDEF201F8DC389005AEFBB /* amrwapper */,
+				4CDDEF231F8DC389005AEFBB /* lib */,
+				4CDDEF261F8DC389005AEFBB /* opencore-amrnb */,
+				4CDDEF291F8DC389005AEFBB /* opencore-amrwb */,
+				4CDDEF2C1F8DC389005AEFBB /* VoiceConverter.h */,
+				4CDDEF2D1F8DC389005AEFBB /* VoiceConverter.mm */,
+			);
+			path = VoiceConvert;
+			sourceTree = "<group>";
+		};
+		4CDDEF201F8DC389005AEFBB /* amrwapper */ = {
+			isa = PBXGroup;
+			children = (
+				4CDDEF211F8DC389005AEFBB /* amrFileCodec.h */,
+				4CDDEF221F8DC389005AEFBB /* amrFileCodec.mm */,
+			);
+			path = amrwapper;
+			sourceTree = "<group>";
+		};
+		4CDDEF231F8DC389005AEFBB /* lib */ = {
+			isa = PBXGroup;
+			children = (
+				4CDDEF241F8DC389005AEFBB /* libopencore-amrnb.a */,
+				4CDDEF251F8DC389005AEFBB /* libopencore-amrwb.a */,
+			);
+			path = lib;
+			sourceTree = "<group>";
+		};
+		4CDDEF261F8DC389005AEFBB /* opencore-amrnb */ = {
+			isa = PBXGroup;
+			children = (
+				4CDDEF271F8DC389005AEFBB /* interf_dec.h */,
+				4CDDEF281F8DC389005AEFBB /* interf_enc.h */,
+			);
+			path = "opencore-amrnb";
+			sourceTree = "<group>";
+		};
+		4CDDEF291F8DC389005AEFBB /* opencore-amrwb */ = {
+			isa = PBXGroup;
+			children = (
+				4CDDEF2A1F8DC389005AEFBB /* dec_if.h */,
+				4CDDEF2B1F8DC389005AEFBB /* if_rom.h */,
+			);
+			path = "opencore-amrwb";
+			sourceTree = "<group>";
+		};
 		4CE121EC1F68E46700783AA4 /* UICollectionView */ = {
 			isa = PBXGroup;
 			children = (
@@ -756,6 +920,8 @@
 			isa = PBXGroup;
 			children = (
 				4C3B0A1C1F4539ED009B51AC /* DDYUtilsHeader.h */,
+				4CDDEF321F8DCFCC005AEFBB /* DDYFileTool.h */,
+				4CDDEF331F8DCFCC005AEFBB /* DDYFileTool.m */,
 				4C2C0AC51F21B867002DD383 /* DDYMacroTool.h */,
 				4C3B0A191F4539A1009B51AC /* DDYMotionManager.h */,
 				4C3B0A1A1F4539A1009B51AC /* DDYMotionManager.m */,
@@ -765,6 +931,8 @@
 				AB9239321DC7493100143248 /* DDYAuthorityMaster.m */,
 				4CBE4EBD1F2997350006B84E /* DDYEnumDefine.h */,
 				4CBE4EBE1F2997350006B84E /* DDYEnumDefine.m */,
+				4C3455401F78E4A700D28CBD /* DDYLanguageTool.h */,
+				4C3455411F78E4A700D28CBD /* DDYLanguageTool.m */,
 			);
 			path = DDYUtils;
 			sourceTree = "<group>";
@@ -866,6 +1034,12 @@
 				ABF998B91D893EDB00D41CDE /* UILabel+DDYExtension.m */,
 				4C2C0AC21F21B5BB002DD383 /* UIViewController+DDYExtension.h */,
 				4C2C0AC31F21B5BB002DD383 /* UIViewController+DDYExtension.m */,
+				4C3455131F7890CA00D28CBD /* NSArray+DDYExtension.h */,
+				4C3455141F7890CB00D28CBD /* NSArray+DDYExtension.m */,
+				4C34553D1F78E47F00D28CBD /* NSBundle+DDYExtension.h */,
+				4C34553E1F78E47F00D28CBD /* NSBundle+DDYExtension.m */,
+				4C3455521F79E7A300D28CBD /* UITextField+DDYExtension.h */,
+				4C3455531F79E7A300D28CBD /* UITextField+DDYExtension.m */,
 			);
 			path = DDYCategory;
 			sourceTree = "<group>";
@@ -1003,6 +1177,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				ABCB97D41D727540000DEBEF /* Info.plist in Resources */,
+				4C08DA2B1F975D910074872C /* radarBg.png in Resources */,
 				4CB156F51F3D88BE0086ED58 /* back_white.png in Resources */,
 				ABCB97AE1D71D063000DEBEF /* LaunchScreen.storyboard in Resources */,
 				ABCB97AB1D71D063000DEBEF /* Assets.xcassets in Resources */,
@@ -1076,11 +1251,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				4C2C0B1F1F21D483002DD383 /* JSManagedValue+LinkBlock.m in Sources */,
+				4C3455511F79E6E900D28CBD /* DDYTextField.m in Sources */,
 				4C2C0B421F21D483002DD383 /* UITextView+LinkBlock.m in Sources */,
 				4C2C0B321F21D483002DD383 /* LinkInfo.m in Sources */,
 				4C2C0B221F21D483002DD383 /* NSAttributedString+LinkBlock.m in Sources */,
+				4C34553F1F78E47F00D28CBD /* NSBundle+DDYExtension.m in Sources */,
 				4C2C0B3F1F21D483002DD383 /* UISearchBar+LinkBlock.m in Sources */,
 				ABCB98131D72C662000DEBEF /* DDYTabBarController.m in Sources */,
+				4C3455151F7890CB00D28CBD /* NSArray+DDYExtension.m in Sources */,
 				4CCF495B1F6BA8D900B2CE2F /* DDYProxy.m in Sources */,
 				4C2C0B1E1F21D483002DD383 /* JSContext+LinkBlock.m in Sources */,
 				4C3B0A121F43D50A009B51AC /* DDYCameraVC.m in Sources */,
@@ -1097,6 +1275,7 @@
 				4C2C0B2E1F21D483002DD383 /* NSValue+LinkBlock.m in Sources */,
 				4C2C0AC11F21B208002DD383 /* FourthVC.m in Sources */,
 				4C2C0B2D1F21D483002DD383 /* NSURL+LinkBlock.m in Sources */,
+				4C08D80B1F90ADAB0074872C /* DDYRadarVC.m in Sources */,
 				AB50E0271D7A7C6500DE9061 /* NSDate+DDYExtension.m in Sources */,
 				4C2DDA2B1F4D55870003E70F /* FilterTestVC.m in Sources */,
 				AB5199D91DD5EEE400E864DA /* UIView+DDYAnimation.m in Sources */,
@@ -1111,6 +1290,7 @@
 				4CBE4E7B1F271A590006B84E /* RuntimeVC.m in Sources */,
 				4C2C0B341F21D483002DD383 /* CAAnimations+LinkBlock.m in Sources */,
 				4C2C0B371F21D483002DD383 /* UIBezierPath+LinkBlock.m in Sources */,
+				4C3454D31F734AC200D28CBD /* DDYCirCleAnimationView.m in Sources */,
 				4C2DDA071F4C20B60003E70F /* keccak.c in Sources */,
 				4C2DD9FE1F4A91740003E70F /* AuthCodeView.m in Sources */,
 				4CBE4EBF1F2997350006B84E /* DDYEnumDefine.m in Sources */,
@@ -1128,12 +1308,15 @@
 				4C2C0B331F21D483002DD383 /* LinkReturn.m in Sources */,
 				4C2C0B431F21D483002DD383 /* UIView+LinkBlock.m in Sources */,
 				4C2C0B251F21D483002DD383 /* NSError+LinkBlock.m in Sources */,
+				4CDDEF311F8DC38A005AEFBB /* VoiceConverter.mm in Sources */,
 				4C3B0A151F43D51B009B51AC /* DDYCameraView.m in Sources */,
 				4C3B0A1B1F4539A1009B51AC /* DDYMotionManager.m in Sources */,
 				4C2C0B271F21D483002DD383 /* NSMutableAttributedString+LinkBlock.m in Sources */,
+				4C08D8091F90ADAB0074872C /* DDYPulseVC.m in Sources */,
 				4C2C0B241F21D483002DD383 /* NSDictionary+LinkBlock.m in Sources */,
 				4C2C0AB81F21B1B9002DD383 /* FirstVC.m in Sources */,
 				4C2C0B381F21D483002DD383 /* UIButton+LinkBlock.m in Sources */,
+				4C3454D61F734AFA00D28CBD /* DDYRadarAnimationVC.m in Sources */,
 				4CB156CB1F3960370086ED58 /* DDYQRCodeManager.m in Sources */,
 				4C2C0B311F21D483002DD383 /* LinkGroup.m in Sources */,
 				4C2C0B2B1F21D483002DD383 /* NSObject+LinkBlock.m in Sources */,
@@ -1148,17 +1331,24 @@
 				ABCB97E31D727F76000DEBEF /* UIButton+DDYStyle.m in Sources */,
 				4C2C0B391F21D483002DD383 /* UIColor+LinkBlock.m in Sources */,
 				ABCB980D1D72C248000DEBEF /* DDYTabBar.m in Sources */,
+				4CDDEF341F8DCFCC005AEFBB /* DDYFileTool.m in Sources */,
 				4CE121F01F68E56300783AA4 /* DDYWaterfallLayout.m in Sources */,
 				4C2C0B3E1F21D483002DD383 /* UIScrollView+LinkBlock.m in Sources */,
+				4C3455421F78E4A700D28CBD /* DDYLanguageTool.m in Sources */,
+				4C3455541F79E7A300D28CBD /* UITextField+DDYExtension.m in Sources */,
 				4CBE4E6B1F21FB970006B84E /* BtnTestVC.m in Sources */,
+				4C08D80A1F90ADAB0074872C /* DDYPulseView.m in Sources */,
 				4C2C0B441F21D483002DD383 /* UIViewController+LinkBlock.m in Sources */,
 				4C2C0B351F21D483002DD383 /* CALayer+LinkBlock.m in Sources */,
 				4C2C0B3C1F21D483002DD383 /* UIImageView+LinkBlock.m in Sources */,
 				AB3056E01D74379D0061FD12 /* Foundation+Log.m in Sources */,
 				4C2C0B361F21D483002DD383 /* CAShapeLayer+LinkBlock.m in Sources */,
 				4C2C0B451F21D483002DD383 /* UIWebView+LinkBlock.m in Sources */,
+				4CDDEF2E1F8DC389005AEFBB /* amrFileCodec.mm in Sources */,
+				4C08D80C1F90ADAB0074872C /* DDYRadarView.m in Sources */,
 				4CCF49611F6BC16A00B2CE2F /* DDYWaveVC.m in Sources */,
 				ABCB97E41D727F76000DEBEF /* UIColor+DDYExtension.m in Sources */,
+				4C3455AF1F7CCD2A00D28CBD /* DDYAudioManager.m in Sources */,
 				4C2C0B411F21D483002DD383 /* UITextField+LinkBlock.m in Sources */,
 				4C2C0B2C1F21D483002DD383 /* NSString+LinkBlock.m in Sources */,
 				4CBE4EA01F286E900006B84E /* TableTopHeaderView.m in Sources */,
@@ -1244,10 +1434,15 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = 9T6H29BRJ5;
+				ENABLE_BITCODE = NO;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/DDYProject/DDYPrefixHeader.pch";
 				INFOPLIST_FILE = DDYProject/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/DDYProject/ThirdParty/VoiceConvert/lib",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = im.status.ethereum;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
@@ -1355,10 +1550,15 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = 9T6H29BRJ5;
+				ENABLE_BITCODE = NO;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/DDYProject/DDYPrefixHeader.pch";
 				INFOPLIST_FILE = DDYProject/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/DDYProject/ThirdParty/VoiceConvert/lib",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = im.status.ethereum;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
@@ -1374,10 +1574,15 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = 9T6H29BRJ5;
+				ENABLE_BITCODE = NO;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/DDYProject/DDYPrefixHeader.pch";
 				INFOPLIST_FILE = DDYProject/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/DDYProject/ThirdParty/VoiceConvert/lib",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = im.status.ethereum;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";

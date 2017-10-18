@@ -43,9 +43,9 @@ static NSString *FootID = @"DDYWaterFallFootID";
     DDYWaterfallLayout *layout = [[DDYWaterfallLayout alloc] init];
     layout.itemRenderDirection = DDYWaterfallDirectionShortestFirst;
     layout.headerHeight = 44;
-    layout.columnCount = 3;
-    layout.minimumColumnSpacing = 10;
-    layout.minimumInteritemSpacing = 10;
+//    layout.columnCount = 3;
+//    layout.minimumColumnSpacing = 10;
+//    layout.minimumInteritemSpacing = 10;
     layout.sectionInset = UIEdgeInsetsMake(10, 10, 10, 10);
     
     _collectionView = [[UICollectionView alloc] initWithFrame:DDYRect(0, 64, DDYSCREENW, DDYSCREENH-64) collectionViewLayout:layout];
@@ -100,7 +100,7 @@ static NSString *FootID = @"DDYWaterFallFootID";
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
     NSArray *itemArray = self.dataArray[indexPath.section];
     NSString *heightStr = DDYStrFormat(@"%@",itemArray[indexPath.row]);
-    return CGSizeMake((DDYSCREENW-40)/3.0, [heightStr floatValue]);
+    return CGSizeMake([heightStr floatValue], [heightStr floatValue]);
 }
 
 - (void)loadData {

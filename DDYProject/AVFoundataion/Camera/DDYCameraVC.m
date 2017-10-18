@@ -65,6 +65,7 @@
     cameraView.backBlock = ^() { [self handleBack]; };
     cameraView.toggleBlock = ^() { [self handleToggle]; };
     cameraView.takeBlock = ^() { [self handleTake]; };
+    cameraView.recordBlock = ^(BOOL startOrStop) { startOrStop ? [self startRecod] : [self stopRecord]; };
 }
 
 #pragma mark - 事件响应
@@ -83,6 +84,16 @@
 #pragma mark 拍照
 - (void)handleTake {
     [_cameraManager ddy_TakePhotos];
+}
+
+#pragma mark 长按录制
+- (void)startRecod {
+    [_cameraManager ddy_StartRecord];
+}
+
+#pragma mark 录制结束
+- (void)stopRecord {
+    [_cameraManager ddy_StopRecord];
 }
 
 #pragma mark - 控制旋转屏幕
