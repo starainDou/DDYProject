@@ -12,6 +12,14 @@
 		4C08D80B1F90ADAB0074872C /* DDYRadarVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C08D8061F90ADAB0074872C /* DDYRadarVC.m */; };
 		4C08D80C1F90ADAB0074872C /* DDYRadarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C08D8081F90ADAB0074872C /* DDYRadarView.m */; };
 		4C08DA2B1F975D910074872C /* radarBg.png in Resources */ = {isa = PBXBuildFile; fileRef = 4C08DA2A1F975D8C0074872C /* radarBg.png */; };
+		4C08DDC11FA868350074872C /* TestVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C08DDC01FA868350074872C /* TestVC.m */; };
+		4C1FE0351FB3E81900BC28E1 /* DDYGroupHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C1FE0341FB3E81900BC28E1 /* DDYGroupHeader.m */; };
+		4C1FE0381FB4038100BC28E1 /* DDYGroupHeaderVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C1FE0371FB4038100BC28E1 /* DDYGroupHeaderVC.m */; };
+		4C1FE03E1FB405C100BC28E1 /* 0.png in Resources */ = {isa = PBXBuildFile; fileRef = 4C1FE0391FB405C100BC28E1 /* 0.png */; };
+		4C1FE03F1FB405C100BC28E1 /* 1.png in Resources */ = {isa = PBXBuildFile; fileRef = 4C1FE03A1FB405C100BC28E1 /* 1.png */; };
+		4C1FE0401FB405C100BC28E1 /* 2.png in Resources */ = {isa = PBXBuildFile; fileRef = 4C1FE03B1FB405C100BC28E1 /* 2.png */; };
+		4C1FE0411FB405C100BC28E1 /* 3.png in Resources */ = {isa = PBXBuildFile; fileRef = 4C1FE03C1FB405C100BC28E1 /* 3.png */; };
+		4C1FE0421FB405C100BC28E1 /* 4.png in Resources */ = {isa = PBXBuildFile; fileRef = 4C1FE03D1FB405C100BC28E1 /* 4.png */; };
 		4C2C0AB81F21B1B9002DD383 /* FirstVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C2C0AB71F21B1B9002DD383 /* FirstVC.m */; };
 		4C2C0ABB1F21B1CB002DD383 /* SecondVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C2C0ABA1F21B1CB002DD383 /* SecondVC.m */; };
 		4C2C0ABE1F21B1DE002DD383 /* ThirdVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C2C0ABD1F21B1DE002DD383 /* ThirdVC.m */; };
@@ -75,6 +83,7 @@
 		4C3B0A121F43D50A009B51AC /* DDYCameraVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C3B0A111F43D50A009B51AC /* DDYCameraVC.m */; };
 		4C3B0A151F43D51B009B51AC /* DDYCameraView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C3B0A141F43D51B009B51AC /* DDYCameraView.m */; };
 		4C3B0A1B1F4539A1009B51AC /* DDYMotionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C3B0A1A1F4539A1009B51AC /* DDYMotionManager.m */; };
+		4C91D9281FBDA78A00D60018 /* DDYHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C91D9271FBDA78A00D60018 /* DDYHeader.m */; };
 		4CB156CB1F3960370086ED58 /* DDYQRCodeManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CB156CA1F3960370086ED58 /* DDYQRCodeManager.m */; };
 		4CB156CE1F399BD00086ED58 /* DDYQRCodeVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CB156CD1F399BD00086ED58 /* DDYQRCodeVC.m */; };
 		4CB156D11F399BEC0086ED58 /* DDYQRCodeScanView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CB156D01F399BEC0086ED58 /* DDYQRCodeScanView.m */; };
@@ -153,6 +162,17 @@
 		4C08D8071F90ADAB0074872C /* DDYRadarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDYRadarView.h; sourceTree = "<group>"; };
 		4C08D8081F90ADAB0074872C /* DDYRadarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDYRadarView.m; sourceTree = "<group>"; };
 		4C08DA2A1F975D8C0074872C /* radarBg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = radarBg.png; sourceTree = "<group>"; };
+		4C08DDBF1FA868350074872C /* TestVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestVC.h; sourceTree = "<group>"; };
+		4C08DDC01FA868350074872C /* TestVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestVC.m; sourceTree = "<group>"; };
+		4C1FE0331FB3E81900BC28E1 /* DDYGroupHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDYGroupHeader.h; sourceTree = "<group>"; };
+		4C1FE0341FB3E81900BC28E1 /* DDYGroupHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDYGroupHeader.m; sourceTree = "<group>"; };
+		4C1FE0361FB4038100BC28E1 /* DDYGroupHeaderVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDYGroupHeaderVC.h; sourceTree = "<group>"; };
+		4C1FE0371FB4038100BC28E1 /* DDYGroupHeaderVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDYGroupHeaderVC.m; sourceTree = "<group>"; };
+		4C1FE0391FB405C100BC28E1 /* 0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 0.png; sourceTree = "<group>"; };
+		4C1FE03A1FB405C100BC28E1 /* 1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 1.png; sourceTree = "<group>"; };
+		4C1FE03B1FB405C100BC28E1 /* 2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 2.png; sourceTree = "<group>"; };
+		4C1FE03C1FB405C100BC28E1 /* 3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 3.png; sourceTree = "<group>"; };
+		4C1FE03D1FB405C100BC28E1 /* 4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 4.png; sourceTree = "<group>"; };
 		4C2C0AB61F21B1B9002DD383 /* FirstVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FirstVC.h; sourceTree = "<group>"; };
 		4C2C0AB71F21B1B9002DD383 /* FirstVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FirstVC.m; sourceTree = "<group>"; };
 		4C2C0AB91F21B1CA002DD383 /* SecondVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SecondVC.h; sourceTree = "<group>"; };
@@ -282,6 +302,8 @@
 		4C3B0A191F4539A1009B51AC /* DDYMotionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDYMotionManager.h; sourceTree = "<group>"; };
 		4C3B0A1A1F4539A1009B51AC /* DDYMotionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDYMotionManager.m; sourceTree = "<group>"; };
 		4C3B0A1C1F4539ED009B51AC /* DDYUtilsHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DDYUtilsHeader.h; sourceTree = "<group>"; };
+		4C91D9261FBDA78A00D60018 /* DDYHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDYHeader.h; sourceTree = "<group>"; };
+		4C91D9271FBDA78A00D60018 /* DDYHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDYHeader.m; sourceTree = "<group>"; };
 		4CB156C91F3960370086ED58 /* DDYQRCodeManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDYQRCodeManager.h; sourceTree = "<group>"; };
 		4CB156CA1F3960370086ED58 /* DDYQRCodeManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDYQRCodeManager.m; sourceTree = "<group>"; };
 		4CB156CC1F399BD00086ED58 /* DDYQRCodeVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDYQRCodeVC.h; sourceTree = "<group>"; };
@@ -436,6 +458,19 @@
 				4C08D8081F90ADAB0074872C /* DDYRadarView.m */,
 			);
 			path = RadarView;
+			sourceTree = "<group>";
+		};
+		4C1FE02C1FB3E2E800BC28E1 /* GroupHeader */ = {
+			isa = PBXGroup;
+			children = (
+				4C1FE0331FB3E81900BC28E1 /* DDYGroupHeader.h */,
+				4C1FE0341FB3E81900BC28E1 /* DDYGroupHeader.m */,
+				4C1FE0361FB4038100BC28E1 /* DDYGroupHeaderVC.h */,
+				4C1FE0371FB4038100BC28E1 /* DDYGroupHeaderVC.m */,
+				4C91D9261FBDA78A00D60018 /* DDYHeader.h */,
+				4C91D9271FBDA78A00D60018 /* DDYHeader.m */,
+			);
+			path = GroupHeader;
 			sourceTree = "<group>";
 		};
 		4C2C0AC61F21D3B4002DD383 /* LinkBlockKit */ = {
@@ -599,6 +634,7 @@
 		4C2DD9FA1F4A90940003E70F /* UIView */ = {
 			isa = PBXGroup;
 			children = (
+				4C1FE02C1FB3E2E800BC28E1 /* GroupHeader */,
 				4C08D7FF1F90ADAB0074872C /* PulseView */,
 				4C08D8041F90ADAB0074872C /* RadarView */,
 				4C3454D01F734AC100D28CBD /* RadarAnimationView */,
@@ -681,6 +717,11 @@
 		4CB156E71F3D829F0086ED58 /* icon */ = {
 			isa = PBXGroup;
 			children = (
+				4C1FE0391FB405C100BC28E1 /* 0.png */,
+				4C1FE03A1FB405C100BC28E1 /* 1.png */,
+				4C1FE03B1FB405C100BC28E1 /* 2.png */,
+				4C1FE03C1FB405C100BC28E1 /* 3.png */,
+				4C1FE03D1FB405C100BC28E1 /* 4.png */,
 				4C08DA2A1F975D8C0074872C /* radarBg.png */,
 				4CE11F081F67B0C800783AA4 /* qrcode.png */,
 				4CB156F41F3D88BE0086ED58 /* back_white.png */,
@@ -912,6 +953,8 @@
 				4C2C0ABD1F21B1DE002DD383 /* ThirdVC.m */,
 				4C2C0ABF1F21B208002DD383 /* FourthVC.h */,
 				4C2C0AC01F21B208002DD383 /* FourthVC.m */,
+				4C08DDBF1FA868350074872C /* TestVC.h */,
+				4C08DDC01FA868350074872C /* TestVC.m */,
 			);
 			path = TabBarItem;
 			sourceTree = "<group>";
@@ -1176,12 +1219,17 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4C1FE03F1FB405C100BC28E1 /* 1.png in Resources */,
 				ABCB97D41D727540000DEBEF /* Info.plist in Resources */,
 				4C08DA2B1F975D910074872C /* radarBg.png in Resources */,
 				4CB156F51F3D88BE0086ED58 /* back_white.png in Resources */,
 				ABCB97AE1D71D063000DEBEF /* LaunchScreen.storyboard in Resources */,
 				ABCB97AB1D71D063000DEBEF /* Assets.xcassets in Resources */,
+				4C1FE0401FB405C100BC28E1 /* 2.png in Resources */,
 				4C2DDA2F1F4D5A1B0003E70F /* FilterImg.jpg in Resources */,
+				4C1FE0421FB405C100BC28E1 /* 4.png in Resources */,
+				4C1FE0411FB405C100BC28E1 /* 3.png in Resources */,
+				4C1FE03E1FB405C100BC28E1 /* 0.png in Resources */,
 				4CE11F0A1F67B0C800783AA4 /* qrcode.png in Resources */,
 				4CB156E31F3C4D5A0086ED58 /* DDYQRCode.bundle in Resources */,
 				4CB156F31F3D875F0086ED58 /* back_black.png in Resources */,
@@ -1276,6 +1324,7 @@
 				4C2C0AC11F21B208002DD383 /* FourthVC.m in Sources */,
 				4C2C0B2D1F21D483002DD383 /* NSURL+LinkBlock.m in Sources */,
 				4C08D80B1F90ADAB0074872C /* DDYRadarVC.m in Sources */,
+				4C1FE0381FB4038100BC28E1 /* DDYGroupHeaderVC.m in Sources */,
 				AB50E0271D7A7C6500DE9061 /* NSDate+DDYExtension.m in Sources */,
 				4C2DDA2B1F4D55870003E70F /* FilterTestVC.m in Sources */,
 				AB5199D91DD5EEE400E864DA /* UIView+DDYAnimation.m in Sources */,
@@ -1283,7 +1332,9 @@
 				4C2C0B541F21DA1B002DD383 /* DDYButton.m in Sources */,
 				4CBE4EC61F29B3DD0006B84E /* DDYTextView.m in Sources */,
 				4C2C0B301F21D483002DD383 /* LinkError.m in Sources */,
+				4C08DDC11FA868350074872C /* TestVC.m in Sources */,
 				ABCB97E61D727F76000DEBEF /* UIView+DDYExtension.m in Sources */,
+				4C91D9281FBDA78A00D60018 /* DDYHeader.m in Sources */,
 				4C2C0B261F21D483002DD383 /* NSMutableArray+LinkBlock.m in Sources */,
 				4C2C0AC41F21B5BB002DD383 /* UIViewController+DDYExtension.m in Sources */,
 				4CE1175D1F661B1B00783AA4 /* NSData+DDYExtension.m in Sources */,
@@ -1343,6 +1394,7 @@
 				4C2C0B3C1F21D483002DD383 /* UIImageView+LinkBlock.m in Sources */,
 				AB3056E01D74379D0061FD12 /* Foundation+Log.m in Sources */,
 				4C2C0B361F21D483002DD383 /* CAShapeLayer+LinkBlock.m in Sources */,
+				4C1FE0351FB3E81900BC28E1 /* DDYGroupHeader.m in Sources */,
 				4C2C0B451F21D483002DD383 /* UIWebView+LinkBlock.m in Sources */,
 				4CDDEF2E1F8DC389005AEFBB /* amrFileCodec.mm in Sources */,
 				4C08D80C1F90ADAB0074872C /* DDYRadarView.m in Sources */,

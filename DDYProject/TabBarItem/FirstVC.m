@@ -18,6 +18,8 @@
 #import "DDYWaveVC.h"
 #import "DDYPulseVC.h"
 #import "DDYRadarVC.h"
+#import "TestVC.h"
+#import "DDYGroupHeaderVC.h"
 
 @interface FirstVC ()<UITableViewDataSource, UITableViewDelegate, UIViewControllerPreviewingDelegate>
 
@@ -58,11 +60,13 @@
 
 - (void)setupTableView
 {
-    _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, DDYSCREENW, DDYSCREENH - 64)];
+    _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, DDYSCREENW, DDYSCREENH - 64-49)];
     _tableView.delegate = self;
     _tableView.dataSource = self;
     _tableView.tableFooterView = [UIView new];
     [self.view addSubview:_tableView];
+    
+    DDYInfoLog(@"时间戳：\n%.0lf",[[NSDate date] timeIntervalSince1970]);
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -133,6 +137,8 @@
     [self.dataArray addObject:@"DDYWaveVC"];
     [self.dataArray addObject:@"DDYPulseVC"];
     [self.dataArray addObject:@"DDYRadarVC"];
+    [self.dataArray addObject:@"TestVC"];
+    [self.dataArray addObject:@"DDYGroupHeaderVC"];
     
     dispatch_async(dispatch_get_main_queue(), ^{
         [self.tableView reloadData];
@@ -150,6 +156,5 @@
 {
     return NO;
 }
-
 
 @end

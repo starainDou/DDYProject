@@ -326,5 +326,178 @@
     UIGraphicsEndImageContext();
     return image;
 }
+/**
+ {
+ CGFloat imageWidth = self.size.width;
+ CGFloat imageHeight = self.size.height;
+ 
+ if (imageWidth <= DDYSCREENW && imageHeight <= DDYSCREENH) {
+ return self;
+ }
+ CGFloat max = MAX(imageWidth, imageHeight);
+ CGFloat scale = max / (DDYSCREENH * 2.0);
+ 
+ CGSize size = CGSizeMake(imageWidth / scale, imageHeight / scale);
+ UIGraphicsBeginImageContext(size);
+ [self drawInRect:CGRectMake(0, 0, size.width, size.height)];
+ UIImage *newImage = UIGraphicsGetImageFromCurrentImageContext();
+ UIGraphicsEndImageContext();
+ 
+ return newImage;
+ }
+ */
+#pragma mark 加文字水印
++ (UIImage *)addText:(NSString *)text inImage:(UIImage *)image fontSize:(CGFloat)fontSize angle:(CGFloat)angle endImgSize:(CGSize)endImgSize
+{
+    // 开启上下文
+    UIGraphicsBeginImageContext(endImgSize);
+    // 绘制图片
+    [image drawInRect:CGRectMake(0, 0, endImgSize.width, endImgSize.height)];
+    // 获取上下文
+    CGContextRef context = UIGraphicsGetCurrentContext();
+    // 旋转
+    CGContextRotateCTM(context, angle*M_PI/180);
+    // 水印图片
+    UIImage *waterMarkImg = [self addText:text fontSize:fontSize angle:angle endImgSize:endImgSize];
+    // 绘制水印
+    [waterMarkImg drawInRect:CGRectMake(-endImgSize.height, -endImgSize.height, endImgSize.height*4, endImgSize.height*4)];
+    // 生成图片
+    UIImage *newImg = UIGraphicsGetImageFromCurrentImageContext();
+    // 结束画布
+    UIGraphicsEndImageContext();
+    // 返回图片
+    return newImg;
+}
+#pragma mark 水印图片生成
++ (UIImage *)addText:(NSString *)text fontSize:(CGFloat)fontSize angle:(CGFloat)angle endImgSize:(CGSize)endImgSize {
+    // 比例系数
+    CGFloat scale = 4;
+    // 扩大字体
+    CGFloat font = fontSize*1;
+    // 正方形画布高宽
+    CGFloat wh = MAX(endImgSize.width, endImgSize.height)*scale;
+    // 开启画布
+    UIGraphicsBeginImageContext(CGSizeMake(wh, wh));
+    // 设置颜色
+    [[UIColor clearColor] set];
+    // 文字size
+    CGSize textSize = [text sizeWithAttributes:@{NSFontAttributeName:DDYFont(font)}];
+    // 文字绘制区域长度
+    CGFloat textW = textSize.width+20;
+    // 文字绘制区域高度
+    CGFloat textH = textSize.height*1.3;
+    // 绘制文字
+    for (int i=0; i<floor(wh/(font*2)); i++) {
+        for (int j=0; j<ceil(wh/textW); j++) {
+            [text drawInRect:CGRectMake(textW*j, textH*i, textSize.width, font+4) withAttributes:@{NSFontAttributeName:DDYFont(font), NSForegroundColorAttributeName:[UIColor lightGrayColor]}];
+        }
+    }
+    // 生成水印图片
+    UIImage *waterMarkImg = UIGraphicsGetImageFromCurrentImageContext();
+    // 结束画布
+    UIGraphicsEndImageContext();
+    // 返回图片
+    return waterMarkImg;
+}
+
+//+ (UIImage *)addText:(NSString *)text inImage:(UIImage *)image fontSize:(CGFloat)size scaleRate:(CGFloat)scaleRate angle:(CGFloat)angle
+//{
+//    UIGraphicsBeginImageContext(image.size);
+//    // 绘制图片
+//    [image drawInRect:CGRectMake(0, 0, image.size.width, image.size.height)];
+//    // 获取上下文
+//    CGContextRef context = UIGraphicsGetCurrentContext();
+//    // 比例系数
+//    CGFloat scale = MAX(1.5*image.size.width/DDYSCREENW, 1.5*image.size.height/DDYSCREENH);
+//    // 放大
+//    CGContextScaleCTM(context, 1.5, 1.5);
+//    // 旋转
+//    CGContextRotateCTM(context, M_PI_4);
+//    // 移动
+//    CGContextTranslateCTM(context,  image.size.width/2., -image.size.height/2.);
+//    
+//    // 绘制文字
+//    NSInteger line = MAX(image.size.width, image.size.height)*3/ 150;
+//    NSInteger row = 8;
+//    for (int i = 0; i < line; i ++) {
+//        for (int j = 0; j < row; j ++) {
+//            [text drawInRect:CGRectMake(j * (MIN(image.size.width, image.size.height)/3.5), i*150, 90, 25) withAttributes:@{NSFontAttributeName:DDYFont(40), NSForegroundColorAttributeName:[UIColor redColor]}];
+//        }
+//    }
+//    
+//    
+//    
+//    
+//    //4.获取绘制到得图片
+//    UIImage *watermarkImg = UIGraphicsGetImageFromCurrentImageContext();
+//    //5.结束图片的绘制
+//    UIGraphicsEndImageContext();
+//    
+//    return watermarkImg;
+//}
+
+//{
+//    //get image width and height
+//    int w = image.size.width;
+//    int h = image.size.height;
+//    CGColorSpaceRef colorSpace = CGColorSpaceCreateDeviceRGB();
+//    //create a graphic context with CGBitmapContextCreate
+//    CGContextRef context = CGBitmapContextCreate(NULL, w, h, 8, 4 * w, colorSpace, kCGImageAlphaPremultipliedFirst);
+//    CGContextDrawImage(context, CGRectMake(0, 0, w, h), image.CGImage);
+//    
+//    // 放大
+//    CGContextScaleCTM(context, 1.5, 1.5);
+//    // 移动
+//    CGContextTranslateCTM(context,  image.size.width/2., -image.size.height/2.);
+//    // 旋转
+//    CGContextRotateCTM(context, M_PI_4);
+//    
+//    CGContextSetRGBFillColor(context, 0.0, 1.0, 1.0, 1);
+//    const char* textChar = [text UTF8String];
+//    CGContextSelectFont(context, "Georgia", 30, kCGEncodingMacRoman);
+//    CGContextSetTextDrawingMode(context, kCGTextFill);
+//    CGContextSetRGBFillColor(context, 255, 0, 0, 1);
+//    CGContextShowTextAtPoint(context, w/2-strlen(textChar)*5, h/2, textChar, strlen(textChar));
+//    //Create image ref from the context
+//    CGImageRef imageMasked = CGBitmapContextCreateImage(context);
+//    CGContextRelease(context);
+//    CGColorSpaceRelease(colorSpace);
+//    return [UIImage imageWithCGImage:imageMasked];
+//}
+
+
+
+//{
+//    UIGraphicsBeginImageContext(image.size);
+//    // 绘制图片
+//    [image drawInRect:CGRectMake(0, 0, image.size.width, image.size.height)];
+//    // 获取上下文
+//    CGContextRef context = UIGraphicsGetCurrentContext();
+//    // 放大
+//    CGContextScaleCTM(context, 1.5, 1.5);
+//    // 旋转
+//    CGContextRotateCTM(context, M_PI_4);
+//    // 移动
+//    CGContextTranslateCTM(context,  image.size.width/2., -image.size.height/2.);
+//    
+//    // 绘制文字
+//    NSInteger line = MAX(image.size.width, image.size.height)*3/ 150;
+//    NSInteger row = 8;
+//    for (int i = 0; i < line; i ++) {
+//        for (int j = 0; j < row; j ++) {
+//            [text drawInRect:CGRectMake(j * (MIN(image.size.width, image.size.height)/3.5), i*150, 90, 25) withAttributes:@{NSFontAttributeName:DDYFont(40), NSForegroundColorAttributeName:[UIColor redColor]}];
+//        }
+//    }
+//    
+//    
+//    
+//    
+//    //4.获取绘制到得图片
+//    UIImage *watermarkImg = UIGraphicsGetImageFromCurrentImageContext();
+//    //5.结束图片的绘制
+//    UIGraphicsEndImageContext();
+//    
+//    return watermarkImg;
+//}
 
 @end

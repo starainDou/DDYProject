@@ -49,7 +49,10 @@
         if (image) {
             DDYInfoLog(@"%f-%f",image.size.width, image.size.height);
             FilterTestVC *vc = [[FilterTestVC alloc] init];
-            vc.img = image;
+//            UIImage *img = [UIImage addText:@"" inImage:image fontSize:30 scaleRate:2 angle:45];
+            UIImage *imgTest = [UIImage imageNamed:@"FilterImg.jpg"];
+            UIImage *img = [UIImage addText:@"ceshi测试CESHI测试" inImage:imgTest fontSize:24 angle:45 endImgSize:imgTest.size];
+            vc.img = img;
             [weakSelf.navigationController pushViewController:vc animated:YES];
         }
     };

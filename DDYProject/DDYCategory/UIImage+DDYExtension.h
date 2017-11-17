@@ -50,4 +50,7 @@
 /** 图片小圆角裁剪 */
 - (UIImage*)imageCornerRadius:(CGFloat)radius;
 
+/** 加加文字水印 */
++ (UIImage *)addText:(NSString *)text inImage:(UIImage *)image fontSize:(CGFloat)fontSize angle:(CGFloat)angle endImgSize:(CGSize)endImgSize;
+
 @end

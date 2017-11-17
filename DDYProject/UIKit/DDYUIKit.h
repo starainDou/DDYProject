@@ -18,5 +18,7 @@
 #import "DDYTextField.h"
 #import "DDYRadarView.h"
 #import "DDYPulseView.h"
+#import "DDYGroupHeader.h"
+#import "DDYHeader.h"
 
 #endif
