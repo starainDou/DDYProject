@@ -13,7 +13,6 @@
 		4C08D80C1F90ADAB0074872C /* DDYRadarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C08D8081F90ADAB0074872C /* DDYRadarView.m */; };
 		4C08DA2B1F975D910074872C /* radarBg.png in Resources */ = {isa = PBXBuildFile; fileRef = 4C08DA2A1F975D8C0074872C /* radarBg.png */; };
 		4C08DDC11FA868350074872C /* TestVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C08DDC01FA868350074872C /* TestVC.m */; };
-		4C1FE0351FB3E81900BC28E1 /* DDYGroupHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C1FE0341FB3E81900BC28E1 /* DDYGroupHeader.m */; };
 		4C1FE0381FB4038100BC28E1 /* DDYGroupHeaderVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C1FE0371FB4038100BC28E1 /* DDYGroupHeaderVC.m */; };
 		4C1FE03E1FB405C100BC28E1 /* 0.png in Resources */ = {isa = PBXBuildFile; fileRef = 4C1FE0391FB405C100BC28E1 /* 0.png */; };
 		4C1FE03F1FB405C100BC28E1 /* 1.png in Resources */ = {isa = PBXBuildFile; fileRef = 4C1FE03A1FB405C100BC28E1 /* 1.png */; };
@@ -164,8 +163,6 @@
 		4C08DA2A1F975D8C0074872C /* radarBg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = radarBg.png; sourceTree = "<group>"; };
 		4C08DDBF1FA868350074872C /* TestVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestVC.h; sourceTree = "<group>"; };
 		4C08DDC01FA868350074872C /* TestVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestVC.m; sourceTree = "<group>"; };
-		4C1FE0331FB3E81900BC28E1 /* DDYGroupHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDYGroupHeader.h; sourceTree = "<group>"; };
-		4C1FE0341FB3E81900BC28E1 /* DDYGroupHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDYGroupHeader.m; sourceTree = "<group>"; };
 		4C1FE0361FB4038100BC28E1 /* DDYGroupHeaderVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDYGroupHeaderVC.h; sourceTree = "<group>"; };
 		4C1FE0371FB4038100BC28E1 /* DDYGroupHeaderVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDYGroupHeaderVC.m; sourceTree = "<group>"; };
 		4C1FE0391FB405C100BC28E1 /* 0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 0.png; sourceTree = "<group>"; };
@@ -463,8 +460,6 @@
 		4C1FE02C1FB3E2E800BC28E1 /* GroupHeader */ = {
 			isa = PBXGroup;
 			children = (
-				4C1FE0331FB3E81900BC28E1 /* DDYGroupHeader.h */,
-				4C1FE0341FB3E81900BC28E1 /* DDYGroupHeader.m */,
 				4C1FE0361FB4038100BC28E1 /* DDYGroupHeaderVC.h */,
 				4C1FE0371FB4038100BC28E1 /* DDYGroupHeaderVC.m */,
 				4C91D9261FBDA78A00D60018 /* DDYHeader.h */,
@@ -1394,7 +1389,6 @@
 				4C2C0B3C1F21D483002DD383 /* UIImageView+LinkBlock.m in Sources */,
 				AB3056E01D74379D0061FD12 /* Foundation+Log.m in Sources */,
 				4C2C0B361F21D483002DD383 /* CAShapeLayer+LinkBlock.m in Sources */,
-				4C1FE0351FB3E81900BC28E1 /* DDYGroupHeader.m in Sources */,
 				4C2C0B451F21D483002DD383 /* UIWebView+LinkBlock.m in Sources */,
 				4CDDEF2E1F8DC389005AEFBB /* amrFileCodec.mm in Sources */,
 				4C08D80C1F90ADAB0074872C /* DDYRadarView.m in Sources */,
