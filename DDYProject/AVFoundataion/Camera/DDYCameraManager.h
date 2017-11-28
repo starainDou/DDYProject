@@ -14,7 +14,7 @@
 @property (nonatomic, copy) void (^takePhotoBlock)(UIImage *image);
 
 /** 单例对象 */
-//+ (instancetype)sharedManager;
++ (instancetype)sharedManager;
 
 /** 会话质量 */
 @property (nonatomic, copy) NSString *sessionPreset;

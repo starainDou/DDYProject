@@ -35,7 +35,7 @@
 - (BOOL)ddy_OnlyChinese;
 
 /** 判断是否为空 */
-- (BOOL)ddy_blankString;
++ (BOOL)ddy_blankString:(NSString *)str;
 
 /** SHA256加密 */
 - (NSString *)ddy_SHA256;

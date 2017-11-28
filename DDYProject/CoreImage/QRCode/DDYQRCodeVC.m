@@ -4,7 +4,7 @@
 //
 //  Created by LingTuan on 17/8/8.
 //  Copyright © 2017年 Starain. All rights reserved.
-//
+//  https://github.com/starainDou/DDYProject/tree/master/DDYProject/CoreImage/QRCode
 
 /**
  *  相机模块属于耗电模块，在iOS严格管控下，如果长时间运行会自动关闭会话，页面静止
@@ -79,7 +79,9 @@
                                                         width:200
                                                          logo:[UIImage circleImageWithColor:[UIColor redColor] radius:10]
                                                     logoScale:0.25];
-        imageView.image = _myQRCodeImg;
+        dispatch_async(dispatch_get_main_queue(), ^{
+            imageView.image = _myQRCodeImg;
+        });
     });
     UITapGestureRecognizer *tapGes = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(touchToScan)];
     [imageView addGestureRecognizer:tapGes];

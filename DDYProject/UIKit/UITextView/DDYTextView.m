@@ -39,9 +39,10 @@
 
 - (instancetype)initWithPlaceholder:(NSString *)placeholder font:(UIFont *)font frame:(CGRect)frame
 {
-    if (self = [super initWithFrame:frame])
+    if (self = [self initWithFrame:frame])
     {
         self.placeholder = placeholder;
+        self.placeholderTextColor = [UIColor lightGrayColor];
         self.font = font;
     }
     return self;
@@ -57,6 +58,7 @@
         self.placeholderTextColor = [UIColor lightGrayColor];
         
         self.keyboardDismissMode = UIScrollViewKeyboardDismissModeOnDrag;
+        
     }
     return self;
 }
@@ -132,5 +134,42 @@
     [super drawRect:rect];
     [self changePlaceholderLocation];
 }
+
+#pragma mark 文字size
+- (CGSize)textSize {
+    // 边框margin
+    CGFloat boardMargin = self.contentInset.left
+    + self.contentInset.right
+    + self.textContainerInset.left
+    + self.textContainerInset.right
+    + self.textContainer.lineFragmentPadding
+    + self.textContainer.lineFragmentPadding;
+    NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc] init];
+    paragraphStyle.lineBreakMode = self.textContainer.lineBreakMode;
+    
+    return [self.text boundingRectWithSize:CGSizeMake(self.ddy_w-boardMargin, MAXFLOAT)
+                                   options:NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading
+                                attributes:@{NSFontAttributeName:self.font, NSParagraphStyleAttributeName:paragraphStyle}
+                                   context:nil].size;
+}
+
+#pragma mark 调整高宽适应规定高度
+- (void)heightFitMinHeight:(CGFloat)minH maxHeight:(CGFloat)maxH {
+    // 边框margin
+    CGFloat boardMargin = self.contentInset.top + self.contentInset.bottom + self.textContainerInset.top + self.textContainerInset.bottom;
+    self.scrollEnabled = NO;
+    if (self.textSize.height+boardMargin < minH) {
+        self.ddy_h = minH;
+    } else if (self.textSize.height+boardMargin > maxH) {
+        self.ddy_h = maxH;
+        self.scrollEnabled = YES;
+    } else {
+        self.ddy_h = ceilf(self.textSize.height+boardMargin);
+    }
+}
+
+#pragma mark - UI层级调试时出现 -[UITextView _firstBaselineOffsetFromTop] only valid when using auto layout
+- (void)_firstBaselineOffsetFromTop {}
+- (void)_baselineOffsetFromBottom {}
 
 @end

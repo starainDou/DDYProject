@@ -14,10 +14,16 @@
 
 @property (nonatomic, strong) UIColor *placeholderTextColor;
 
+/** 文字 */
+@property (nonatomic, assign, readonly) CGSize textSize;
+
 + (instancetype)textView;
 
 + (instancetype)textViewPlaceholder:(NSString *)placeholder font:(UIFont *)font;
 
 + (instancetype)textViewPlaceholder:(NSString *)placeholder font:(UIFont *)font frame:(CGRect)frame;
+
+/** 调整高宽适应规定高度 */
+- (void)heightFitMinHeight:(CGFloat)minH maxHeight:(CGFloat)maxH;
 
 @end

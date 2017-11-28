@@ -74,7 +74,7 @@
 #pragma mark - 事件响应
 #pragma mark 返回
 - (void)handleBack {
-    if ([self.navigationController popViewControllerAnimated:YES]) {
+    if (![self.navigationController popViewControllerAnimated:YES]) {
         [self.navigationController dismissViewControllerAnimated:YES completion:^{ }];
     }
 }

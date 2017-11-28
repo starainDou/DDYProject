@@ -19,5 +19,6 @@
 #import "DDYRadarView.h"
 #import "DDYPulseView.h"
 #import "DDYHeader.h"
+#import "DDYVoiceBox.h"
 
 #endif

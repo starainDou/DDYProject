@@ -19,6 +19,8 @@
 
 #import "DDYAudioManager.h"
 
+#define ALPHA 0.02f  // 音频振幅调解相对值 (越小振幅就越高)
+
 @interface DDYAudioManager ()<AVAudioRecorderDelegate, AVAudioPlayerDelegate>
 /** 录音器 */
 @property (nonatomic, strong) AVAudioRecorder *recorder;
@@ -64,6 +66,8 @@ static DDYAudioManager *_instance;
 
 #pragma mark 开始录音
 - (void)ddy_StartRecordAtPath:(NSString *)path {
+    _isRecording = YES;
+    if ([self.delegate respondsToSelector:@selector(ddy_AudioRecordState:)]) [self.delegate ddy_AudioRecordState:0];
     [self ddy_StopRecord];
     [self ddy_StopAudio];
     [DDYAuthorityMaster audioAuthSuccess:^{
@@ -74,15 +78,37 @@ static DDYAudioManager *_instance;
         _recorder.delegate = self;
         if ([_recorder prepareToRecord]) {
             [_recorder record];
+            if ([self.delegate respondsToSelector:@selector(ddy_AudioRecordState:)]) [self.delegate ddy_AudioRecordState:1];
+        } else {
+            if ([self.delegate respondsToSelector:@selector(ddy_AudioRecordState:)]) [self.delegate ddy_AudioRecordState:-1];
         }
-    } fail:^{ } alertShow:YES];
+    } fail:^{
+        if ([self.delegate respondsToSelector:@selector(ddy_AudioRecordState:)]) [self.delegate ddy_AudioRecordState:-1];
+    } alertShow:YES];
 }
 
 #pragma mark 结束录音
 - (void)ddy_StopRecord {
     if (_recorder.isRecording) {
         [_recorder stop];
+        _isRecording = NO;
     }
+}
+
+#pragma mark 删除录音
+- (void)ddy_DeleteRecord {
+    [self ddy_StopRecord];
+    [_recorder deleteRecording];
+    _isRecording = NO;
+}
+
+#pragma mark 获取录制分贝值
+- (float)ddy_RecordLevels {
+    [_recorder updateMeters];
+    double aveChannel = pow(10, (ALPHA * [_recorder averagePowerForChannel:0]));
+    if (aveChannel <= 0.05f) aveChannel = 0.05f;
+    if (aveChannel >= 1.0f)  aveChannel = 1.0f;
+    return aveChannel;
 }
 
 #pragma mark - AVAudioRecorderDelegate
@@ -90,7 +116,7 @@ static DDYAudioManager *_instance;
 - (void)audioRecorderDidFinishRecording:(AVAudioRecorder *)recorder successfully:(BOOL)flag {
     NSString *wavPath = [[_recorder url] path];
     // 音频转换
-    NSString *amrPath = [[wavPath stringByDeletingPathExtension] stringByAppendingPathExtension:pathExt_AMR];
+    NSString *amrPath = [[wavPath stringByDeletingPathExtension] stringByAppendingPathExtension:ddyExt_AMR];
     [VoiceConverter ConvertWavToAmr:wavPath amrSavePath:amrPath];
 }
 
@@ -105,6 +131,7 @@ static DDYAudioManager *_instance;
         _player = [[AVAudioPlayer alloc] initWithContentsOfURL:[NSURL fileURLWithPath:path] error:nil];
         _player.numberOfLoops = 0;
         _player.delegate = self;
+        _player.meteringEnabled = YES;
         if ([_player prepareToPlay]) {
             [_player play];
         };
@@ -135,8 +162,8 @@ static DDYAudioManager *_instance;
 #pragma mark 播放完成
 - (void)audioPlayerDidFinishPlaying:(AVAudioPlayer *)player successfully:(BOOL)flag {
     [self ddy_StopAudio];
-    if ([self.delegate respondsToSelector:@selector(audioPlayDidFinish)]) {
-        [self.delegate audioPlayDidFinish];
+    if ([self.delegate respondsToSelector:@selector(ddy_AudioPlayDidFinish)]) {
+        [self.delegate ddy_AudioPlayDidFinish];
     }
 }
 
@@ -151,6 +178,20 @@ static DDYAudioManager *_instance;
     if (_player) {
         _player.volume = volume;
     }
+}
+
+#pragma mark 播放进度
+- (float)palyProgress {
+    return self.player.currentTime / self.player.duration;
+}
+
+#pragma mark 获取播放分贝值
+- (float)ddy_PlayLevels {
+    [_player updateMeters];
+    double aveChannel = pow(10, (ALPHA * [_player averagePowerForChannel:0]));
+    if (aveChannel <= 0.05f) aveChannel = 0.05f;
+    if (aveChannel >= 1.0f)  aveChannel = 1.0f;
+    return aveChannel;
 }
 
 - (void)dealloc {

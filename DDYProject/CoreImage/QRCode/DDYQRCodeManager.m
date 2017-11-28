@@ -4,7 +4,7 @@
 //
 //  Created by LingTuan on 17/8/8.
 //  Copyright © 2017年 Starain. All rights reserved.
-//
+//  https://github.com/starainDou/DDYProject/tree/master/DDYProject/CoreImage/QRCode
 
 #import "DDYQRCodeManager.h"
 
@@ -202,7 +202,7 @@ static DDYQRCodeManager *_instance;
     if (metadataObjects && metadataObjects.count) {
         AVMetadataMachineReadableCodeObject *obj = metadataObjects[0];
         NSString *resultStr = [obj stringValue];
-        BOOL success = metadataObjects && metadataObjects.count && ![resultStr ddy_blankString];
+        BOOL success = metadataObjects && metadataObjects.count && ![NSString ddy_blankString:resultStr];
         [self scanQRCodeResult:resultStr success:success];
     }
 }
@@ -219,7 +219,7 @@ static DDYQRCodeManager *_instance;
         CIQRCodeFeature *feature = [features objectAtIndex:i];
         resultStr = feature.messageString;
     }
-    BOOL success = features && features.count && ![resultStr ddy_blankString];
+    BOOL success = features && features.count && ![NSString ddy_blankString:resultStr];
     
     [self scanQRCodeResult:resultStr success:success];
 }

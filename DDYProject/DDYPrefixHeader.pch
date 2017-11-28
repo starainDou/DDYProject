@@ -25,6 +25,7 @@
 #import "LinkBlock.h"
 #import "DDYUIKit.h"
 #import "DDYCategory.h"
+#import "DDYAudioManager.h"
 
 ////////////////////////// 引入三方库 //////////////////////////
 #import <AFNetworking.h>

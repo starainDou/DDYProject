@@ -40,5 +40,9 @@
 - (void)addLongGestureTarget:(id)target action:(SEL)action;
 /** 长按手势 + 长按最短时间 */
 - (void)addLongGestureTarget:(id)target action:(SEL)action minDuration:(CFTimeInterval)minDuration;
+/** 拖动手势 */
+- (void)addPanGestureTarget:(id)target action:(SEL)action;
+/** 拖动手势 + 代理 */
+- (void)addPanGestureTarget:(id)target action:(SEL)action delegate:(id)delegate;
 
 @end

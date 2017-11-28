@@ -164,7 +164,7 @@
 - (UIButton *)btnTitle:(NSString *)title img:(NSString *)img superView:(UIView *)superView action:(SEL)action
 {
     UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
-    if (![img ddy_blankString]) [button setImage:[UIImage imageNamed:img] forState:UIControlStateNormal];
+    if (![NSString ddy_blankString:img]) [button setImage:[UIImage imageNamed:img] forState:UIControlStateNormal];
     if (title) {
         [button setTitle:title forState:UIControlStateNormal];
         [button setTitleColor:TextColor forState:UIControlStateNormal];

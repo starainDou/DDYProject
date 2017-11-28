@@ -18,8 +18,8 @@
 #import "DDYWaveVC.h"
 #import "DDYPulseVC.h"
 #import "DDYRadarVC.h"
-#import "TestVC.h"
 #import "DDYGroupHeaderVC.h"
+#import "DDYVoiceBoxVC.h"
 
 @interface FirstVC ()<UITableViewDataSource, UITableViewDelegate, UIViewControllerPreviewingDelegate>
 
@@ -137,7 +137,7 @@
     [self.dataArray addObject:@"DDYWaveVC"];
     [self.dataArray addObject:@"DDYPulseVC"];
     [self.dataArray addObject:@"DDYRadarVC"];
-    [self.dataArray addObject:@"TestVC"];
+    [self.dataArray addObject:@"DDYVoiceBoxVC"];
     [self.dataArray addObject:@"DDYGroupHeaderVC"];
     
     dispatch_async(dispatch_get_main_queue(), ^{

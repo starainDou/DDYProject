@@ -48,7 +48,7 @@
                 [self layoutVerticalWithUpView:self.titleLabel downView:self.imageView];
                 break;
             default:
-                break;        
+                break;
         }
     }
 }
@@ -73,7 +73,7 @@
     
     downView.ddy_x = (self.ddy_w - downView.ddy_w)/2.0;
     downView.ddy_y = upView.ddy_bottom + self.padding;
-
+    
 }
 
 - (void)setImage:(UIImage *)image forState:(UIControlState)state
@@ -104,23 +104,24 @@
 
 + (instancetype)btnTitle:(NSString *)title img:(id)img target:(id)target action:(SEL)action tag:(NSInteger)tag
 {
+    DDYButton *btn = [self btnTitle:title img:img target:target action:action];
+    btn.tag = tag;
+    return btn;
+}
+
++ (instancetype)btnTitle:(NSString *)title img:(id)img target:(id)target action:(SEL)action
+{
     DDYButton *btn = [DDYButton customDDYBtn];
-    if (title)
-    {
+    if (![NSString ddy_blankString:title]) {
         [btn setTitle:title forState:UIControlStateNormal];
     }
-    if (img)
-    {
-        if ([img isKindOfClass:[NSString class]])
-        {
+    if (img) {
+        if ([img isKindOfClass:[NSString class]]) {
             [btn  setImage:[UIImage imageNamed:img] forState:UIControlStateNormal];
-        }
-        else if ([img isKindOfClass:[UIImage class]])
-        {
+        } else if ([img isKindOfClass:[UIImage class]]) {
             [btn  setImage:img forState:UIControlStateNormal];
         }
     }
-    btn.tag = tag;
     [btn addTarget:target action:action forControlEvents:UIControlEventTouchUpInside];
     return btn;
 }

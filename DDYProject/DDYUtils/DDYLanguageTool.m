@@ -72,7 +72,7 @@ static DDYLanguageTool *_instance;
 
 #pragma mark 设置语言(较多语言支持时)
 - (void)setLanguage:(NSString *)language callback:(void (^)(NSError *error))callback {
-    if ([language ddy_blankString]) {
+    if ([NSString ddy_blankString:language]) {
         if (callback) callback([NSError errorWithDomain:DDYLanguageErrorDomain code:kDDYLanguageErrorNil userInfo:@{@"reason":@"设置的语言不能为空"}]);
     } else {
         [NSBundle ddy_Language:language];

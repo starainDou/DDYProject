@@ -14,6 +14,9 @@
 /** btnFrame(x, y, w, h) = [btn setFrame:CGRectMake(x, y, w, h)] */
 @property (nonatomic, copy, readonly) DDYButton *(^btnFrame)(CGFloat x, CGFloat y, CGFloat w,CGFloat h);
 
+/** btnSize(w, h) */
+@property (nonatomic, copy, readonly) DDYButton *(^btnSize)(CGFloat w,CGFloat h);
+
 /** btnX(x) */
 @property (nonatomic, copy, readonly) DDYButton *(^btnX)(CGFloat x);
 
@@ -53,14 +56,32 @@
 /** btnImageH(image)  =  [btn setImage:image forState:UIControlStateHeighlighted] */
 @property (nonatomic, copy, readonly) DDYButton *(^btnImageH)(UIImage *image);
 
+/** btnBgImageN(image)  =  [btn setBackgroundImage:image forState:UIControlStateNormal] */
+@property (nonatomic, copy, readonly) DDYButton *(^btnBgImageN)(UIImage *image);
+
+/** btnBgImageS(image)  =  [btn setBackgroundImage:image forState:UIControlStateSelected] */
+@property (nonatomic, copy, readonly) DDYButton *(^btnBgImageS)(UIImage *image);
+
+/** btnBgImageH(image)  =  [btn setBackgroundImage:image forState:UIControlStateHeighlighted] */
+@property (nonatomic, copy, readonly) DDYButton *(^btnBgImageH)(UIImage *image);
+
 /** btnImageN(imgName)  =  [btn setImage:[UIImage imageNamed:imgName] forState:UIControlStateNormal] */
 @property (nonatomic, copy, readonly) DDYButton *(^btnImgNameN)(NSString *imgName);
+
+/** btnImageH(imgName)  =  [btn setImage:[UIImage imageNamed:imgName] forState:UIControlStateHeighlighted] */
+@property (nonatomic, copy, readonly) DDYButton *(^btnImgNameH)(NSString *imgName);
 
 /** btnImageS(imgName)  =  [btn setImage:[UIImage imageNamed:imgName] forState:UIControlStateSelected] */
 @property (nonatomic, copy, readonly) DDYButton *(^btnImgNameS)(NSString *imgName);
 
-/** btnImageH(imgName)  =  [btn setImage:[UIImage imageNamed:imgName] forState:UIControlStateHeighlighted] */
-@property (nonatomic, copy, readonly) DDYButton *(^btnImgNameH)(NSString *imgName);
+/** btnBgImageN(imgName)  =  [btn setBackgroundImage:[UIImage imageNamed:imgName] forState:UIControlStateNormal] */
+@property (nonatomic, copy, readonly) DDYButton *(^btnBgImgNameN)(NSString *imgName);
+
+/** btnBgImageH(imgName)  =  [btn setBackgroundImage:[UIImage imageNamed:imgName] forState:UIControlStateHeighlighted] */
+@property (nonatomic, copy, readonly) DDYButton *(^btnBgImgNameH)(NSString *imgName);
+
+/** btnBgImageS(imgName)  =  [btn setBackgroundImage:[UIImage imageNamed:imgName] forState:UIControlStateSelected] */
+@property (nonatomic, copy, readonly) DDYButton *(^btnBgImgNameS)(NSString *imgName);
 
 /** btnLayoutStyle(style) */
 @property (nonatomic, copy, readonly) DDYButton *(^btnLayoutStyle)(DDYBtnStyle style);

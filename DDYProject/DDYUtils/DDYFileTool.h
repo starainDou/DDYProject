@@ -31,4 +31,7 @@
 /** 本地音视频时长 */
 + (NSUInteger)ddy_DurationWithPath:(NSString *)path;
 
+/** 录音临时存储 */
++ (NSString *)ddy_RecordPath;
+
 @end

@@ -12,7 +12,6 @@
 		4C08D80B1F90ADAB0074872C /* DDYRadarVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C08D8061F90ADAB0074872C /* DDYRadarVC.m */; };
 		4C08D80C1F90ADAB0074872C /* DDYRadarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C08D8081F90ADAB0074872C /* DDYRadarView.m */; };
 		4C08DA2B1F975D910074872C /* radarBg.png in Resources */ = {isa = PBXBuildFile; fileRef = 4C08DA2A1F975D8C0074872C /* radarBg.png */; };
-		4C08DDC11FA868350074872C /* TestVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C08DDC01FA868350074872C /* TestVC.m */; };
 		4C1FE0381FB4038100BC28E1 /* DDYGroupHeaderVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C1FE0371FB4038100BC28E1 /* DDYGroupHeaderVC.m */; };
 		4C1FE03E1FB405C100BC28E1 /* 0.png in Resources */ = {isa = PBXBuildFile; fileRef = 4C1FE0391FB405C100BC28E1 /* 0.png */; };
 		4C1FE03F1FB405C100BC28E1 /* 1.png in Resources */ = {isa = PBXBuildFile; fileRef = 4C1FE03A1FB405C100BC28E1 /* 1.png */; };
@@ -82,7 +81,21 @@
 		4C3B0A121F43D50A009B51AC /* DDYCameraVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C3B0A111F43D50A009B51AC /* DDYCameraVC.m */; };
 		4C3B0A151F43D51B009B51AC /* DDYCameraView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C3B0A141F43D51B009B51AC /* DDYCameraView.m */; };
 		4C3B0A1B1F4539A1009B51AC /* DDYMotionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C3B0A1A1F4539A1009B51AC /* DDYMotionManager.m */; };
+		4C7B1E731FCC0B6600DB68CB /* DDYVoiceChangePlayView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C7B1E721FCC0B6600DB68CB /* DDYVoiceChangePlayView.m */; };
+		4C7B1E761FCC119400DB68CB /* DDYVoiceChangePlayCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C7B1E751FCC119400DB68CB /* DDYVoiceChangePlayCell.m */; };
+		4C8B053D1FC58A5F00368520 /* DDYVoiceBox.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C8B053C1FC58A5F00368520 /* DDYVoiceBox.m */; };
+		4C8B05401FC657B300368520 /* DDYVoiceChangeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C8B053F1FC657B200368520 /* DDYVoiceChangeView.m */; };
+		4C8B05461FC657F700368520 /* DDYVoiceRecordView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C8B05451FC657F700368520 /* DDYVoiceRecordView.m */; };
+		4C8B05491FC6580400368520 /* DDYVoicePlayView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C8B05481FC6580400368520 /* DDYVoicePlayView.m */; };
+		4C8B054D1FC6604400368520 /* DDYVoiceBottomView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C8B054C1FC6604400368520 /* DDYVoiceBottomView.m */; };
+		4C8B05511FC6700700368520 /* DDYVoiceBoxVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C8B05501FC6700700368520 /* DDYVoiceBoxVC.m */; };
+		4C8B05551FC6758B00368520 /* DDYVoiceButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C8B05541FC6758B00368520 /* DDYVoiceButton.m */; };
+		4C8B05581FC6801700368520 /* DDYRecordModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C8B05571FC6801700368520 /* DDYRecordModel.m */; };
+		4C8B05841FC6851600368520 /* DDYVoiceStateView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C8B05831FC6851600368520 /* DDYVoiceStateView.m */; };
 		4C91D9281FBDA78A00D60018 /* DDYHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C91D9271FBDA78A00D60018 /* DDYHeader.m */; };
+		4C9A931F1FC7B1CB0057741F /* DDYVoice.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 4C9A931E1FC7B1CB0057741F /* DDYVoice.bundle */; };
+		4C9A93211FC7B2BE0057741F /* DDYVoiceChange.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 4C9A93201FC7B2BE0057741F /* DDYVoiceChange.bundle */; };
+		4C9A93511FC83BDA0057741F /* DDYVoiceTalkView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C9A93501FC83BDA0057741F /* DDYVoiceTalkView.m */; };
 		4CB156CB1F3960370086ED58 /* DDYQRCodeManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CB156CA1F3960370086ED58 /* DDYQRCodeManager.m */; };
 		4CB156CE1F399BD00086ED58 /* DDYQRCodeVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CB156CD1F399BD00086ED58 /* DDYQRCodeVC.m */; };
 		4CB156D11F399BEC0086ED58 /* DDYQRCodeScanView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CB156D01F399BEC0086ED58 /* DDYQRCodeScanView.m */; };
@@ -161,8 +174,6 @@
 		4C08D8071F90ADAB0074872C /* DDYRadarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDYRadarView.h; sourceTree = "<group>"; };
 		4C08D8081F90ADAB0074872C /* DDYRadarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDYRadarView.m; sourceTree = "<group>"; };
 		4C08DA2A1F975D8C0074872C /* radarBg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = radarBg.png; sourceTree = "<group>"; };
-		4C08DDBF1FA868350074872C /* TestVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestVC.h; sourceTree = "<group>"; };
-		4C08DDC01FA868350074872C /* TestVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestVC.m; sourceTree = "<group>"; };
 		4C1FE0361FB4038100BC28E1 /* DDYGroupHeaderVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDYGroupHeaderVC.h; sourceTree = "<group>"; };
 		4C1FE0371FB4038100BC28E1 /* DDYGroupHeaderVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDYGroupHeaderVC.m; sourceTree = "<group>"; };
 		4C1FE0391FB405C100BC28E1 /* 0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 0.png; sourceTree = "<group>"; };
@@ -299,8 +310,34 @@
 		4C3B0A191F4539A1009B51AC /* DDYMotionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDYMotionManager.h; sourceTree = "<group>"; };
 		4C3B0A1A1F4539A1009B51AC /* DDYMotionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDYMotionManager.m; sourceTree = "<group>"; };
 		4C3B0A1C1F4539ED009B51AC /* DDYUtilsHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DDYUtilsHeader.h; sourceTree = "<group>"; };
+		4C7B1E711FCC0B6600DB68CB /* DDYVoiceChangePlayView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDYVoiceChangePlayView.h; sourceTree = "<group>"; };
+		4C7B1E721FCC0B6600DB68CB /* DDYVoiceChangePlayView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDYVoiceChangePlayView.m; sourceTree = "<group>"; };
+		4C7B1E741FCC119400DB68CB /* DDYVoiceChangePlayCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDYVoiceChangePlayCell.h; sourceTree = "<group>"; };
+		4C7B1E751FCC119400DB68CB /* DDYVoiceChangePlayCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDYVoiceChangePlayCell.m; sourceTree = "<group>"; };
+		4C8B053B1FC58A5F00368520 /* DDYVoiceBox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDYVoiceBox.h; sourceTree = "<group>"; };
+		4C8B053C1FC58A5F00368520 /* DDYVoiceBox.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDYVoiceBox.m; sourceTree = "<group>"; };
+		4C8B053E1FC657B200368520 /* DDYVoiceChangeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDYVoiceChangeView.h; sourceTree = "<group>"; };
+		4C8B053F1FC657B200368520 /* DDYVoiceChangeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDYVoiceChangeView.m; sourceTree = "<group>"; };
+		4C8B05441FC657F700368520 /* DDYVoiceRecordView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDYVoiceRecordView.h; sourceTree = "<group>"; };
+		4C8B05451FC657F700368520 /* DDYVoiceRecordView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDYVoiceRecordView.m; sourceTree = "<group>"; };
+		4C8B05471FC6580400368520 /* DDYVoicePlayView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDYVoicePlayView.h; sourceTree = "<group>"; };
+		4C8B05481FC6580400368520 /* DDYVoicePlayView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDYVoicePlayView.m; sourceTree = "<group>"; };
+		4C8B054B1FC6604400368520 /* DDYVoiceBottomView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDYVoiceBottomView.h; sourceTree = "<group>"; };
+		4C8B054C1FC6604400368520 /* DDYVoiceBottomView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDYVoiceBottomView.m; sourceTree = "<group>"; };
+		4C8B054F1FC6700700368520 /* DDYVoiceBoxVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDYVoiceBoxVC.h; sourceTree = "<group>"; };
+		4C8B05501FC6700700368520 /* DDYVoiceBoxVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDYVoiceBoxVC.m; sourceTree = "<group>"; };
+		4C8B05531FC6758B00368520 /* DDYVoiceButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDYVoiceButton.h; sourceTree = "<group>"; };
+		4C8B05541FC6758B00368520 /* DDYVoiceButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDYVoiceButton.m; sourceTree = "<group>"; };
+		4C8B05561FC6801700368520 /* DDYRecordModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDYRecordModel.h; sourceTree = "<group>"; };
+		4C8B05571FC6801700368520 /* DDYRecordModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDYRecordModel.m; sourceTree = "<group>"; };
+		4C8B05821FC6851600368520 /* DDYVoiceStateView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDYVoiceStateView.h; sourceTree = "<group>"; };
+		4C8B05831FC6851600368520 /* DDYVoiceStateView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDYVoiceStateView.m; sourceTree = "<group>"; };
 		4C91D9261FBDA78A00D60018 /* DDYHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDYHeader.h; sourceTree = "<group>"; };
 		4C91D9271FBDA78A00D60018 /* DDYHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDYHeader.m; sourceTree = "<group>"; };
+		4C9A931E1FC7B1CB0057741F /* DDYVoice.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = DDYVoice.bundle; sourceTree = "<group>"; };
+		4C9A93201FC7B2BE0057741F /* DDYVoiceChange.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = DDYVoiceChange.bundle; sourceTree = "<group>"; };
+		4C9A934F1FC83BDA0057741F /* DDYVoiceTalkView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDYVoiceTalkView.h; sourceTree = "<group>"; };
+		4C9A93501FC83BDA0057741F /* DDYVoiceTalkView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDYVoiceTalkView.m; sourceTree = "<group>"; };
 		4CB156C91F3960370086ED58 /* DDYQRCodeManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDYQRCodeManager.h; sourceTree = "<group>"; };
 		4CB156CA1F3960370086ED58 /* DDYQRCodeManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDYQRCodeManager.m; sourceTree = "<group>"; };
 		4CB156CC1F399BD00086ED58 /* DDYQRCodeVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDYQRCodeVC.h; sourceTree = "<group>"; };
@@ -629,6 +666,7 @@
 		4C2DD9FA1F4A90940003E70F /* UIView */ = {
 			isa = PBXGroup;
 			children = (
+				4C8B05321FC5847B00368520 /* VoiceView */,
 				4C1FE02C1FB3E2E800BC28E1 /* GroupHeader */,
 				4C08D7FF1F90ADAB0074872C /* PulseView */,
 				4C08D8041F90ADAB0074872C /* RadarView */,
@@ -707,6 +745,96 @@
 				4C3B0A111F43D50A009B51AC /* DDYCameraVC.m */,
 			);
 			path = Camera;
+			sourceTree = "<group>";
+		};
+		4C8B05321FC5847B00368520 /* VoiceView */ = {
+			isa = PBXGroup;
+			children = (
+				4C9A93201FC7B2BE0057741F /* DDYVoiceChange.bundle */,
+				4C9A931E1FC7B1CB0057741F /* DDYVoice.bundle */,
+				4C8B05521FC674BB00368520 /* VoiceCustom */,
+				4C8B05361FC587E800368520 /* VoiceBox */,
+				4C8B05371FC5884B00368520 /* VoiceChangeView */,
+				4C8B05381FC5887D00368520 /* VoiceTalkView */,
+				4C8B05391FC5893D00368520 /* VoiceRecordView */,
+				4C8B053A1FC5896A00368520 /* VoicePlayView */,
+				4C8B054A1FC6600100368520 /* VoiceBottomView */,
+			);
+			path = VoiceView;
+			sourceTree = "<group>";
+		};
+		4C8B05361FC587E800368520 /* VoiceBox */ = {
+			isa = PBXGroup;
+			children = (
+				4C8B053B1FC58A5F00368520 /* DDYVoiceBox.h */,
+				4C8B053C1FC58A5F00368520 /* DDYVoiceBox.m */,
+				4C8B054F1FC6700700368520 /* DDYVoiceBoxVC.h */,
+				4C8B05501FC6700700368520 /* DDYVoiceBoxVC.m */,
+			);
+			path = VoiceBox;
+			sourceTree = "<group>";
+		};
+		4C8B05371FC5884B00368520 /* VoiceChangeView */ = {
+			isa = PBXGroup;
+			children = (
+				4C8B053E1FC657B200368520 /* DDYVoiceChangeView.h */,
+				4C8B053F1FC657B200368520 /* DDYVoiceChangeView.m */,
+				4C7B1E711FCC0B6600DB68CB /* DDYVoiceChangePlayView.h */,
+				4C7B1E721FCC0B6600DB68CB /* DDYVoiceChangePlayView.m */,
+				4C7B1E741FCC119400DB68CB /* DDYVoiceChangePlayCell.h */,
+				4C7B1E751FCC119400DB68CB /* DDYVoiceChangePlayCell.m */,
+			);
+			path = VoiceChangeView;
+			sourceTree = "<group>";
+		};
+		4C8B05381FC5887D00368520 /* VoiceTalkView */ = {
+			isa = PBXGroup;
+			children = (
+				4C9A934F1FC83BDA0057741F /* DDYVoiceTalkView.h */,
+				4C9A93501FC83BDA0057741F /* DDYVoiceTalkView.m */,
+			);
+			name = VoiceTalkView;
+			path = VoiceBox;
+			sourceTree = "<group>";
+		};
+		4C8B05391FC5893D00368520 /* VoiceRecordView */ = {
+			isa = PBXGroup;
+			children = (
+				4C8B05441FC657F700368520 /* DDYVoiceRecordView.h */,
+				4C8B05451FC657F700368520 /* DDYVoiceRecordView.m */,
+			);
+			path = VoiceRecordView;
+			sourceTree = "<group>";
+		};
+		4C8B053A1FC5896A00368520 /* VoicePlayView */ = {
+			isa = PBXGroup;
+			children = (
+				4C8B05471FC6580400368520 /* DDYVoicePlayView.h */,
+				4C8B05481FC6580400368520 /* DDYVoicePlayView.m */,
+			);
+			path = VoicePlayView;
+			sourceTree = "<group>";
+		};
+		4C8B054A1FC6600100368520 /* VoiceBottomView */ = {
+			isa = PBXGroup;
+			children = (
+				4C8B054B1FC6604400368520 /* DDYVoiceBottomView.h */,
+				4C8B054C1FC6604400368520 /* DDYVoiceBottomView.m */,
+			);
+			path = VoiceBottomView;
+			sourceTree = "<group>";
+		};
+		4C8B05521FC674BB00368520 /* VoiceCustom */ = {
+			isa = PBXGroup;
+			children = (
+				4C8B05531FC6758B00368520 /* DDYVoiceButton.h */,
+				4C8B05541FC6758B00368520 /* DDYVoiceButton.m */,
+				4C8B05561FC6801700368520 /* DDYRecordModel.h */,
+				4C8B05571FC6801700368520 /* DDYRecordModel.m */,
+				4C8B05821FC6851600368520 /* DDYVoiceStateView.h */,
+				4C8B05831FC6851600368520 /* DDYVoiceStateView.m */,
+			);
+			path = VoiceCustom;
 			sourceTree = "<group>";
 		};
 		4CB156E71F3D829F0086ED58 /* icon */ = {
@@ -948,8 +1076,6 @@
 				4C2C0ABD1F21B1DE002DD383 /* ThirdVC.m */,
 				4C2C0ABF1F21B208002DD383 /* FourthVC.h */,
 				4C2C0AC01F21B208002DD383 /* FourthVC.m */,
-				4C08DDBF1FA868350074872C /* TestVC.h */,
-				4C08DDC01FA868350074872C /* TestVC.m */,
 			);
 			path = TabBarItem;
 			sourceTree = "<group>";
@@ -1222,7 +1348,9 @@
 				ABCB97AB1D71D063000DEBEF /* Assets.xcassets in Resources */,
 				4C1FE0401FB405C100BC28E1 /* 2.png in Resources */,
 				4C2DDA2F1F4D5A1B0003E70F /* FilterImg.jpg in Resources */,
+				4C9A931F1FC7B1CB0057741F /* DDYVoice.bundle in Resources */,
 				4C1FE0421FB405C100BC28E1 /* 4.png in Resources */,
+				4C9A93211FC7B2BE0057741F /* DDYVoiceChange.bundle in Resources */,
 				4C1FE0411FB405C100BC28E1 /* 3.png in Resources */,
 				4C1FE03E1FB405C100BC28E1 /* 0.png in Resources */,
 				4CE11F0A1F67B0C800783AA4 /* qrcode.png in Resources */,
@@ -1296,10 +1424,14 @@
 				4C2C0B1F1F21D483002DD383 /* JSManagedValue+LinkBlock.m in Sources */,
 				4C3455511F79E6E900D28CBD /* DDYTextField.m in Sources */,
 				4C2C0B421F21D483002DD383 /* UITextView+LinkBlock.m in Sources */,
+				4C9A93511FC83BDA0057741F /* DDYVoiceTalkView.m in Sources */,
 				4C2C0B321F21D483002DD383 /* LinkInfo.m in Sources */,
 				4C2C0B221F21D483002DD383 /* NSAttributedString+LinkBlock.m in Sources */,
+				4C8B05491FC6580400368520 /* DDYVoicePlayView.m in Sources */,
+				4C8B054D1FC6604400368520 /* DDYVoiceBottomView.m in Sources */,
 				4C34553F1F78E47F00D28CBD /* NSBundle+DDYExtension.m in Sources */,
 				4C2C0B3F1F21D483002DD383 /* UISearchBar+LinkBlock.m in Sources */,
+				4C8B05841FC6851600368520 /* DDYVoiceStateView.m in Sources */,
 				ABCB98131D72C662000DEBEF /* DDYTabBarController.m in Sources */,
 				4C3455151F7890CB00D28CBD /* NSArray+DDYExtension.m in Sources */,
 				4CCF495B1F6BA8D900B2CE2F /* DDYProxy.m in Sources */,
@@ -1313,9 +1445,11 @@
 				4CE121F31F68E70700783AA4 /* DDYWaterFallHeader.m in Sources */,
 				4C2C0ABE1F21B1DE002DD383 /* ThirdVC.m in Sources */,
 				4CE121F91F68E89600783AA4 /* DDYWaterFallVC.m in Sources */,
+				4C8B053D1FC58A5F00368520 /* DDYVoiceBox.m in Sources */,
 				4C2C0B201F21D483002DD383 /* JSValue+LinkBlock.m in Sources */,
 				4CBE4E6E1F221B740006B84E /* DDYButton+DDYLinkBlock.m in Sources */,
 				4C2C0B2E1F21D483002DD383 /* NSValue+LinkBlock.m in Sources */,
+				4C8B05461FC657F700368520 /* DDYVoiceRecordView.m in Sources */,
 				4C2C0AC11F21B208002DD383 /* FourthVC.m in Sources */,
 				4C2C0B2D1F21D483002DD383 /* NSURL+LinkBlock.m in Sources */,
 				4C08D80B1F90ADAB0074872C /* DDYRadarVC.m in Sources */,
@@ -1325,15 +1459,16 @@
 				AB5199D91DD5EEE400E864DA /* UIView+DDYAnimation.m in Sources */,
 				4CCF495E1F6BAA7400B2CE2F /* DDYWaveView.m in Sources */,
 				4C2C0B541F21DA1B002DD383 /* DDYButton.m in Sources */,
+				4C7B1E761FCC119400DB68CB /* DDYVoiceChangePlayCell.m in Sources */,
 				4CBE4EC61F29B3DD0006B84E /* DDYTextView.m in Sources */,
 				4C2C0B301F21D483002DD383 /* LinkError.m in Sources */,
-				4C08DDC11FA868350074872C /* TestVC.m in Sources */,
 				ABCB97E61D727F76000DEBEF /* UIView+DDYExtension.m in Sources */,
 				4C91D9281FBDA78A00D60018 /* DDYHeader.m in Sources */,
 				4C2C0B261F21D483002DD383 /* NSMutableArray+LinkBlock.m in Sources */,
 				4C2C0AC41F21B5BB002DD383 /* UIViewController+DDYExtension.m in Sources */,
 				4CE1175D1F661B1B00783AA4 /* NSData+DDYExtension.m in Sources */,
 				4CBE4E7B1F271A590006B84E /* RuntimeVC.m in Sources */,
+				4C8B05581FC6801700368520 /* DDYRecordModel.m in Sources */,
 				4C2C0B341F21D483002DD383 /* CAAnimations+LinkBlock.m in Sources */,
 				4C2C0B371F21D483002DD383 /* UIBezierPath+LinkBlock.m in Sources */,
 				4C3454D31F734AC200D28CBD /* DDYCirCleAnimationView.m in Sources */,
@@ -1366,6 +1501,8 @@
 				4CB156CB1F3960370086ED58 /* DDYQRCodeManager.m in Sources */,
 				4C2C0B311F21D483002DD383 /* LinkGroup.m in Sources */,
 				4C2C0B2B1F21D483002DD383 /* NSObject+LinkBlock.m in Sources */,
+				4C8B05401FC657B300368520 /* DDYVoiceChangeView.m in Sources */,
+				4C7B1E731FCC0B6600DB68CB /* DDYVoiceChangePlayView.m in Sources */,
 				4CB156E61F3D46DF0086ED58 /* DDYQRCodeScanResultVC.m in Sources */,
 				ABCB97E51D727F76000DEBEF /* UIImage+DDYExtension.m in Sources */,
 				4CE121F61F68E84E00783AA4 /* DDYWaterFallCell.m in Sources */,
@@ -1387,6 +1524,7 @@
 				4C2C0B441F21D483002DD383 /* UIViewController+LinkBlock.m in Sources */,
 				4C2C0B351F21D483002DD383 /* CALayer+LinkBlock.m in Sources */,
 				4C2C0B3C1F21D483002DD383 /* UIImageView+LinkBlock.m in Sources */,
+				4C8B05551FC6758B00368520 /* DDYVoiceButton.m in Sources */,
 				AB3056E01D74379D0061FD12 /* Foundation+Log.m in Sources */,
 				4C2C0B361F21D483002DD383 /* CAShapeLayer+LinkBlock.m in Sources */,
 				4C2C0B451F21D483002DD383 /* UIWebView+LinkBlock.m in Sources */,
@@ -1402,6 +1540,7 @@
 				4C2DDA321F53CC580003E70F /* DDYCameraManager.m in Sources */,
 				ABCB97D01D7274D0000DEBEF /* main.m in Sources */,
 				4CB156CE1F399BD00086ED58 /* DDYQRCodeVC.m in Sources */,
+				4C8B05511FC6700700368520 /* DDYVoiceBoxVC.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -20,6 +20,16 @@
     };
 }
 
+- (DDYButton *(^)(CGFloat, CGFloat))btnSize
+{
+    return ^id(CGFloat w, CGFloat h) {
+        LinkHandle_REF(DDYButton)
+        LinkGroupHandle_REF(btnSize, w, h)
+        _self.ddy_size = CGSizeMake(w, h);
+        return _self;
+    };
+}
+
 - (DDYButton *(^)(CGFloat))btnX
 {
     return ^id(CGFloat x) {
@@ -150,6 +160,36 @@
     };
 }
 
+- (DDYButton *(^)(UIImage *))btnBgImageN
+{
+    return ^id(UIImage *image) {
+        LinkHandle_REF(DDYButton)
+        LinkGroupHandle_REF(btnBgImageN, image)
+        [_self setBackgroundImage:image forState:UIControlStateNormal];
+        return _self;
+    };
+}
+
+- (DDYButton *(^)(UIImage *))btnBgImageS
+{
+    return ^id(UIImage *image) {
+        LinkHandle_REF(DDYButton)
+        LinkGroupHandle_REF(btnBgImageS, image)
+        [_self setBackgroundImage:image forState:UIControlStateSelected];
+        return _self;
+    };
+}
+
+- (DDYButton *(^)(UIImage *))btnBgImageH
+{
+    return ^id(UIImage *image) {
+        LinkHandle_REF(DDYButton)
+        LinkGroupHandle_REF(btnBgImageH, image)
+        [_self setBackgroundImage:image forState:UIControlStateHighlighted];
+        return _self;
+    };
+}
+
 - (DDYButton *(^)(NSString *))btnImgNameN
 {
     return ^id(NSString *imgName) {
@@ -170,12 +210,42 @@
     };
 }
 
-- (DDYButton *(^)(NSString *))btnImgNameh
+- (DDYButton *(^)(NSString *))btnImgNameH
 {
     return ^id(NSString *imgName) {
         LinkHandle_REF(DDYButton)
         LinkGroupHandle_REF(btnImgNameH, imgName)
         [_self setImage:[UIImage imageNamed:imgName] forState:UIControlStateHighlighted];
+        return _self;
+    };
+}
+
+- (DDYButton *(^)(NSString *))btnBgImgNameN
+{
+    return ^id(NSString *imgName) {
+        LinkHandle_REF(DDYButton)
+        LinkGroupHandle_REF(btnBgImgNameN, imgName)
+        [_self setBackgroundImage:[UIImage imageNamed:imgName] forState:UIControlStateNormal];
+        return _self;
+    };
+}
+
+- (DDYButton *(^)(NSString *))btnBgImgNameS
+{
+    return ^id(NSString *imgName) {
+        LinkHandle_REF(DDYButton)
+        LinkGroupHandle_REF(btnBgImgNameS, imgName)
+        [_self setBackgroundImage:[UIImage imageNamed:imgName] forState:UIControlStateSelected];
+        return _self;
+    };
+}
+
+- (DDYButton *(^)(NSString *))btnBgImgNameH
+{
+    return ^id(NSString *imgName) {
+        LinkHandle_REF(DDYButton)
+        LinkGroupHandle_REF(btnBgImgNameH, imgName)
+        [_self setBackgroundImage:[UIImage imageNamed:imgName] forState:UIControlStateHighlighted];
         return _self;
     };
 }

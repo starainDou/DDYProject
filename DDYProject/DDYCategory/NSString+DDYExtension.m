@@ -94,11 +94,11 @@
 }
 
 #pragma mark 判断空字符串
-- (BOOL)ddy_blankString {
-    if (self == nil || self == NULL || [self isKindOfClass:[NSNull class]]) {
++ (BOOL)ddy_blankString:(NSString *)str {
+    if (str == nil || str == NULL || [str isKindOfClass:[NSNull class]]) {
         return YES;
     }
-    if ([[self stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]] length]==0) {
+    if ([[str stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]] length]==0) {
         return YES;
     }
     return NO;

@@ -142,12 +142,14 @@
 #pragma mark - 添加手势
 #pragma mark 点击手势
 - (void)addTapTarget:(id)target action:(SEL)action {
+    self.userInteractionEnabled = YES;
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:target action:action];
     [self addGestureRecognizer:tap];
 }
 
 #pragma mark 点击手势 + 代理
 - (void)addTapTarget:(id)target action:(SEL)action delegate:(id)delegate {
+    self.userInteractionEnabled = YES;
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:target action:action];
     tap.delegate = delegate;
     [self addGestureRecognizer:tap];
@@ -155,6 +157,7 @@
 
 #pragma mark 点击手势 + 点击数
 - (void)addTapTarget:(id)target action:(SEL)action number:(NSInteger)number {
+    self.userInteractionEnabled = YES;
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:target action:action];
     tap.numberOfTapsRequired = number;
     [self addGestureRecognizer:tap];
@@ -162,6 +165,7 @@
 
 #pragma mark 点击手势 + 点击数 + 代理
 - (void)addTapTarget:(id)target action:(SEL)action number:(NSInteger)number  delegate:(id)delegate {
+    self.userInteractionEnabled = YES;
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:target action:action];
     tap.numberOfTapsRequired = number;
     tap.delegate = delegate;
@@ -170,6 +174,7 @@
 
 #pragma mark 长按手势
 - (void)addLongGestureTarget:(id)target action:(SEL)action {
+    self.userInteractionEnabled = YES;
     UILongPressGestureRecognizer *longGes = [[UILongPressGestureRecognizer alloc]initWithTarget:target action:action];
     [self addGestureRecognizer:longGes];
 }
@@ -180,6 +185,20 @@
     UILongPressGestureRecognizer *longGes = [[UILongPressGestureRecognizer alloc]initWithTarget:target action:action];
     longGes.minimumPressDuration = minDuration;
     [self addGestureRecognizer:longGes];
+}
+
+#pragma mark 拖动手势
+- (void)addPanGestureTarget:(id)target action:(SEL)action {
+    self.userInteractionEnabled = YES;
+    [self addGestureRecognizer:[[UIPanGestureRecognizer alloc] initWithTarget:target action:action]];
+}
+
+#pragma mark 拖动手势 + 代理
+- (void)addPanGestureTarget:(id)target action:(SEL)action delegate:(id)delegate {
+    self.userInteractionEnabled = YES;
+    UIPanGestureRecognizer *panGesture = [[UIPanGestureRecognizer alloc] initWithTarget:target action:action];
+    panGesture.delegate = delegate;
+    [self addGestureRecognizer:panGesture];
 }
 
 @end
