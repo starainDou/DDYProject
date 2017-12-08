@@ -142,6 +142,188 @@ static DDYQRCodeManager *_instance;
     return [self changeSize:[self changeColor:[self generateQRCodeWithData:data] color:color bgColor:bgColor] width:width height:width];
 }
 
+#pragma mark 生成圆块二维码
+- (UIImage *)ddy_CircleQRCodeWithData:(NSString *)data width:(CGFloat)width gradientType:(kQRCodeGradientType)type startColor:(UIColor *)startColor endColor:(UIColor *)endColor {
+    NSArray *points = [self getPixelsWithImage:[self convertCIImageToCGImage:[self generateQRCodeWithData:data]]];
+    DDYInfoLog(@"%@",points);
+    return [self drawWithPoints:points width:width colors:@[startColor, endColor] type:type];
+}
+
+#pragma mark 将CIImage转成CGImage
+- (CGImageRef)convertCIImageToCGImage:(CIImage *)image {
+    CGRect extent = CGRectIntegral(image.extent);
+    
+    size_t width = CGRectGetWidth(extent);
+    size_t height = CGRectGetHeight(extent);
+    CGColorSpaceRef colorSpace = CGColorSpaceCreateDeviceGray();
+    CGContextRef bitmapRef = CGBitmapContextCreate(nil, width, height, 8, 0, colorSpace, (CGBitmapInfo)kCGImageAlphaNone);
+    CIContext *context = [CIContext contextWithOptions:nil];
+    CGImageRef bitmapImage = [context createCGImage:image fromRect:extent];
+    CGContextSetInterpolationQuality(bitmapRef, kCGInterpolationNone);
+    CGContextScaleCTM(bitmapRef, 1, 1);
+    CGContextDrawImage(bitmapRef, extent, bitmapImage);
+    
+    CGImageRef scaledImage = CGBitmapContextCreateImage(bitmapRef);
+    CGContextRelease(bitmapRef);
+    CGImageRelease(bitmapImage);
+    
+    return scaledImage;
+}
+
+#pragma mark 将原始图片的所有点的色值保存到二维数组
+- (NSArray <NSArray *>*)getPixelsWithImage:(CGImageRef)image {
+    CGFloat width = CGImageGetWidth(image);
+    CGColorSpaceRef colorSpace = CGColorSpaceCreateDeviceRGB();
+    unsigned char *rawData = (unsigned char *)calloc(width*width*4, sizeof(unsigned char));
+    NSUInteger bytesPerPixel = 4;
+    NSUInteger bytesPerRow = width*bytesPerPixel;
+    NSUInteger bitsPerComponent = 8;
+    CGContextRef context = CGBitmapContextCreate(rawData, width, width, bitsPerComponent, bytesPerRow, colorSpace, kCGImageAlphaPremultipliedLast | kCGBitmapByteOrder32Big);
+    CGColorSpaceRelease(colorSpace);
+    CGContextDrawImage(context, CGRectMake(0, 0, width, width), image);
+    CGContextRelease(context);
+    
+    NSMutableArray *pixels = [NSMutableArray array];
+    for (int y = 0; y < width; y++) {
+        NSMutableArray *array = [NSMutableArray array];
+        for (int x = 0; x < width; x++) {
+            @autoreleasepool {
+                NSUInteger byteIndex = bytesPerRow*y + bytesPerPixel*x;
+                CGFloat r = (CGFloat)rawData[byteIndex];
+                CGFloat g = (CGFloat)rawData[byteIndex + 1];
+                CGFloat b = (CGFloat)rawData[byteIndex + 2];
+                BOOL display = (r==0 && g==0 && b==0);
+                [array addObject:@(display)];
+                byteIndex += bytesPerPixel;
+            }
+        }
+        [pixels addObject:[array copy]];
+    }
+    free(rawData);
+    return [pixels copy];
+}
+
+- (UIImage *)drawWithPoints:(NSArray <NSArray *>*)points width:(CGFloat)width colors:(NSArray <UIColor *>*)colors type:(kQRCodeGradientType)type {
+    
+    CGFloat delta = width/points.count;
+    UIGraphicsBeginImageContext(CGSizeMake(width, width));
+    CGContextRef ctx = UIGraphicsGetCurrentContext();
+    for (int y = 0; y < points.count; y++) {
+        for (int x = 0; x < points[y].count; x++) {
+            if ([points[y][x] boolValue]) {
+                CGFloat centerX = x*delta + 0.5*delta;
+                CGFloat centerY = y*delta + 0.5*delta;
+                CGFloat radius = 0.5*delta;
+                CGFloat startAngle = 0;
+                CGFloat endAngle = M_PI * 2;
+                UIBezierPath *path = [UIBezierPath bezierPathWithArcCenter:CGPointMake(centerX, centerY) radius:radius startAngle:startAngle endAngle:endAngle clockwise:YES];
+                NSArray <UIColor *> *gradientColors = [self gradientColorWithStartPoint:CGPointMake(x*delta, y*delta) endPoint:CGPointMake((x+1)*delta, (y+1)*delta) width:width colors:colors type:type];
+                [self drawLinearGradient:ctx path:path.CGPath startColor:gradientColors.firstObject.CGColor endColor:gradientColors.lastObject.CGColor type:type];
+                CGContextSaveGState(ctx);
+            }
+        }
+    }
+    UIImage *img = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    return img;
+}
+
+- (NSArray <UIColor *>*)gradientColorWithStartPoint:(CGPoint)startPoint endPoint:(CGPoint)endPoint width:(CGFloat)width colors:(NSArray *)colors type:(kQRCodeGradientType)type {
+    UIColor *color1 = colors.firstObject;
+    UIColor *color2 = colors.lastObject;
+    const CGFloat *components1 = CGColorGetComponents(color1.CGColor);
+    const CGFloat *components2 = CGColorGetComponents(color2.CGColor);
+    
+    CGFloat r1 = components1[0];
+    CGFloat g1 = components1[1];
+    CGFloat b1 = components1[2];
+    
+    CGFloat r2 = components2[0];
+    CGFloat g2 = components2[1];
+    CGFloat b2 = components2[2];
+    
+    NSArray <UIColor *> *result = nil;
+    switch (type) {
+        case kQRCodeGradientTypeHorizontal:
+        {
+            CGFloat startDelta = startPoint.x / width;
+            CGFloat endDelta = endPoint.x / width;
+            
+            CGFloat startR = (1-startDelta)*r1 + startDelta*r2;
+            CGFloat startG = (1-startDelta)*g1 + startDelta*g2;
+            CGFloat startB = (1-startDelta)*b1 + startDelta*b2;
+            
+            CGFloat endR = (1-endDelta)*r1 + endDelta*r2;
+            CGFloat endG = (1-endDelta)*g1 + endDelta*g2;
+            CGFloat endB = (1-endDelta)*b1 + endDelta*b2;
+            result = @[DDYColor(startR, startG, startB, 1), DDYColor(endR, endG, endB, 1)];
+        }
+            break;
+        case kQRCodeGradientTypeDiagonal:
+        {
+            CGFloat startDelta = [self calculateTarHeiForPoint:startPoint] / (width*width);
+            CGFloat endDelta = [self calculateTarHeiForPoint:endPoint] / (width*width);
+           
+            CGFloat startR = r1 + startDelta*(r2-r1);
+            CGFloat startG = g1 + startDelta*(g2-g1);
+            CGFloat startB = b1 + startDelta*(b2-b1);
+            
+            CGFloat endR = r1 + endDelta*(r2-r1);
+            CGFloat endG = g1 + endDelta*(g2-g1);
+            CGFloat endB = b1 + endDelta*(b2-b1);
+            
+            result = @[DDYColor(startR, startG, startB, 1), DDYColor(endR, endG, endB, 1)];
+        }
+            break;
+        default:
+            break;
+    }
+    return result;
+}
+
+- (CGFloat)calculateTarHeiForPoint:(CGPoint)point {
+    CGFloat tarArvValue = point.x>=point.y ? M_PI_4-atan(point.y/point.x) : M_PI_4-atan(point.x/point.y);
+    return cos(tarArvValue) * (point.x*point.x + point.y*point.y);
+}
+
+- (void)drawLinearGradient:(CGContextRef)ctr path:(CGPathRef)path startColor:(CGColorRef)startColor endColor:(CGColorRef)endColor type:(kQRCodeGradientType)type {
+    CGColorSpaceRef colorSpace = CGColorSpaceCreateDeviceRGB();
+    CGFloat locations[] = {0, 1};
+    
+    NSArray *colors = @[(__bridge id)startColor, (__bridge id)endColor];
+    
+    CGGradientRef gradient = CGGradientCreateWithColors(colorSpace, (__bridge CFArrayRef)colors, locations);
+    
+    CGRect pathRect = CGPathGetBoundingBox(path);
+    CGPoint startPoint = CGPointZero;
+    CGPoint endPoint = CGPointZero;
+    
+    switch (type) {
+        case kQRCodeGradientTypeDiagonal:
+        {
+            startPoint = CGPointMake(CGRectGetMinX(pathRect), CGRectGetMinY(pathRect));
+            endPoint = CGPointMake(CGRectGetMaxX(pathRect), CGRectGetMaxY(pathRect));
+        }
+            break;
+            case kQRCodeGradientTypeHorizontal:
+        {
+            startPoint = CGPointMake(CGRectGetMinX(pathRect), CGRectGetMidY(pathRect));
+            endPoint = CGPointMake(CGRectGetMaxX(pathRect), CGRectGetMidY(pathRect));
+        }
+            break;
+        default:
+            break;
+    }
+    CGContextSaveGState(ctr);
+    CGContextAddPath(ctr, path);
+    CGContextClip(ctr);
+    CGContextDrawLinearGradient(ctr, gradient, startPoint, endPoint, 0);
+    CGContextRestoreGState(ctr);
+    
+    CGGradientRelease(gradient);
+    CGColorSpaceRelease(colorSpace);
+}
+
 #pragma mark - 扫描二维码
 #pragma mark 拍照扫描二维码
 - (void)ddy_ScanQRCodeWithCameraContainer:(UIView *)container

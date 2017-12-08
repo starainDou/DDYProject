@@ -59,7 +59,7 @@
 #pragma mark leftButton
 - (void)showLeftBarBtnWithTitle:(NSString *)title img:(UIImage *)img
 {
-    DDYButton *leftBtn = [DDYButton customDDYBtn].btnAction(self, @selector(backBtnClick:)).btnW(30).btnH(30);
+    DDYButton *leftBtn = [DDYButton customDDYBtn].btnAction(self, @selector(leftBtnClick:)).btnW(30).btnH(30);
     if (title) leftBtn.btnTitleN(title).btnFont(DDYFont(15));
     if (img)   leftBtn.btnImageN(img);
     [leftBtn sizeThatFits:CGSizeMake(120, 30)];
@@ -69,7 +69,7 @@
 
 - (void)showRightBarBtnWithTitle:(NSString *)title img:(UIImage *)img
 {
-    DDYButton *rightBtn = [DDYButton customDDYBtn].btnAction(self, @selector(leftBtnClick:)).btnW(30).btnH(30);
+    DDYButton *rightBtn = [DDYButton customDDYBtn].btnAction(self, @selector(rightBtnClick:)).btnW(30).btnH(30);
     if (title) rightBtn.btnTitleN(title).btnFont(DDYFont(15));
     if (img)   rightBtn.btnImageN(img);
     [rightBtn sizeThatFits:CGSizeMake(120, 30)];

@@ -53,25 +53,18 @@ static inline UIImage* strectchImg(NSString *imgName) { return [[UIImage imageNa
 - (DDYButton *)playBtn {
     if (!_playBtn) {
         _playBtn = DDYButtonNew;
-        _playBtn.btnImgNameH(@"DDYVoice.bundle/aio_record_play_press");
-        _playBtn.btnImgNameN(@"DDYVoice.bundle/aio_record_play_nor");
-        _playBtn.btnImgNameS(@"DDYVoice.bundle/aio_record_stop_nor");
-        UIImage *image = [UIImage imageNamed:@"DDYVoice.bundle/aio_voice_button_nor"];
-        _playBtn.frame = DDYRect(0, 0, image.size.width, image.size.height);
-        _playBtn.center = CGPointMake(self.ddy_centerX, self.stateView.ddy_bottom+image.size.height/2);
-        [_playBtn addTarget:self action:@selector(playRecord) forControlEvents:UIControlEventTouchUpInside];
+        _playBtn.btnImageN(voiceImg(@"PlayBtnN")).btnImageH(voiceImg(@"PlayBtnH")).btnImageS(voiceImg(@"PlayBtnN")).btnFrame(0,0,107,107).btnAction(self,@selector(playRecord));
+        _playBtn.center = CGPointMake(self.ddy_centerX, self.stateView.ddy_bottom+107/2);
     }
     return _playBtn;
 }
 
 - (void)setupSendBtnAndCancelBtn {
-    _cancelBtn = DDYButtonNew.btnFrame(0,self.ddy_h-40,self.ddy_w/2,40).btnTitleN(DDYLocalStr(@"Cancel")).btnTitleColorN(kSelectColor);
-    _cancelBtn.btnFont(DDYFont(17)).btnAction(self,@selector(btnClick:)).btnBgImageN(strectchImg(@"DDYVoice.bundle/aio_record_cancel_button"));
-    _cancelBtn.btnBgImageH(strectchImg(@"DDYVoice.bundle/aio_record_cancel_button_press")).btnSuperView(self);
+    _cancelBtn = DDYButtonNew.btnFrame(0,self.ddy_h-40,self.ddy_w/2,40).btnTitleN(DDYLocalStr(@"Cancel")).btnTitleColorN(kSelectColor).btnFont(DDYFont(17));
+    _cancelBtn.btnSuperView(self).btnAction(self,@selector(btnClick:)).btnBgImageN(strectchImg(@"PlayCancelN")).btnBgImageH(strectchImg(@"PlayCancelH"));
     
-    _sendBtn = DDYButtonNew.btnFrame(self.ddy_w/2,self.ddy_h-40,self.ddy_w/2,40).btnTitleN(DDYLocalStr(@"Send")).btnTitleColorN(kSelectColor);
-    _sendBtn.btnFont(DDYFont(17)).btnAction(self,@selector(btnClick:)).btnBgImageN(strectchImg(@"DDYVoice.bundle/aio_record_send_button"));
-    _sendBtn.btnImageH(strectchImg(@"DDYVoice.bundle/aio_record_send_button_press")).btnSuperView(self);
+    _sendBtn = DDYButtonNew.btnFrame(self.ddy_w/2,self.ddy_h-40,self.ddy_w/2,40).btnTitleN(DDYLocalStr(@"Send")).btnTitleColorN(kSelectColor).btnFont(DDYFont(17));
+    _sendBtn.btnSuperView(self).btnAction(self,@selector(btnClick:)).btnBgImageN(strectchImg(@"PlaySendN")).btnImageH(strectchImg(@"PlaySendH"));
 }
 
 - (void)btnClick:(DDYButton *)sender {
@@ -123,7 +116,7 @@ static inline UIImage* strectchImg(NSString *imgName) { return [[UIImage imageNa
 - (void)drawRect:(CGRect)rect {
     [super drawRect:rect];
     
-    UIImage *image = [UIImage imageNamed:@"DDYVoice.bundle/aio_voice_button_nor"];
+    UIImage *image = voiceImg(@"TalkRecordN");
     CGContextRef ctx = UIGraphicsGetCurrentContext();
     CGContextSetLineWidth(ctx, 2.0f);
     CGContextSetStrokeColorWithColor(ctx, [DDYRGBA(214, 219, 222, 1.0) CGColor]);

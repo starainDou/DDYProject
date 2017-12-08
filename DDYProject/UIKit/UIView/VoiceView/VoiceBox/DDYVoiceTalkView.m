@@ -9,6 +9,7 @@
 #import "DDYVoiceTalkView.h"
 #import "DDYVoiceButton.h"
 #import "DDYVoiceStateView.h"
+#import "DDYRecordModel.h"
 
 static CGFloat const maxScale = 0.45;
 
@@ -54,7 +55,7 @@ static CGFloat const maxScale = 0.45;
 #pragma mark 按住显示的曲线
 - (UIImageView *)voiceArcView {
     if (!_voiceArcView) {
-        _voiceArcView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"DDYVoice.bundle/aio_voice_line"]];
+        _voiceArcView = [[UIImageView alloc] initWithImage:voiceImg(@"TalkArc")];
         _voiceArcView.hidden = YES;
     }
     return _voiceArcView;
@@ -63,10 +64,10 @@ static CGFloat const maxScale = 0.45;
 #pragma mark 录音按钮
 - (DDYVoiceButton *)recordBtn {
     if (!_recordBtn) {
-        _recordBtn = [DDYVoiceButton btnWithBgImgN:@"DDYVoice.bundle/aio_voice_button_nor"
-                                            bgImgS:@"DDYVoice.bundle/aio_voice_button_press"
-                                              imgN:@"DDYVoice.bundle/aio_voice_button_icon"
-                                              imgS:@"DDYVoice.bundle/aio_voice_button_icon"
+        _recordBtn = [DDYVoiceButton btnWithBgImgN:@"DDYVoice.bundle/TalkRecordN"
+                                            bgImgS:@"DDYVoice.bundle/TalkRecordH"
+                                              imgN:@"DDYVoice.bundle/TalkRecordIcon"
+                                              imgS:@"DDYVoice.bundle/TalkRecordIcon"
                                              frame:DDYRect(0, self.stateView.ddy_bottom, 0, 0)
                                         isMicPhone:YES];
         // 手指按下
@@ -84,10 +85,10 @@ static CGFloat const maxScale = 0.45;
 #pragma mark 播放按钮
 - (DDYVoiceButton *)playBtn {
     if (!_playBtn) {
-        _playBtn = [DDYVoiceButton btnWithBgImgN:@"DDYVoice.bundle/aio_voice_operate_nor"
-                                          bgImgS:@"DDYVoice.bundle/aio_voice_operate_press"
-                                            imgN:@"DDYVoice.bundle/aio_voice_operate_listen_nor"
-                                            imgS:@"DDYVoice.bundle/aio_voice_operate_listen_press"
+        _playBtn = [DDYVoiceButton btnWithBgImgN:@"DDYVoice.bundle/TalkOperateN"
+                                          bgImgS:@"DDYVoice.bundle/TalkOperateH"
+                                            imgN:@"DDYVoice.bundle/TalkListenN"
+                                            imgS:@"DDYVoice.bundle/TalkListenH"
                                            frame:DDYRect(35, self.stateView.ddy_bottom+10, 0, 0)
                                       isMicPhone:NO];
         _playBtn.hidden = YES;
@@ -98,10 +99,10 @@ static CGFloat const maxScale = 0.45;
 #pragma mark 取消按钮
 - (DDYVoiceButton *)cancelBtn {
     if (!_cancelBtn) {
-        _cancelBtn = [DDYVoiceButton btnWithBgImgN:@"DDYVoice.bundle/aio_voice_operate_nor"
-                                            bgImgS:@"DDYVoice.bundle/aio_voice_operate_press"
-                                              imgN:@"DDYVoice.bundle/aio_voice_operate_delete_nor"
-                                              imgS:@"DDYVoice.bundle/aio_voice_operate_delete_press"
+        _cancelBtn = [DDYVoiceButton btnWithBgImgN:@"DDYVoice.bundle/TalkOperateN"
+                                            bgImgS:@"DDYVoice.bundle/TalkOperateH"
+                                              imgN:@"DDYVoice.bundle/TalkDeleteN"
+                                              imgS:@"DDYVoice.bundle/TalkDeleteH"
                                              frame:DDYRect(self.ddy_w-35, self.stateView.ddy_bottom+10, 0, 0)
                                         isMicPhone:NO];
         _cancelBtn.ddy_right = self.ddy_w-35;

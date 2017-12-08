@@ -8,6 +8,7 @@
 
 #import "DDYVoiceChangeView.h"
 #import "DDYVoiceStateView.h"
+#import "DDYRecordModel.h"
 
 @interface DDYVoiceChangeView ()<DDYAudioManagerDelegate>
 /** 状态与振幅 */
@@ -42,8 +43,7 @@
 #pragma mark 录音按钮
 - (DDYButton *)recordBtn {
     if (!_recordBtn) {
-        UIImage *img = [UIImage imageNamed:@"DDYVoice.bundle/aio_voiceChange_icon"];
-        _recordBtn = DDYButtonNew.btnImageN(img).btnFrame(0,self.stateView.ddy_bottom,img.size.width,img.size.height);
+        _recordBtn = DDYButtonNew.btnImageN(voiceImg(@"ChangeRecord")).btnFrame(0,self.stateView.ddy_bottom,107,107);
         _recordBtn.ddy_centerX = self.ddy_w/2.;
         [_recordBtn addTarget:self action:@selector(startRecorde:) forControlEvents:UIControlEventTouchDown];
         [_recordBtn addTarget:self action:@selector(endRecord:) forControlEvents:UIControlEventTouchUpInside];

@@ -83,6 +83,19 @@
 		4C3B0A1B1F4539A1009B51AC /* DDYMotionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C3B0A1A1F4539A1009B51AC /* DDYMotionManager.m */; };
 		4C7B1E731FCC0B6600DB68CB /* DDYVoiceChangePlayView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C7B1E721FCC0B6600DB68CB /* DDYVoiceChangePlayView.m */; };
 		4C7B1E761FCC119400DB68CB /* DDYVoiceChangePlayCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C7B1E751FCC119400DB68CB /* DDYVoiceChangePlayCell.m */; };
+		4C7B1E791FCD145600DB68CB /* DDYAudioChangeManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = 4C7B1E781FCD145600DB68CB /* DDYAudioChangeManager.mm */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		4C7B1E941FCD3CD200DB68CB /* AAFilter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4C7B1E7B1FCD3CD200DB68CB /* AAFilter.cpp */; };
+		4C7B1E951FCD3CD200DB68CB /* BPMDetect.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4C7B1E7D1FCD3CD200DB68CB /* BPMDetect.cpp */; };
+		4C7B1E961FCD3CD200DB68CB /* cpu_detect_x86.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4C7B1E801FCD3CD200DB68CB /* cpu_detect_x86.cpp */; };
+		4C7B1E971FCD3CD200DB68CB /* FIFOSampleBuffer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4C7B1E811FCD3CD200DB68CB /* FIFOSampleBuffer.cpp */; };
+		4C7B1E981FCD3CD200DB68CB /* FIRFilter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4C7B1E841FCD3CD200DB68CB /* FIRFilter.cpp */; };
+		4C7B1E991FCD3CD200DB68CB /* mmx_optimized.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4C7B1E861FCD3CD200DB68CB /* mmx_optimized.cpp */; };
+		4C7B1E9A1FCD3CD200DB68CB /* PeakFinder.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4C7B1E871FCD3CD200DB68CB /* PeakFinder.cpp */; };
+		4C7B1E9B1FCD3CD200DB68CB /* RateTransposer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4C7B1E891FCD3CD200DB68CB /* RateTransposer.cpp */; };
+		4C7B1E9C1FCD3CD200DB68CB /* SoundTouch.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4C7B1E8B1FCD3CD200DB68CB /* SoundTouch.cpp */; };
+		4C7B1E9D1FCD3CD200DB68CB /* sse_optimized.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4C7B1E8E1FCD3CD200DB68CB /* sse_optimized.cpp */; };
+		4C7B1E9E1FCD3CD200DB68CB /* TDStretch.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4C7B1E901FCD3CD200DB68CB /* TDStretch.cpp */; };
+		4C7B1E9F1FCD3CD200DB68CB /* WaveHeader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4C7B1E921FCD3CD200DB68CB /* WaveHeader.cpp */; };
 		4C8B053D1FC58A5F00368520 /* DDYVoiceBox.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C8B053C1FC58A5F00368520 /* DDYVoiceBox.m */; };
 		4C8B05401FC657B300368520 /* DDYVoiceChangeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C8B053F1FC657B200368520 /* DDYVoiceChangeView.m */; };
 		4C8B05461FC657F700368520 /* DDYVoiceRecordView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C8B05451FC657F700368520 /* DDYVoiceRecordView.m */; };
@@ -94,7 +107,6 @@
 		4C8B05841FC6851600368520 /* DDYVoiceStateView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C8B05831FC6851600368520 /* DDYVoiceStateView.m */; };
 		4C91D9281FBDA78A00D60018 /* DDYHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C91D9271FBDA78A00D60018 /* DDYHeader.m */; };
 		4C9A931F1FC7B1CB0057741F /* DDYVoice.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 4C9A931E1FC7B1CB0057741F /* DDYVoice.bundle */; };
-		4C9A93211FC7B2BE0057741F /* DDYVoiceChange.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 4C9A93201FC7B2BE0057741F /* DDYVoiceChange.bundle */; };
 		4C9A93511FC83BDA0057741F /* DDYVoiceTalkView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C9A93501FC83BDA0057741F /* DDYVoiceTalkView.m */; };
 		4CB156CB1F3960370086ED58 /* DDYQRCodeManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CB156CA1F3960370086ED58 /* DDYQRCodeManager.m */; };
 		4CB156CE1F399BD00086ED58 /* DDYQRCodeVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CB156CD1F399BD00086ED58 /* DDYQRCodeVC.m */; };
@@ -314,6 +326,33 @@
 		4C7B1E721FCC0B6600DB68CB /* DDYVoiceChangePlayView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDYVoiceChangePlayView.m; sourceTree = "<group>"; };
 		4C7B1E741FCC119400DB68CB /* DDYVoiceChangePlayCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDYVoiceChangePlayCell.h; sourceTree = "<group>"; };
 		4C7B1E751FCC119400DB68CB /* DDYVoiceChangePlayCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDYVoiceChangePlayCell.m; sourceTree = "<group>"; };
+		4C7B1E771FCD145600DB68CB /* DDYAudioChangeManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDYAudioChangeManager.h; sourceTree = "<group>"; };
+		4C7B1E781FCD145600DB68CB /* DDYAudioChangeManager.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = DDYAudioChangeManager.mm; sourceTree = "<group>"; };
+		4C7B1E7B1FCD3CD200DB68CB /* AAFilter.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AAFilter.cpp; sourceTree = "<group>"; };
+		4C7B1E7C1FCD3CD200DB68CB /* AAFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AAFilter.h; sourceTree = "<group>"; };
+		4C7B1E7D1FCD3CD200DB68CB /* BPMDetect.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BPMDetect.cpp; sourceTree = "<group>"; };
+		4C7B1E7E1FCD3CD200DB68CB /* BPMDetect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BPMDetect.h; sourceTree = "<group>"; };
+		4C7B1E7F1FCD3CD200DB68CB /* cpu_detect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = cpu_detect.h; sourceTree = "<group>"; };
+		4C7B1E801FCD3CD200DB68CB /* cpu_detect_x86.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = cpu_detect_x86.cpp; sourceTree = "<group>"; };
+		4C7B1E811FCD3CD200DB68CB /* FIFOSampleBuffer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = FIFOSampleBuffer.cpp; sourceTree = "<group>"; };
+		4C7B1E821FCD3CD200DB68CB /* FIFOSampleBuffer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FIFOSampleBuffer.h; sourceTree = "<group>"; };
+		4C7B1E831FCD3CD200DB68CB /* FIFOSamplePipe.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FIFOSamplePipe.h; sourceTree = "<group>"; };
+		4C7B1E841FCD3CD200DB68CB /* FIRFilter.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = FIRFilter.cpp; sourceTree = "<group>"; };
+		4C7B1E851FCD3CD200DB68CB /* FIRFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FIRFilter.h; sourceTree = "<group>"; };
+		4C7B1E861FCD3CD200DB68CB /* mmx_optimized.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = mmx_optimized.cpp; sourceTree = "<group>"; };
+		4C7B1E871FCD3CD200DB68CB /* PeakFinder.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PeakFinder.cpp; sourceTree = "<group>"; };
+		4C7B1E881FCD3CD200DB68CB /* PeakFinder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PeakFinder.h; sourceTree = "<group>"; };
+		4C7B1E891FCD3CD200DB68CB /* RateTransposer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = RateTransposer.cpp; sourceTree = "<group>"; };
+		4C7B1E8A1FCD3CD200DB68CB /* RateTransposer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RateTransposer.h; sourceTree = "<group>"; };
+		4C7B1E8B1FCD3CD200DB68CB /* SoundTouch.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SoundTouch.cpp; sourceTree = "<group>"; };
+		4C7B1E8C1FCD3CD200DB68CB /* SoundTouch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SoundTouch.h; sourceTree = "<group>"; };
+		4C7B1E8D1FCD3CD200DB68CB /* soundtouch_config.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = soundtouch_config.h; sourceTree = "<group>"; };
+		4C7B1E8E1FCD3CD200DB68CB /* sse_optimized.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = sse_optimized.cpp; sourceTree = "<group>"; };
+		4C7B1E8F1FCD3CD200DB68CB /* STTypes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STTypes.h; sourceTree = "<group>"; };
+		4C7B1E901FCD3CD200DB68CB /* TDStretch.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TDStretch.cpp; sourceTree = "<group>"; };
+		4C7B1E911FCD3CD200DB68CB /* TDStretch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TDStretch.h; sourceTree = "<group>"; };
+		4C7B1E921FCD3CD200DB68CB /* WaveHeader.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = WaveHeader.cpp; sourceTree = "<group>"; };
+		4C7B1E931FCD3CD200DB68CB /* WaveHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WaveHeader.h; sourceTree = "<group>"; };
 		4C8B053B1FC58A5F00368520 /* DDYVoiceBox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDYVoiceBox.h; sourceTree = "<group>"; };
 		4C8B053C1FC58A5F00368520 /* DDYVoiceBox.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDYVoiceBox.m; sourceTree = "<group>"; };
 		4C8B053E1FC657B200368520 /* DDYVoiceChangeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDYVoiceChangeView.h; sourceTree = "<group>"; };
@@ -335,7 +374,6 @@
 		4C91D9261FBDA78A00D60018 /* DDYHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDYHeader.h; sourceTree = "<group>"; };
 		4C91D9271FBDA78A00D60018 /* DDYHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDYHeader.m; sourceTree = "<group>"; };
 		4C9A931E1FC7B1CB0057741F /* DDYVoice.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = DDYVoice.bundle; sourceTree = "<group>"; };
-		4C9A93201FC7B2BE0057741F /* DDYVoiceChange.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = DDYVoiceChange.bundle; sourceTree = "<group>"; };
 		4C9A934F1FC83BDA0057741F /* DDYVoiceTalkView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDYVoiceTalkView.h; sourceTree = "<group>"; };
 		4C9A93501FC83BDA0057741F /* DDYVoiceTalkView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDYVoiceTalkView.m; sourceTree = "<group>"; };
 		4CB156C91F3960370086ED58 /* DDYQRCodeManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDYQRCodeManager.h; sourceTree = "<group>"; };
@@ -630,6 +668,7 @@
 		4C2C0B461F21D6CD002DD383 /* ThirdParty */ = {
 			isa = PBXGroup;
 			children = (
+				4C7B1E7A1FCD3CD200DB68CB /* SoundTouch */,
 				4CDDEF1F1F8DC389005AEFBB /* VoiceConvert */,
 			);
 			path = ThirdParty;
@@ -721,6 +760,8 @@
 			children = (
 				4C3455AD1F7CCD2A00D28CBD /* DDYAudioManager.h */,
 				4C3455AE1F7CCD2A00D28CBD /* DDYAudioManager.m */,
+				4C7B1E771FCD145600DB68CB /* DDYAudioChangeManager.h */,
+				4C7B1E781FCD145600DB68CB /* DDYAudioChangeManager.mm */,
 			);
 			path = Audio;
 			sourceTree = "<group>";
@@ -747,10 +788,41 @@
 			path = Camera;
 			sourceTree = "<group>";
 		};
+		4C7B1E7A1FCD3CD200DB68CB /* SoundTouch */ = {
+			isa = PBXGroup;
+			children = (
+				4C7B1E7B1FCD3CD200DB68CB /* AAFilter.cpp */,
+				4C7B1E7C1FCD3CD200DB68CB /* AAFilter.h */,
+				4C7B1E7D1FCD3CD200DB68CB /* BPMDetect.cpp */,
+				4C7B1E7E1FCD3CD200DB68CB /* BPMDetect.h */,
+				4C7B1E7F1FCD3CD200DB68CB /* cpu_detect.h */,
+				4C7B1E801FCD3CD200DB68CB /* cpu_detect_x86.cpp */,
+				4C7B1E811FCD3CD200DB68CB /* FIFOSampleBuffer.cpp */,
+				4C7B1E821FCD3CD200DB68CB /* FIFOSampleBuffer.h */,
+				4C7B1E831FCD3CD200DB68CB /* FIFOSamplePipe.h */,
+				4C7B1E841FCD3CD200DB68CB /* FIRFilter.cpp */,
+				4C7B1E851FCD3CD200DB68CB /* FIRFilter.h */,
+				4C7B1E861FCD3CD200DB68CB /* mmx_optimized.cpp */,
+				4C7B1E871FCD3CD200DB68CB /* PeakFinder.cpp */,
+				4C7B1E881FCD3CD200DB68CB /* PeakFinder.h */,
+				4C7B1E891FCD3CD200DB68CB /* RateTransposer.cpp */,
+				4C7B1E8A1FCD3CD200DB68CB /* RateTransposer.h */,
+				4C7B1E8B1FCD3CD200DB68CB /* SoundTouch.cpp */,
+				4C7B1E8C1FCD3CD200DB68CB /* SoundTouch.h */,
+				4C7B1E8D1FCD3CD200DB68CB /* soundtouch_config.h */,
+				4C7B1E8E1FCD3CD200DB68CB /* sse_optimized.cpp */,
+				4C7B1E8F1FCD3CD200DB68CB /* STTypes.h */,
+				4C7B1E901FCD3CD200DB68CB /* TDStretch.cpp */,
+				4C7B1E911FCD3CD200DB68CB /* TDStretch.h */,
+				4C7B1E921FCD3CD200DB68CB /* WaveHeader.cpp */,
+				4C7B1E931FCD3CD200DB68CB /* WaveHeader.h */,
+			);
+			path = SoundTouch;
+			sourceTree = "<group>";
+		};
 		4C8B05321FC5847B00368520 /* VoiceView */ = {
 			isa = PBXGroup;
 			children = (
-				4C9A93201FC7B2BE0057741F /* DDYVoiceChange.bundle */,
 				4C9A931E1FC7B1CB0057741F /* DDYVoice.bundle */,
 				4C8B05521FC674BB00368520 /* VoiceCustom */,
 				4C8B05361FC587E800368520 /* VoiceBox */,
@@ -1350,7 +1422,6 @@
 				4C2DDA2F1F4D5A1B0003E70F /* FilterImg.jpg in Resources */,
 				4C9A931F1FC7B1CB0057741F /* DDYVoice.bundle in Resources */,
 				4C1FE0421FB405C100BC28E1 /* 4.png in Resources */,
-				4C9A93211FC7B2BE0057741F /* DDYVoiceChange.bundle in Resources */,
 				4C1FE0411FB405C100BC28E1 /* 3.png in Resources */,
 				4C1FE03E1FB405C100BC28E1 /* 0.png in Resources */,
 				4CE11F0A1F67B0C800783AA4 /* qrcode.png in Resources */,
@@ -1432,12 +1503,14 @@
 				4C34553F1F78E47F00D28CBD /* NSBundle+DDYExtension.m in Sources */,
 				4C2C0B3F1F21D483002DD383 /* UISearchBar+LinkBlock.m in Sources */,
 				4C8B05841FC6851600368520 /* DDYVoiceStateView.m in Sources */,
+				4C7B1E941FCD3CD200DB68CB /* AAFilter.cpp in Sources */,
 				ABCB98131D72C662000DEBEF /* DDYTabBarController.m in Sources */,
 				4C3455151F7890CB00D28CBD /* NSArray+DDYExtension.m in Sources */,
 				4CCF495B1F6BA8D900B2CE2F /* DDYProxy.m in Sources */,
 				4C2C0B1E1F21D483002DD383 /* JSContext+LinkBlock.m in Sources */,
 				4C3B0A121F43D50A009B51AC /* DDYCameraVC.m in Sources */,
 				4C2C0B291F21D483002DD383 /* NSMutableString+LinkBlock.m in Sources */,
+				4C7B1E991FCD3CD200DB68CB /* mmx_optimized.cpp in Sources */,
 				4C2C0B401F21D483002DD383 /* UITableView+LinkBlock.m in Sources */,
 				4C2C0B2F1F21D483002DD383 /* Others+LinkBlock.m in Sources */,
 				ABF998BA1D893EDB00D41CDE /* UILabel+DDYExtension.m in Sources */,
@@ -1468,6 +1541,7 @@
 				4C2C0AC41F21B5BB002DD383 /* UIViewController+DDYExtension.m in Sources */,
 				4CE1175D1F661B1B00783AA4 /* NSData+DDYExtension.m in Sources */,
 				4CBE4E7B1F271A590006B84E /* RuntimeVC.m in Sources */,
+				4C7B1E951FCD3CD200DB68CB /* BPMDetect.cpp in Sources */,
 				4C8B05581FC6801700368520 /* DDYRecordModel.m in Sources */,
 				4C2C0B341F21D483002DD383 /* CAAnimations+LinkBlock.m in Sources */,
 				4C2C0B371F21D483002DD383 /* UIBezierPath+LinkBlock.m in Sources */,
@@ -1475,7 +1549,11 @@
 				4C2DDA071F4C20B60003E70F /* keccak.c in Sources */,
 				4C2DD9FE1F4A91740003E70F /* AuthCodeView.m in Sources */,
 				4CBE4EBF1F2997350006B84E /* DDYEnumDefine.m in Sources */,
+				4C7B1E971FCD3CD200DB68CB /* FIFOSampleBuffer.cpp in Sources */,
+				4C7B1E9D1FCD3CD200DB68CB /* sse_optimized.cpp in Sources */,
+				4C7B1E9E1FCD3CD200DB68CB /* TDStretch.cpp in Sources */,
 				4CB156F11F3D85190086ED58 /* DDYBaseViewController.m in Sources */,
+				4C7B1E791FCD145600DB68CB /* DDYAudioChangeManager.mm in Sources */,
 				4C2C0B3A1F21D483002DD383 /* UIControl+LinkBlock.m in Sources */,
 				4CBE4EC91F29B87C0006B84E /* TextViewTestVC.m in Sources */,
 				4C2C0B3B1F21D483002DD383 /* UIImage+LinkBlock.m in Sources */,
@@ -1495,6 +1573,7 @@
 				4C2C0B271F21D483002DD383 /* NSMutableAttributedString+LinkBlock.m in Sources */,
 				4C08D8091F90ADAB0074872C /* DDYPulseVC.m in Sources */,
 				4C2C0B241F21D483002DD383 /* NSDictionary+LinkBlock.m in Sources */,
+				4C7B1E9B1FCD3CD200DB68CB /* RateTransposer.cpp in Sources */,
 				4C2C0AB81F21B1B9002DD383 /* FirstVC.m in Sources */,
 				4C2C0B381F21D483002DD383 /* UIButton+LinkBlock.m in Sources */,
 				4C3454D61F734AFA00D28CBD /* DDYRadarAnimationVC.m in Sources */,
@@ -1504,6 +1583,7 @@
 				4C8B05401FC657B300368520 /* DDYVoiceChangeView.m in Sources */,
 				4C7B1E731FCC0B6600DB68CB /* DDYVoiceChangePlayView.m in Sources */,
 				4CB156E61F3D46DF0086ED58 /* DDYQRCodeScanResultVC.m in Sources */,
+				4C7B1E9A1FCD3CD200DB68CB /* PeakFinder.cpp in Sources */,
 				ABCB97E51D727F76000DEBEF /* UIImage+DDYExtension.m in Sources */,
 				4CE121F61F68E84E00783AA4 /* DDYWaterFallCell.m in Sources */,
 				AB9239331DC7493100143248 /* DDYAuthorityMaster.m in Sources */,
@@ -1531,13 +1611,17 @@
 				4CDDEF2E1F8DC389005AEFBB /* amrFileCodec.mm in Sources */,
 				4C08D80C1F90ADAB0074872C /* DDYRadarView.m in Sources */,
 				4CCF49611F6BC16A00B2CE2F /* DDYWaveVC.m in Sources */,
+				4C7B1E9F1FCD3CD200DB68CB /* WaveHeader.cpp in Sources */,
+				4C7B1E9C1FCD3CD200DB68CB /* SoundTouch.cpp in Sources */,
 				ABCB97E41D727F76000DEBEF /* UIColor+DDYExtension.m in Sources */,
 				4C3455AF1F7CCD2A00D28CBD /* DDYAudioManager.m in Sources */,
 				4C2C0B411F21D483002DD383 /* UITextField+LinkBlock.m in Sources */,
+				4C7B1E981FCD3CD200DB68CB /* FIRFilter.cpp in Sources */,
 				4C2C0B2C1F21D483002DD383 /* NSString+LinkBlock.m in Sources */,
 				4CBE4EA01F286E900006B84E /* TableTopHeaderView.m in Sources */,
 				4CB156D11F399BEC0086ED58 /* DDYQRCodeScanView.m in Sources */,
 				4C2DDA321F53CC580003E70F /* DDYCameraManager.m in Sources */,
+				4C7B1E961FCD3CD200DB68CB /* cpu_detect_x86.cpp in Sources */,
 				ABCB97D01D7274D0000DEBEF /* main.m in Sources */,
 				4CB156CE1F399BD00086ED58 /* DDYQRCodeVC.m in Sources */,
 				4C8B05511FC6700700368520 /* DDYVoiceBoxVC.m in Sources */,

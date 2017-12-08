@@ -47,7 +47,7 @@
     [super viewDidLoad];
     [self prepare];
     [self setupScanview];
-//    [self setupMyQRCode];
+    [self setupMyQRCode];
     [self performSelector:@selector(setupQRManager) withObject:nil afterDelay:0.01];
 }
 
@@ -72,15 +72,17 @@
 - (void)setupMyQRCode
 {
     UIImageView *imageView = [[UIImageView alloc] init];
-    imageView.frame = CGRectMake(DDYSCREENW/2.0-50, DDYSCREENH-200, 100, 100);
+    imageView.frame = CGRectMake(DDYSCREENW/2.0-75, DDYSCREENH-250, 150, 150);
     [self.view addSubview:imageView];
     dispatch_async(dispatch_get_global_queue(0, 0), ^{
-        _myQRCodeImg = [self.qrCodeManager ddy_QRCodeWithData:@"http://www.jianshu.com/p/4d4ac1a67086"
-                                                        width:200
-                                                         logo:[UIImage circleImageWithColor:[UIColor redColor] radius:10]
-                                                    logoScale:0.25];
+//        _myQRCodeImg = [self.qrCodeManager ddy_QRCodeWithData:@"http://www.jianshu.com/p/4d4ac1a67086"
+//                                                        width:200
+//                                                         logo:[UIImage circleImageWithColor:[UIColor redColor] radius:10]
+//                                                    logoScale:0.25];
+        _myQRCodeImg = [self.qrCodeManager ddy_CircleQRCodeWithData:@"http://www.jianshu.com/p/4d4ac1a67086" width:200 gradientType:kQRCodeGradientTypeDiagonal startColor:DDY_Red endColor:DDY_Blue];
         dispatch_async(dispatch_get_main_queue(), ^{
             imageView.image = _myQRCodeImg;
+            imageView.backgroundColor = DDY_White;
         });
     });
     UITapGestureRecognizer *tapGes = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(touchToScan)];
@@ -126,6 +128,12 @@
     self.navigationController.navigationBar.barTintColor = APP_MAIN_COLOR;
     _statusBarStyle = UIStatusBarStyleDefault;
     [self setNeedsStatusBarAppearanceUpdate];
+}
+
+- (void)leftBtnClick:(DDYButton *)button {
+    if (![self.navigationController popViewControllerAnimated:YES]) {
+        [self dismissViewControllerAnimated:YES completion:^{ }];
+    };
 }
 
 - (void)rightBtnClick:(DDYButton *)button {

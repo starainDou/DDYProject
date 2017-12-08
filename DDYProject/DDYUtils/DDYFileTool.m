@@ -54,11 +54,18 @@
     return 0;
 }
 
-#pragma mark 临时文件 录音、拍照等临时存储
+#pragma mark 录音临时存储
 + (NSString *)ddy_RecordPath {
     NSString *tempPath = DDYStrFormat(@"%@%@", DDYPathDocument, @"/DDYTemp/");
     [self ddy_CreateDirectory:tempPath error:nil];
     return [tempPath stringByAppendingPathComponent:@"record.wav"];
+}
+
+#pragma mark SoundTouch转存 */
++ (NSString *)ddy_SoundTouchPath {
+    NSString *tempPath = DDYStrFormat(@"%@%@", DDYPathDocument, @"/DDYTemp/");
+    [self ddy_CreateDirectory:tempPath error:nil];
+    return [tempPath stringByAppendingPathComponent:@"ddySoundTouch.wav"];
 }
 
 @end

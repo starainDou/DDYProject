@@ -15,6 +15,8 @@
 #define kSelectColor DDYRGBA(80, 180, 230, 1)
 #define kNormalColor DDYRGBA(120, 120, 120, 1)
 
+static UIImage* voiceImg(NSString *imgName) { return [UIImage imageNamed:DDYStrFormat(@"DDYVoice.bundle/%@",imgName)];}
+
 @interface DDYRecordModel : NSObject
 
 @property (nonatomic, strong) NSString *path;

@@ -34,4 +34,7 @@
 /** 录音临时存储 */
 + (NSString *)ddy_RecordPath;
 
+/** SoundTouch转存 */
++ (NSString *)ddy_SoundTouchPath;
+
 @end

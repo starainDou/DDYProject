@@ -15,6 +15,12 @@
 #define scanW 240.0
 #define scanX (DDYSCREENW/2.0-scanW/2.0)
 
+typedef NS_ENUM(NSInteger, kQRCodeGradientType) {
+    kQRCodeGradientTypeNone,        // 纯色.
+    kQRCodeGradientTypeHorizontal,  // 水平渐变.
+    kQRCodeGradientTypeDiagonal,    // 对角线渐变.
+};
+
 @protocol DDYQRCodeManagerDelegate <NSObject>
 
 @required
@@ -49,6 +55,8 @@
 - (UIImage *)ddy_QRCodeWithData:(NSString *)data width:(CGFloat)width logo:(UIImage *)logo logoScale:(CGFloat)logoScale;
 /** 生成彩色二维码 */
 - (UIImage *)ddy_QRCodeWithData:(NSString *)data width:(CGFloat)width color:(UIColor *)color bgColor:(UIColor *)bgColor;
+/** 生成圆块二维码 */
+- (UIImage *)ddy_CircleQRCodeWithData:(NSString *)data width:(CGFloat)width gradientType:(kQRCodeGradientType)type startColor:(UIColor *)startColor endColor:(UIColor *)endColor;
 
 /** 拍照扫描二维码 */
 - (void)ddy_ScanQRCodeWithCameraContainer:(UIView *)container;
